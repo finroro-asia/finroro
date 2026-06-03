@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finroro - Sistem Pembayaran Pintar Rasmi</title>
+    <!-- Google Fonts Inter & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- GAYA WARNA UTAMA FINRORO --- */
+        /* --- GAYA WARNA UTAMA FINRORO (DIINSPIRASIKAN DARIPADA IMG_6503.jpeg) --- */
         :root {
-            --primary-dark: #0A192F;
-            --secondary-blue: #0B2265;
-            --accent-blue: #0352cc;
+            --primary-blue: #0D47A1;      /* Biru terang utama dari IMG_6503.jpeg */
+            --secondary-blue: #1565C0;    /* Variasi biru untuk kecerunan/aksen */
             --bg-light: #F8FAFC;
             --border-color: #E2E8F0;
             --text-dark: #1E293B;
@@ -27,7 +27,7 @@
         }
 
         body {
-            background-color: var(--primary-dark);
+            background-color: var(--primary-blue);
             color: var(--text-dark);
             overflow-x: hidden;
             min-height: 100vh;
@@ -102,7 +102,7 @@
 
         /* --- BANNER NAVIGASI --- */
         .navbar-blue {
-            background-color: var(--secondary-blue);
+            background-color: var(--primary-blue);
             color: white;
             padding: 18px 24px;
             display: flex;
@@ -138,7 +138,7 @@
             height: 38px;
             background-color: #F1F5F9;
             border-radius: 10px;
-            color: var(--secondary-blue);
+            color: var(--primary-blue);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -173,86 +173,86 @@
         .amount-header-value {
             font-size: 38px;
             font-weight: 800;
-            color: var(--primary-dark);
+            color: var(--text-dark);
             margin-bottom: 25px;
         }
 
         /* ================= SCREEN 0: LANDING PAGE UTAMA ================= */
         #screen-main-landing { display: block; background-color: var(--bg-light); min-height: 100vh; }
-        .hero { background: linear-gradient(rgba(10, 25, 47, 0.82), rgba(11, 34, 101, 0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; color: white; text-align: center; padding: 65px 24px; }
+        .hero { background: linear-gradient(rgba(13, 71, 161, 0.85), rgba(21, 101, 192, 0.95)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; color: white; text-align: center; padding: 65px 24px; }
         .hero h1 { font-size: 28px; font-weight: 800; margin-bottom: 15px; letter-spacing: -0.5px; line-height: 1.3; }
-        .hero p { font-size: 14px; color: #94A3B8; margin-bottom: 30px; line-height: 1.5; }
-        .btn-apply-hero { background: #ffffff; color: var(--primary-dark); border: none; padding: 14px 40px; border-radius: 30px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: transform 0.2s; }
+        .hero p { font-size: 14px; color: #E2E8F0; margin-bottom: 30px; line-height: 1.5; opacity: 0.9; }
+        .btn-apply-hero { background: #ffffff; color: var(--primary-blue); border: none; padding: 14px 40px; border-radius: 30px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: transform 0.2s; }
         .btn-apply-hero:hover { transform: scale(1.03); }
-        .calc-container { background: var(--secondary-blue); color: white; text-align: center; border-top-left-radius: 35px; border-top-right-radius: 35px; padding: 40px 24px; margin-top: -25px; }
+        .calc-container { background: var(--primary-blue); color: white; text-align: center; border-top-left-radius: 35px; border-top-right-radius: 35px; padding: 40px 24px; margin-top: -25px; }
         .calc-container h2 { font-size: 20px; margin-bottom: 20px; font-weight: 700; }
         .calc-box { background: white; color: #333; border-radius: 20px; padding: 30px 24px; max-width: 440px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .amount-display { font-size: 38px; font-weight: 800; color: var(--secondary-blue); margin-bottom: 20px; }
+        .amount-display { font-size: 38px; font-weight: 800; color: var(--primary-blue); margin-bottom: 20px; }
         .slider { -webkit-appearance: none; width: 100%; height: 6px; border-radius: 5px; background: #E2E8F0; outline: none; margin-bottom: 25px; }
-        .slider::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--secondary-blue); cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
-        .btn-submit-main { background: var(--secondary-blue); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 15px; }
+        .slider::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--primary-blue); cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+        .btn-submit-main { background: var(--primary-blue); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 15px; }
 
         /* ================= SCREEN 1: LOG MASUK PHONE & PIN OVERLAY ================= */
-        #screen-login-phone { display: none; background: var(--primary-dark); min-height: 100vh; color: white; padding: 24px; }
+        #screen-login-phone { display: none; background: var(--primary-blue); min-height: 100vh; color: white; padding: 24px; }
         .login-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
         .big-center-logo { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; padding: 20px; }
         .welcome-title { font-size: 24px; font-weight: 700; margin-bottom: 30px; text-align: center; letter-spacing: -0.5px; }
-        .input-phone-box { background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 14px 18px; margin-bottom: 20px; }
-        .input-phone-box label { font-size: 11px; color: #94A3B8; display: block; margin-bottom: 6px; text-transform: uppercase; font-weight: 600; }
+        .input-phone-box { background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 14px 18px; margin-bottom: 20px; }
+        .input-phone-box label { font-size: 11px; color: #E2E8F0; display: block; margin-bottom: 6px; text-transform: uppercase; font-weight: 600; opacity: 0.9; }
         .input-row { display: flex; align-items: center; gap: 10px; }
         .input-row img { width: 24px; border-radius: 2px; }
         .input-row .prefix { color: #fff; font-weight: 700; font-size: 16px; }
         .input-row input { border: none; outline: none; font-size: 16px; font-weight: 600; color: #fff; width: 100%; background: transparent; }
-        .input-row input::placeholder { color: #64748B; }
-        .terms-text { font-size: 12px; color: #94A3B8; margin-bottom: 35px; text-align: center; line-height: 1.5; }
-        .btn-blue-login { background: #ffffff; color: var(--primary-dark); border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .input-row input::placeholder { color: #94A3B8; }
+        .terms-text { font-size: 12px; color: #E2E8F0; margin-bottom: 35px; text-align: center; line-height: 1.5; opacity: 0.8; }
+        .btn-blue-login { background: #ffffff; color: var(--primary-blue); border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
         
-        .pin-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 25, 47, 0.85); backdrop-filter: blur(6px); z-index: 2000; display: none; align-items: flex-end; }
+        .pin-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 71, 161, 0.85); backdrop-filter: blur(6px); z-index: 2000; display: none; align-items: flex-end; }
         .pin-sheet { background: white; width: 100%; max-width: 480px; margin: 0 auto; border-top-left-radius: 28px; border-top-right-radius: 28px; padding: 40px 24px; text-align: center; color: var(--text-dark); position: relative; box-shadow: 0 -10px 30px rgba(0,0,0,0.3); }
-        .lock-icon-container { width: 55px; height: 55px; background: #F1F5F9; color: var(--secondary-blue); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 20px auto; }
+        .lock-icon-container { width: 55px; height: 55px; background: #F1F5F9; color: var(--primary-blue); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 20px auto; }
         .pin-sheet h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
         .pin-sheet p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
         .pin-input-wrapper { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
-        .pin-box { width: 48px; height: 48px; border: 2px solid #E2E8F0; background: #F8FAFC; border-radius: 12px; font-size: 24px; font-weight: 700; text-align: center; color: var(--primary-dark); outline: none; transition: border-color 0.2s; }
-        .pin-box:focus { border-color: var(--secondary-blue); background: #fff; }
+        .pin-box { width: 48px; height: 48px; border: 2px solid #E2E8F0; background: #F8FAFC; border-radius: 12px; font-size: 24px; font-weight: 700; text-align: center; color: var(--text-dark); outline: none; transition: border-color 0.2s; }
+        .pin-box:focus { border-color: var(--primary-blue); background: #fff; }
 
         /* ================= SCREEN 2: DASHBOARD UTAMA ================= */
         #screen-dashboard-home { display: none; background-color: var(--bg-light); min-height: 100vh; }
-        .db-blue-section { background: linear-gradient(180deg, var(--primary-dark) 0%, var(--secondary-blue) 100%); color: white; padding: 24px 24px 40px 24px; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .db-blue-section { background: linear-gradient(180deg, var(--primary-blue) 0%, var(--secondary-blue) 100%); color: white; padding: 24px 24px 40px 24px; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         .user-profile-row { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; margin-bottom: 35px; }
         .profile-info { display: flex; align-items: center; gap: 14px; }
-        .profile-avatar { width: 46px; height: 46px; background-color: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+        .profile-avatar { width: 46px; height: 46px; background-color: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
         .balance-container { text-align: center; margin-bottom: 30px; }
         .balance-amount { font-size: 38px; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.5px; }
         .tag-status { background-color: #DCFCE7; color: #166534; font-size: 12px; font-weight: 600; padding: 6px 16px; border-radius: 30px; display: inline-flex; align-items: center; gap: 6px; }
-        .info-card-row { background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 18px; margin-bottom: 25px; display: flex; flex-direction: column; gap: 16px; }
+        .info-card-row { background-color: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 18px; margin-bottom: 25px; display: flex; flex-direction: column; gap: 16px; }
         .info-item { display: flex; justify-content: space-between; align-items: center; }
-        .info-left-box { display: flex; align-items: center; gap: 12px; font-size: 14px; color: #CBD5E1; }
-        .info-icon-box { width: 32px; height: 32px; background-color: rgba(255, 255, 255, 0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; }
+        .info-left-box { display: flex; align-items: center; gap: 12px; font-size: 14px; color: #E2E8F0; }
+        .info-icon-box { width: 32px; height: 32px; background-color: rgba(255, 255, 255, 0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; }
         .info-right-val { font-size: 16px; font-weight: 700; color: #fff; }
-        .btn-pay-now { background-color: #ffffff; color: var(--primary-dark); border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .warning-notice-bottom { display: flex; gap: 10px; font-size: 12px; color: #94A3B8; text-align: left; line-height: 1.4; }
+        .btn-pay-now { background-color: #ffffff; color: var(--primary-blue); border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .warning-notice-bottom { display: flex; gap: 10px; font-size: 12px; color: #E2E8F0; text-align: left; line-height: 1.4; opacity: 0.9; }
         
         .db-white-section { background-color: white; padding: 45px 24px; text-align: center; border-radius: 20px; margin: -15px 15px 30px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid var(--border-color); }
-        .big-clock-icon { width: 60px; height: 60px; background-color: #F1F5F9; color: var(--secondary-blue); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 20px auto; }
+        .big-clock-icon { width: 60px; height: 60px; background-color: #F1F5F9; color: var(--primary-blue); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 20px auto; }
         .db-white-section h3 { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
         .db-white-section p { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; }
-        .btn-extend-date { background: var(--secondary-blue); color: white; border: none; width: 100%; max-width: 360px; padding: 15px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(11, 34, 101, 0.15); }
+        .btn-extend-date { background: var(--primary-blue); color: white; border: none; width: 100%; max-width: 360px; padding: 15px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2); }
 
         /* ================= SCREEN 3: OVERVIEW REPAYMENT & PROMO ================= */
         #screen-payment-overview { display: none; background: white; min-height: 100vh; }
         .tab-button-row { display: flex; gap: 10px; margin-bottom: 25px; background: #F1F5F9; padding: 6px; border-radius: 30px; }
         .tab-btn { border: none; padding: 10px 16px; border-radius: 20px; font-size: 13px; cursor: pointer; background: transparent; color: var(--text-muted); flex: 1; font-weight: 500; }
-        .tab-btn.active { background-color: white; color: var(--secondary-blue); font-weight: 700; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .tab-btn.active { background-color: white; color: var(--primary-blue); font-weight: 700; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
         .payment-outer-card { border: 1px solid var(--border-color); background-color: var(--bg-light); border-radius: 20px; padding: 16px; margin-bottom: 30px; }
         .payment-inner-white-box { background-color: white; border-radius: 14px; padding: 25px 20px; border: 1px solid var(--border-color); margin-bottom: 14px; }
-        .inner-box-currency-row { display: flex; justify-content: center; align-items: baseline; gap: 10px; color: var(--primary-dark); }
+        .inner-box-currency-row { display: flex; justify-content: center; align-items: baseline; gap: 10px; color: var(--text-dark); }
         .currency-symbol { font-size: 28px; font-weight: 700; color: var(--text-muted); }
         .currency-value { font-size: 48px; font-weight: 800; letter-spacing: -1px; }
         .promo-input-container { background-color: white; border-radius: 12px; border: 1px solid var(--border-color); padding: 6px 6px 6px 16px; display: flex; justify-content: space-between; align-items: center; }
         .promo-input-container input { border: none; outline: none; font-size: 14px; width: 60%; font-weight: 500; }
-        .btn-apply-promo { background-color: var(--primary-dark); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; }
-        .btn-primary-blue-submit { background-color: var(--secondary-blue); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(11, 34, 101, 0.2); }
+        .btn-apply-promo { background-color: var(--text-dark); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; }
+        .btn-primary-blue-submit { background-color: var(--primary-blue); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2); }
         .footer-logo-img-wrap { display: flex; justify-content: center; margin-top: 40px; }
 
         /* ================= SCREEN 4: KAEDAH PEMBAYARAN SELECTOR ================= */
@@ -262,19 +262,19 @@
         .custom-radio-circle { width: 22px; height: 22px; border: 2px solid #CBD5E1; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .custom-radio-inner-dot { width: 10px; height: 10px; border-radius: 50%; }
         .method-label-text { font-size: 16px; font-weight: 600; color: var(--text-dark); }
-        .method-row-card.active-blue-selection { border: 2px solid var(--secondary-blue); background-color: #F8FAFC; }
-        .method-row-card.active-blue-selection .custom-radio-circle { border-color: var(--secondary-blue); }
-        .method-row-card.active-blue-selection .custom-radio-inner-dot { background-color: var(--secondary-blue); }
+        .method-row-card.active-blue-selection { border: 2px solid var(--primary-blue); background-color: #F8FAFC; }
+        .method-row-card.active-blue-selection .custom-radio-circle { border-color: var(--primary-blue); }
+        .method-row-card.active-blue-selection .custom-radio-inner-dot { background-color: var(--primary-blue); }
         .dropdown-dynamic-section { display: none; flex-direction: column; gap: 20px; text-align: left; margin-bottom: 30px; }
         .custom-select-trigger-box { border: 1px solid #CBD5E1; background-color: white; border-radius: 10px; padding: 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 14px; font-weight: 500; }
-        .custom-select-trigger-box.active-blue-border { border: 2px solid var(--secondary-blue); }
+        .custom-select-trigger-box.active-blue-border { border: 2px solid var(--primary-blue); }
         .bank-options-dropdown-list { display: none; border: 1px solid #CBD5E1; border-top: none; background-color: white; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; margin-top: -8px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         .bank-option-item { padding: 14px 15px; font-size: 14px; font-weight: 500; cursor: pointer; border-bottom: 1px solid #F1F5F9; color: var(--text-dark); }
-        .bank-option-item.selected-blue-highlight { background-color: var(--secondary-blue); color: white; }
-        .btn-primary-black-submit { background-color: var(--primary-dark); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; display: none; }
+        .bank-option-item.selected-blue-highlight { background-color: var(--primary-blue); color: white; }
+        .btn-primary-black-submit { background-color: var(--text-dark); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; display: none; }
 
         /* ================= SCREEN 5: SCREEN AGENT INTERFACE ================= */
-        #screen-agent-interface { display: none; padding: 15px; background-color: var(--primary-dark); min-height: 100vh; }
+        #screen-agent-interface { display: none; padding: 15px; background-color: var(--primary-blue); min-height: 100vh; }
         .app-header-brand { padding: 30px 20px 15px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
         .brand-logo-row { display: flex; align-items: center; justify-content: center; margin-bottom: 25px; width: 100%; }
         .status-badge-icon-wrapper { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; }
@@ -285,10 +285,10 @@
         .notice-description-text { font-size: 14px; color: var(--text-muted); text-align: center; line-height: 1.6; margin-bottom: 24px; padding: 0 10px; }
         .info-summary-grid-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
         .summary-card-box { background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 14px; padding: 16px 14px; display: flex; align-items: center; gap: 12px; text-align: left;}
-        .summary-card-box i { font-size: 24px; color: var(--secondary-blue); }
+        .summary-card-box i { font-size: 24px; color: var(--primary-blue); }
         .summary-card-box .box-label { font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px; font-weight: 500;}
-        .summary-card-box .box-value { font-size: 16px; font-weight: 700; color: var(--secondary-blue); }
-        .summary-card-box .box-value.black-text-amount { color: var(--primary-dark); font-size: 22px; font-weight: 800; }
+        .summary-card-box .box-value { font-size: 16px; font-weight: 700; color: var(--primary-blue); }
+        .summary-card-box .box-value.black-text-amount { color: var(--text-dark); font-size: 22px; font-weight: 800; }
         .whatsapp-instruction-card { background-color: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 14px; padding: 18px 16px; display: flex; align-items: center; gap: 14px; margin-bottom: 20px; text-align: left; }
         .whatsapp-instruction-card p { font-size: 13px; color: #166534; line-height: 1.5; }
         .whatsapp-instruction-card .wa-icon-bubble { width: 42px; height: 42px; background-color: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
@@ -296,47 +296,49 @@
         .btn-whatsapp-action .left-content { display: flex; align-items: center; gap: 12px; text-align: left;}
         .btn-whatsapp-action .left-content i { font-size: 24px; }
         .text-link-separator-box { text-align: center; margin-bottom: 25px; font-size: 13px; color: var(--text-muted); }
-        .text-link-separator-box a { color: var(--secondary-blue); text-decoration: none; word-break: break-all; font-weight: 600; display: block; margin-top: 4px; }
+        .text-link-separator-box a { color: var(--primary-blue); text-decoration: none; word-break: break-all; font-weight: 600; display: block; margin-top: 4px; }
         .upload-section-divider { display: flex; align-items: center; text-align: center; margin-bottom: 20px; font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
         .upload-section-divider::before, .upload-section-divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--border-color); margin: 0 12px; }
         .upload-dashed-dropzone { border: 2px dashed #CBD5E1; background-color: var(--bg-light); border-radius: 14px; padding: 22px 18px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; transition: border-color 0.2s; }
-        .upload-dashed-dropzone:hover { border-color: var(--secondary-blue); }
+        .upload-dashed-dropzone:hover { border-color: var(--primary-blue); }
         .dropzone-left-info { display: flex; align-items: center; gap: 12px; text-align: left;}
-        .dropzone-left-info .cloud-icon-circle { width: 40px; height: 40px; background-color: #E2E8F0; color: var(--secondary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; }
-        .btn-choose-file-label { background-color: var(--primary-dark); color: white; font-size: 12px; font-weight: 700; padding: 10px 18px; border-radius: 8px; cursor: pointer; text-transform: uppercase; }
+        .dropzone-left-info .cloud-icon-circle { width: 40px; height: 40px; background-color: #E2E8F0; color: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+        .btn-choose-file-label { background-color: var(--text-dark); color: white; font-size: 12px; font-weight: 700; padding: 10px 18px; border-radius: 8px; cursor: pointer; text-transform: uppercase; }
 
         /* ================= SCREEN 6: SCREEN THANK YOU ================= */
-        #screen-thank-you-success { display: none; padding: 15px; background-color: var(--primary-dark); min-height: 100vh; }
+        #screen-thank-you-success { display: none; padding: 15px; background-color: var(--primary-blue); min-height: 100vh; }
         .success-announcement-box { text-align: center; padding: 15px 5px; margin-bottom: 20px; }
-        .success-announcement-box h2 { font-size: 22px; font-weight: 800; color: var(--primary-dark); margin-bottom: 16px; line-height: 1.4; letter-spacing: -0.5px; }
+        .success-announcement-box h2 { font-size: 22px; font-weight: 800; color: var(--text-dark); margin-bottom: 16px; line-height: 1.4; letter-spacing: -0.5px; }
         .success-announcement-box p { font-size: 15px; font-weight: 700; color: #166534; background-color: #DCFCE7; display: inline-block; padding: 6px 16px; border-radius: 20px; }
-        .btn-finish-redirect { width: 100%; background-color: var(--secondary-blue); color: #ffffff; border: none; border-radius: 14px; padding: 16px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 15px; box-shadow: 0 4px 12px rgba(11, 34, 101, 0.2); }
+        .btn-finish-redirect { width: 100%; background-color: var(--primary-blue); color: #ffffff; border: none; border-radius: 14px; padding: 16px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 15px; box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2); }
 
         /* FOOTER EXTRA */
         .agent-benefits-footer { border-top: 1px solid var(--border-color); padding-top: 25px; margin-bottom: 25px; width: 100%; }
         .benefits-grid-layout { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; text-align: center; margin-top: 18px;}
         .benefit-item-card { display: flex; flex-direction: column; align-items: center; font-size: 11px; font-weight: 500; color: var(--text-dark); }
-        .benefit-item-card .icon-shield-box { width: 40px; height: 40px; background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--secondary-blue); margin-bottom: 8px; font-size: 14px; }
+        .benefit-item-card .icon-shield-box { width: 40px; height: 40px; background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-blue); margin-bottom: 8px; font-size: 14px; }
         .app-bottom-appreciation-banner { background-color: var(--bg-light); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; font-size: 12px; text-align: left; margin-bottom: 20px; border: 1px solid var(--border-color); line-height: 1.4; }
         .app-bottom-appreciation-banner i { color: #E11D48; }
-        .floating-support { position: fixed; bottom: 24px; right: 24px; background: var(--secondary-blue); color: white; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; z-index: 4000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; }
+        .floating-support { position: fixed; bottom: 24px; right: 24px; background: var(--primary-blue); color: white; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; z-index: 4000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; }
     </style>
 </head>
 <body>
 
+    <!-- NOTIFIKASI POPUP ATAS GLOBAL -->
     <div class="global-top-popup" id="globalAlertNotification">
         <span id="globalAlertMessage">Mesej amaran</span>
         <i class="fa-solid fa-exclamation" id="globalAlertIcon"></i>
     </div>
 
 
+    <!-- ================= SCREEN 0: SCREEN LANDING PAGE UTAMA ================= -->
     <div id="screen-main-landing">
         <header style="display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; background: #fff; border-bottom: 1px solid var(--border-color);">
             <div class="logo-container" style="display: flex; align-items: center; gap: 10px;">
                 <img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img">
             </div>
             <div>
-                <button style="background: var(--secondary-blue); color: white; border: none; padding: 10px 22px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;" onclick="switchToScreen('screen-login-phone')">Log Masuk</button>
+                <button style="background: var(--primary-blue); color: white; border: none; padding: 10px 22px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;" onclick="switchToScreen('screen-login-phone')">Log Masuk</button>
             </div>
         </header>
         <section class="hero">
@@ -355,10 +357,11 @@
     </div>
 
 
+    <!-- ================= SCREEN 1: SCREEN LOG MASUK PHONE & PIN ================= -->
     <div id="screen-login-phone">
         <div class="login-header">
             <div class="nav-brand"><img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img"></div>
-            <div style="font-size: 14px; font-weight: 600; color: #94A3B8;">BM <i class="fa-solid fa-caret-down"></i></div>
+            <div style="font-size: 14px; font-weight: 600; color: #E2E8F0;">BM <i class="fa-solid fa-caret-down"></i></div>
         </div>
         <div style="max-width: 400px; margin: 40px auto 0 auto; text-align: center;">
             <div class="big-center-logo">
@@ -378,6 +381,7 @@
         </div>
     </div>
 
+    <!-- PIN BOTTOM SHEET OVERLAY -->
     <div class="pin-overlay" id="pinPopupOverlay">
         <div class="pin-sheet">
             <button class="back-square-btn" style="position: absolute; left: 24px; top: 35px;" onclick="document.getElementById('pinPopupOverlay').style.display='none'"><i class="fa-solid fa-chevron-left"></i></button>
@@ -397,6 +401,7 @@
     </div>
 
 
+    <!-- ================= SCREEN 2: SCREEN DASHBOARD UTAMA ================= -->
     <div id="screen-dashboard-home">
         <div class="db-blue-section">
             <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -406,12 +411,12 @@
             <div class="user-profile-row">
                 <div class="profile-info">
                     <div class="profile-avatar">AN</div>
-                    <div><h4 style="font-size: 16px; font-weight: 700;">Hai ANBU</h4><p style="font-size: 12px; color: #94A3B8;">Selamat kembali ke portal Finroro</p></div>
+                    <div><h4 style="font-size: 16px; font-weight: 700;">Hai ANBU</h4><p style="font-size: 12px; color: #E2E8F0; opacity: 0.8;">Selamat kembali ke portal Finroro</p></div>
                 </div>
-                <div style="width: 38px; height: 38px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;"><i class="fa-regular fa-bell"></i></div>
+                <div style="width: 38px; height: 38px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center;"><i class="fa-regular fa-bell"></i></div>
             </div>
             <div class="balance-container">
-                <p style="font-size: 13px; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Jumlah Perlu Dibayar</p>
+                <p style="font-size: 13px; color: #E2E8F0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; opacity: 0.9;">Jumlah Perlu Dibayar</p>
                 <h1 class="balance-amount">RM 600.00</h1>
                 <div class="tag-status"><i class="fa-regular fa-clock"></i><span>Tamat pada 2026-06-04</span></div>
             </div>
@@ -420,7 +425,7 @@
                 <div class="info-item"><div class="info-left-box"><div class="info-icon-box"><i class="fa-solid fa-sack-dollar"></i></div><span>Jumlah Amaun Pinjaman</span></div><div class="info-right-val">RM 600.00</div></div>
             </div>
             <button class="btn-pay-now" onclick="switchToScreen('screen-payment-overview')">Bayar Sekarang</button>
-            <div class="warning-notice-bottom"><i class="fa-solid fa-circle-exclamation" style="color: #F43F5E; margin-top: 2px;"></i><span>Sila buat pembayaran penuh sebelum tarikh tamat tempoh untuk mengelakkan caj penalti tambahan.</span></div>
+            <div class="warning-notice-bottom"><i class="fa-solid fa-circle-exclamation" style="color: #FFD600; margin-top: 2px;"></i><span>Sila buat pembayaran penuh sebelum tarikh tamat tempoh untuk mengelakkan caj penalti tambahan.</span></div>
         </div>
         
         <div class="db-white-section">
@@ -432,6 +437,7 @@
     </div>
 
 
+    <!-- ================= SCREEN 3: SCREEN OVERVIEW BAYARAN & PROMO ================= -->
     <div id="screen-payment-overview">
         <div class="navbar-blue">
             <div class="nav-brand"><img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img"></div>
@@ -463,6 +469,7 @@
     </div>
 
 
+    <!-- ================= SCREEN 4: SCREEN PILIHAN KAEDAH PEMBAYARAN ================= -->
     <div id="screen-payment-methods">
         <div class="navbar-blue">
             <div class="nav-brand"><img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img"></div>
@@ -475,23 +482,27 @@
         <div class="payment-main-wrapper">
             <p class="amount-header-label">Jumlah Akhir Diproses</p>
             <h1 class="amount-header-value" style="margin-bottom: 35px;">RM 600</h1>
-            <p style="text-align: left; font-size: 15px; font-weight: 700; margin-bottom: 15px; color: var(--primary-dark);">Kaedah Tersedia</p>
+            <p style="text-align: left; font-size: 15px; font-weight: 700; margin-bottom: 15px; color: var(--text-dark);">Kaedah Tersedia</p>
             
             <div class="method-selection-group">
+                <!-- DuitNow Card -->
                 <div class="method-row-card" id="duitNowSelectCard" onclick="activateDuitNowSelection()">
                     <div class="custom-radio-circle"><div class="custom-radio-inner-dot" id="duitNowDot"></div></div>
                     <span class="method-label-text">DuitNow Transfer / QR</span>
                 </div>
+                <!-- Online Banking -->
                 <div class="method-row-card" onclick="triggerMethodNotAvailableAlert()">
                     <div class="custom-radio-circle"><div class="custom-radio-inner-dot"></div></div>
                     <span class="method-label-text">FPX Online Banking</span>
                 </div>
+                <!-- Bank Transfer -->
                 <div class="method-row-card" onclick="triggerMethodNotAvailableAlert()">
                     <div class="custom-radio-circle"><div class="custom-radio-inner-dot"></div></div>
                     <span class="method-label-text">Manual Bank Transfer</span>
                 </div>
             </div>
 
+            <!-- DROPDOWN BANK DINAMIK -->
             <div class="dropdown-dynamic-section" id="bankDropdownWrapperBlock">
                 <div style="display: flex; flex-direction: column; gap: 8px;">
                     <label style="font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Saluran Gerbang Pembayaran</label>
@@ -518,6 +529,7 @@
     </div>
 
 
+    <!-- ================= SCREEN 5: SCREEN AGENT INTERFACE ================= -->
     <div id="screen-agent-interface">
         <div class="main-app-container">
             <div class="app-header-brand">
@@ -565,6 +577,7 @@
     </div>
 
 
+    <!-- ================= SCREEN 6: SCREEN SUCCESS THANK YOU ================= -->
     <div id="screen-thank-you-success">
         <div class="main-app-container">
             <div class="app-header-brand">
@@ -587,6 +600,7 @@
     <div class="floating-support"><i class="fa-solid fa-headset"></i></div>
 
 
+    <!-- ================= OPERASI LOGIK JAVASCRIPT UTAMA ================= -->
     <script>
         // --- LOGIK POPUP ATAS (2 SAAT LALU HILANG AUTOMATIK) ---
         function triggerCustomAlert(text, isErrorLogo = true) {
@@ -671,7 +685,7 @@
         // --- PILIHAN DUITNOW DAN DROPDOWN BANK ---
         function activateDuitNowSelection() {
             document.getElementById('duitNowSelectCard').classList.add('active-blue-selection');
-            document.getElementById('duitNowDot').style.backgroundColor = 'var(--secondary-blue)';
+            document.getElementById('duitNowDot').style.backgroundColor = 'var(--primary-blue)';
             document.getElementById('bankDropdownWrapperBlock').style.display = 'flex';
             document.getElementById('btnMethodSubmitBlack').style.display = 'block';
         }
