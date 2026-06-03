@@ -3,12 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finroro - Sistem Pengurusan Pinjaman Pintar</title>
-    <!-- Google Fonts Inter & FontAwesome Icons -->
+    <title>Finroro - Sistem Pembayaran Pintar Rasmi</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* --- GAYA WARNA UTAMA FINRORO --- */
+        :root {
+            --primary-dark: #0A192F;
+            --secondary-blue: #0B2265;
+            --accent-blue: #0352cc;
+            --bg-light: #F8FAFC;
+            --border-color: #E2E8F0;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,313 +27,321 @@
         }
 
         body {
-            background-color: #0352cc;
-            color: #333;
+            background-color: var(--primary-dark);
+            color: var(--text-dark);
             overflow-x: hidden;
             min-height: 100vh;
         }
 
         /* --- LOGO PERGANTIAN GAYA --- */
         .app-logo-img {
-            height: 35px;
+            height: 38px;
             width: auto;
             object-fit: contain;
         }
         .app-logo-large {
-            height: 70px;
+            height: 65px;
             width: auto;
             object-fit: contain;
             margin-bottom: 10px;
         }
 
-        /* --- NOTIFIKASI POPUP ATAS GLOBAL (2 SAAT) --- */
+        /* --- NOTIFIKASI POPUP ATAS GLOBAL --- */
         .global-top-popup {
             position: fixed;
-            top: 20px;
+            top: 25px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #fee2e2;
-            border: 1px solid #fca5a5;
-            color: #991b1b;
+            background-color: #FFF1F2;
+            border: 1px solid #FECDD3;
+            color: #9F1239;
             padding: 14px 24px;
-            border-radius: 30px;
+            border-radius: 50px;
             font-size: 14px;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             z-index: 9999;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.2s ease, visibility 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             white-space: nowrap;
         }
 
         .global-top-popup.show {
             opacity: 1;
             visibility: visible;
+            top: 20px;
         }
 
         .global-top-popup i {
-            font-size: 14px;
-            background-color: #dc2626;
+            font-size: 12px;
+            background-color: #E11D48;
             color: white;
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* --- LAYOUT WRAPPER UNTUK HALAMAN AGENT & TERIMA KASIH --- */
-        .white-bg-body {
-            background-color: #0352cc !important;
-        }
-
+        /* --- LAYOUT WRAPPER UTAMA --- */
         .main-app-container {
             width: 100%;
-            max-width: 500px;
+            max-width: 480px;
             background-color: #ffffff;
             border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             overflow: hidden;
-            margin: 20px auto;
+            margin: 30px auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* --- BANNER NAVIGASI BIRU FINRORO --- */
+        /* --- BANNER NAVIGASI --- */
         .navbar-blue {
-            background-color: #0b2265;
+            background-color: var(--secondary-blue);
             color: white;
-            padding: 15px 20px;
+            padding: 18px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .nav-right-options {
             display: flex;
             align-items: center;
             gap: 15px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
+            color: #E2E8F0;
         }
 
         .sub-navigation-bar {
             display: flex;
             align-items: center;
-            padding: 20px;
+            padding: 24px 24px 10px 24px;
             gap: 15px;
         }
 
         .back-square-btn {
-            width: 36px;
-            height: 36px;
-            background-color: #eff6ff;
-            border-radius: 6px;
-            color: #0b2265;
+            width: 38px;
+            height: 38px;
+            background-color: #F1F5F9;
+            border-radius: 10px;
+            color: var(--secondary-blue);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             border: none;
             font-size: 14px;
+            transition: background 0.2s;
         }
+        .back-square-btn:hover { background-color: #E2E8F0; }
 
         .sub-navigation-bar h2 {
-            font-size: 16px;
-            font-weight: 500;
-            color: #333;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
         }
 
         .payment-main-wrapper {
-            max-width: 480px;
-            margin: 0 auto;
-            padding: 0 20px 40px 20px;
+            max-width: 100%;
+            padding: 10px 24px 40px 24px;
             text-align: center;
         }
 
         .amount-header-label {
-            font-size: 14px;
-            color: #6b7280;
-            margin-bottom: 5px;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .amount-header-value {
-            font-size: 36px;
-            font-weight: 700;
-            color: #111827;
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--primary-dark);
             margin-bottom: 25px;
         }
 
         /* ================= SCREEN 0: LANDING PAGE UTAMA ================= */
-        #screen-main-landing { display: block; background-color: #f4f6f9; min-height: 100vh; }
-        .hero { background: linear-gradient(rgba(10,25,47,0.75), rgba(10,25,47,0.85)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; color: white; text-align: center; padding: 50px 20px; }
-        .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 15px; }
-        .hero p { font-size: 14px; color: #cbd5e1; margin-bottom: 25px; }
-        .btn-apply-hero { background: #0f34aa; color: white; border: 2px solid #fff; padding: 12px 35px; border-radius: 25px; font-weight: 600; cursor: pointer; }
-        .calc-container { background: #2e3b82; color: white; text-align: center; border-top-left-radius: 35px; border-top-right-radius: 35px; padding: 30px 20px; margin-top: -20px; }
-        .calc-box { background: white; color: #333; border-radius: 15px; padding: 25px 20px; max-width: 450px; margin: 0 auto; }
-        .amount-display { font-size: 36px; font-weight: 700; color: #0f34aa; margin-bottom: 20px; }
-        .slider { -webkit-appearance: none; width: 100%; height: 8px; border-radius: 5px; background: #ddd; outline: none; margin-bottom: 25px; }
-        .slider::-webkit-slider-thumb { -webkit-appearance: none; width: 35px; height: 35px; border-radius: 50%; background: #0f34aa; cursor: pointer; }
-        .slider-labels { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; margin-top: -15px; margin-bottom: 20px; }
-        .btn-submit-main { background: #0f34aa; color: white; border: none; width: 100%; padding: 15px; border-radius: 10px; font-weight: 600; cursor: pointer; }
+        #screen-main-landing { display: block; background-color: var(--bg-light); min-height: 100vh; }
+        .hero { background: linear-gradient(rgba(10, 25, 47, 0.82), rgba(11, 34, 101, 0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; color: white; text-align: center; padding: 65px 24px; }
+        .hero h1 { font-size: 28px; font-weight: 800; margin-bottom: 15px; letter-spacing: -0.5px; line-height: 1.3; }
+        .hero p { font-size: 14px; color: #94A3B8; margin-bottom: 30px; line-height: 1.5; }
+        .btn-apply-hero { background: #ffffff; color: var(--primary-dark); border: none; padding: 14px 40px; border-radius: 30px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: transform 0.2s; }
+        .btn-apply-hero:hover { transform: scale(1.03); }
+        .calc-container { background: var(--secondary-blue); color: white; text-align: center; border-top-left-radius: 35px; border-top-right-radius: 35px; padding: 40px 24px; margin-top: -25px; }
+        .calc-container h2 { font-size: 20px; margin-bottom: 20px; font-weight: 700; }
+        .calc-box { background: white; color: #333; border-radius: 20px; padding: 30px 24px; max-width: 440px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .amount-display { font-size: 38px; font-weight: 800; color: var(--secondary-blue); margin-bottom: 20px; }
+        .slider { -webkit-appearance: none; width: 100%; height: 6px; border-radius: 5px; background: #E2E8F0; outline: none; margin-bottom: 25px; }
+        .slider::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--secondary-blue); cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+        .btn-submit-main { background: var(--secondary-blue); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 15px; }
 
         /* ================= SCREEN 1: LOG MASUK PHONE & PIN OVERLAY ================= */
-        #screen-login-phone { display: none; background: linear-gradient(180deg, #0b2265 0%, #06133a 100%); min-height: 100vh; color: white; padding: 20px; }
-        .login-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; }
-        .big-center-logo { display: flex; flex-direction: column; align-items: center; margin-bottom: 50px; padding: 40px; }
-        .welcome-title { font-size: 24px; font-weight: 600; margin-bottom: 30px; text-align: center;}
-        .input-phone-box { background: white; border-radius: 8px; padding: 12px 15px; margin-bottom: 15px; }
-        .input-phone-box label { font-size: 12px; color: #888; display: block; margin-bottom: 4px; }
-        .input-row { display: flex; align-items: center; gap: 8px; }
-        .input-row img { width: 22px; }
-        .input-row .prefix { color: #333; font-weight: 600; }
-        .input-row input { border: none; outline: none; font-size: 16px; font-weight: 600; color: #333; width: 100%; background: transparent; }
-        .terms-text { font-size: 12px; color: #cbd5e1; margin-bottom: 30px; text-align: left; }
-        .btn-blue-login { background: #46dfec; color: #06133a; border: none; width: 100%; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; }
+        #screen-login-phone { display: none; background: var(--primary-dark); min-height: 100vh; color: white; padding: 24px; }
+        .login-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        .big-center-logo { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; padding: 20px; }
+        .welcome-title { font-size: 24px; font-weight: 700; margin-bottom: 30px; text-align: center; letter-spacing: -0.5px; }
+        .input-phone-box { background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 14px 18px; margin-bottom: 20px; }
+        .input-phone-box label { font-size: 11px; color: #94A3B8; display: block; margin-bottom: 6px; text-transform: uppercase; font-weight: 600; }
+        .input-row { display: flex; align-items: center; gap: 10px; }
+        .input-row img { width: 24px; border-radius: 2px; }
+        .input-row .prefix { color: #fff; font-weight: 700; font-size: 16px; }
+        .input-row input { border: none; outline: none; font-size: 16px; font-weight: 600; color: #fff; width: 100%; background: transparent; }
+        .input-row input::placeholder { color: #64748B; }
+        .terms-text { font-size: 12px; color: #94A3B8; margin-bottom: 35px; text-align: center; line-height: 1.5; }
+        .btn-blue-login { background: #ffffff; color: var(--primary-dark); border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
         
-        .pin-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4, 13, 38, 0.6); backdrop-filter: blur(4px); z-index: 2000; display: none; align-items: flex-end; }
-        .pin-sheet { background: white; width: 100%; border-top-left-radius: 20px; border-top-right-radius: 20px; padding: 30px 20px; text-align: center; color: #222; position: relative; }
-        .lock-icon-container { width: 60px; height: 60px; background: #1e40af; color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 20px auto; }
-        .pin-input-wrapper { display: flex; justify-content: center; gap: 8px; margin-bottom: 25px; }
-        .pin-box { width: 45px; height: 45px; border: 2px solid #e5e7eb; background: #f9fafb; border-radius: 12px; font-size: 22px; font-weight: 700; text-align: center; color: #111827; outline: none; }
+        .pin-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 25, 47, 0.85); backdrop-filter: blur(6px); z-index: 2000; display: none; align-items: flex-end; }
+        .pin-sheet { background: white; width: 100%; max-width: 480px; margin: 0 auto; border-top-left-radius: 28px; border-top-right-radius: 28px; padding: 40px 24px; text-align: center; color: var(--text-dark); position: relative; box-shadow: 0 -10px 30px rgba(0,0,0,0.3); }
+        .lock-icon-container { width: 55px; height: 55px; background: #F1F5F9; color: var(--secondary-blue); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 20px auto; }
+        .pin-sheet h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+        .pin-sheet p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
+        .pin-input-wrapper { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .pin-box { width: 48px; height: 48px; border: 2px solid #E2E8F0; background: #F8FAFC; border-radius: 12px; font-size: 24px; font-weight: 700; text-align: center; color: var(--primary-dark); outline: none; transition: border-color 0.2s; }
+        .pin-box:focus { border-color: var(--secondary-blue); background: #fff; }
 
         /* ================= SCREEN 2: DASHBOARD UTAMA ================= */
-        #screen-dashboard-home { display: none; background-color: #f4f6f9; min-height: 100vh; }
-        .db-blue-section { background: linear-gradient(180deg, #1d4ed8 0%, #1e40af 100%); color: white; padding: 20px 20px 35px 20px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; }
-        .user-profile-row { display: flex; justify-content: space-between; align-items: center; margin-top: 25px; margin-bottom: 35px; }
-        .profile-info { display: flex; align-items: center; gap: 12px; }
-        .profile-avatar { width: 48px; height: 48px; background-color: rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; }
-        .balance-container { text-align: center; margin-bottom: 25px; }
-        .balance-amount { font-size: 34px; font-weight: 700; margin-bottom: 15px; }
-        .tag-status { background-color: #a7f3d0; color: #065f46; font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
-        .info-card-row { background-color: rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 16px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 14px; }
+        #screen-dashboard-home { display: none; background-color: var(--bg-light); min-height: 100vh; }
+        .db-blue-section { background: linear-gradient(180deg, var(--primary-dark) 0%, var(--secondary-blue) 100%); color: white; padding: 24px 24px 40px 24px; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .user-profile-row { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; margin-bottom: 35px; }
+        .profile-info { display: flex; align-items: center; gap: 14px; }
+        .profile-avatar { width: 46px; height: 46px; background-color: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+        .balance-container { text-align: center; margin-bottom: 30px; }
+        .balance-amount { font-size: 38px; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.5px; }
+        .tag-status { background-color: #DCFCE7; color: #166534; font-size: 12px; font-weight: 600; padding: 6px 16px; border-radius: 30px; display: inline-flex; align-items: center; gap: 6px; }
+        .info-card-row { background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 18px; margin-bottom: 25px; display: flex; flex-direction: column; gap: 16px; }
         .info-item { display: flex; justify-content: space-between; align-items: center; }
-        .info-left-box { display: flex; align-items: center; gap: 10px; font-size: 14px; }
-        .info-icon-box { width: 30px; height: 30px; background-color: rgba(255, 255, 255, 0.15); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
-        .info-right-val { font-size: 18px; font-weight: 700; }
-        .btn-pay-now { background-color: #7dd3fc; color: #1e3a8a; border: none; width: 100%; padding: 15px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; margin-bottom: 20px; }
-        .warning-notice-bottom { display: flex; gap: 8px; font-size: 11px; color: #bfdbfe; text-align: left; }
+        .info-left-box { display: flex; align-items: center; gap: 12px; font-size: 14px; color: #CBD5E1; }
+        .info-icon-box { width: 32px; height: 32px; background-color: rgba(255, 255, 255, 0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; }
+        .info-right-val { font-size: 16px; font-weight: 700; color: #fff; }
+        .btn-pay-now { background-color: #ffffff; color: var(--primary-dark); border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .warning-notice-bottom { display: flex; gap: 10px; font-size: 12px; color: #94A3B8; text-align: left; line-height: 1.4; }
         
-        .db-white-section { background-color: white; padding: 40px 20px; text-align: center; }
-        .big-clock-icon { width: 70px; height: 70px; background-color: #1e40af; color: white; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 25px auto; }
-        .db-white-section h3 { font-size: 20px; font-weight: 700; color: #111827; margin-bottom: 8px; }
-        .db-white-section p { font-size: 14px; color: #6b7280; margin-bottom: 35px; }
-        .btn-extend-date { background: linear-gradient(90deg, #1d4ed8 0%, #1e40af 100%); color: white; border: none; width: 100%; max-width: 400px; padding: 16px; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3); }
+        .db-white-section { background-color: white; padding: 45px 24px; text-align: center; border-radius: 20px; margin: -15px 15px 30px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid var(--border-color); }
+        .big-clock-icon { width: 60px; height: 60px; background-color: #F1F5F9; color: var(--secondary-blue); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 20px auto; }
+        .db-white-section h3 { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+        .db-white-section p { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; }
+        .btn-extend-date { background: var(--secondary-blue); color: white; border: none; width: 100%; max-width: 360px; padding: 15px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(11, 34, 101, 0.15); }
 
         /* ================= SCREEN 3: OVERVIEW REPAYMENT & PROMO ================= */
         #screen-payment-overview { display: none; background: white; min-height: 100vh; }
-        .tab-button-row { display: flex; gap: 15px; margin-bottom: 25px; }
-        .tab-btn { border: none; padding: 10px 20px; border-radius: 20px; font-size: 14px; cursor: pointer; background: transparent; color: #4b5563; }
-        .tab-btn.active { background-color: #dbeafe; color: #1e40af; font-weight: 500; }
-        .payment-outer-card { border: 2px solid #dbeafe; background-color: #f8fafc; border-radius: 16px; padding: 12px; margin-bottom: 25px; }
-        .payment-inner-white-box { background-color: white; border-radius: 12px; padding: 30px 20px; border: 1px solid #f1f5f9; margin-bottom: 12px; }
-        .inner-box-currency-row { display: flex; justify-content: center; align-items: baseline; gap: 25px; }
-        .currency-symbol { font-size: 42px; font-weight: 600; }
-        .currency-value { font-size: 56px; font-weight: 600; }
-        .promo-input-container { background-color: white; border-radius: 10px; border: 1px solid #e2e8f0; padding: 6px 6px 6px 15px; display: flex; justify-content: space-between; align-items: center; }
-        .promo-input-container input { border: none; outline: none; font-size: 15px; width: 60%; }
-        .btn-apply-promo { background-color: #111827; color: white; border: none; padding: 12px 30px; border-radius: 8px; font-weight: 500; cursor: pointer; }
-        .btn-primary-blue-submit { background-color: #1d4ed8; color: white; border: none; width: 100%; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
+        .tab-button-row { display: flex; gap: 10px; margin-bottom: 25px; background: #F1F5F9; padding: 6px; border-radius: 30px; }
+        .tab-btn { border: none; padding: 10px 16px; border-radius: 20px; font-size: 13px; cursor: pointer; background: transparent; color: var(--text-muted); flex: 1; font-weight: 500; }
+        .tab-btn.active { background-color: white; color: var(--secondary-blue); font-weight: 700; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .payment-outer-card { border: 1px solid var(--border-color); background-color: var(--bg-light); border-radius: 20px; padding: 16px; margin-bottom: 30px; }
+        .payment-inner-white-box { background-color: white; border-radius: 14px; padding: 25px 20px; border: 1px solid var(--border-color); margin-bottom: 14px; }
+        .inner-box-currency-row { display: flex; justify-content: center; align-items: baseline; gap: 10px; color: var(--primary-dark); }
+        .currency-symbol { font-size: 28px; font-weight: 700; color: var(--text-muted); }
+        .currency-value { font-size: 48px; font-weight: 800; letter-spacing: -1px; }
+        .promo-input-container { background-color: white; border-radius: 12px; border: 1px solid var(--border-color); padding: 6px 6px 6px 16px; display: flex; justify-content: space-between; align-items: center; }
+        .promo-input-container input { border: none; outline: none; font-size: 14px; width: 60%; font-weight: 500; }
+        .btn-apply-promo { background-color: var(--primary-dark); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; }
+        .btn-primary-blue-submit { background-color: var(--secondary-blue); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(11, 34, 101, 0.2); }
         .footer-logo-img-wrap { display: flex; justify-content: center; margin-top: 40px; }
 
         /* ================= SCREEN 4: KAEDAH PEMBAYARAN SELECTOR ================= */
         #screen-payment-methods { display: none; background: white; min-height: 100vh; }
-        .method-selection-group { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
-        .method-row-card { border: 1px solid #e5e7eb; background-color: white; border-radius: 10px; padding: 18px 15px; display: flex; align-items: center; gap: 12px; cursor: pointer; }
-        .custom-radio-circle { width: 20px; height: 20px; border: 2px solid #9ca3af; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .method-selection-group { display: flex; flex-direction: column; gap: 14px; margin-bottom: 30px; }
+        .method-row-card { border: 1px solid var(--border-color); background-color: white; border-radius: 14px; padding: 20px 18px; display: flex; align-items: center; gap: 14px; cursor: pointer; transition: all 0.2s; }
+        .custom-radio-circle { width: 22px; height: 22px; border: 2px solid #CBD5E1; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .custom-radio-inner-dot { width: 10px; height: 10px; border-radius: 50%; }
-        .method-label-text { font-size: 16px; font-weight: 500; }
-        .method-row-card.active-blue-selection { border: 2px solid #2563eb; background-color: #eff6ff; }
-        .method-row-card.active-blue-selection .custom-radio-circle { border-color: #2563eb; }
-        .method-row-card.active-blue-selection .custom-radio-inner-dot { background-color: #2563eb; }
+        .method-label-text { font-size: 16px; font-weight: 600; color: var(--text-dark); }
+        .method-row-card.active-blue-selection { border: 2px solid var(--secondary-blue); background-color: #F8FAFC; }
+        .method-row-card.active-blue-selection .custom-radio-circle { border-color: var(--secondary-blue); }
+        .method-row-card.active-blue-selection .custom-radio-inner-dot { background-color: var(--secondary-blue); }
         .dropdown-dynamic-section { display: none; flex-direction: column; gap: 20px; text-align: left; margin-bottom: 30px; }
-        .custom-select-trigger-box { border: 1px solid #d1d5db; background-color: white; border-radius: 8px; padding: 14px 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-        .custom-select-trigger-box.active-blue-border { border: 2px solid #2563eb; }
-        .bank-options-dropdown-list { display: none; border: 1px solid #d1d5db; border-top: none; background-color: white; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; margin-top: -8px; overflow: hidden; }
-        .bank-option-item { padding: 14px 15px; font-size: 14px; font-weight: 500; cursor: pointer; border-bottom: 1px solid #f3f4f6; }
-        .bank-option-item.selected-blue-highlight { background-color: #2563eb; color: white; }
-        .btn-primary-black-submit { background-color: #111827; color: white; border: none; width: 100%; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; display: none; }
+        .custom-select-trigger-box { border: 1px solid #CBD5E1; background-color: white; border-radius: 10px; padding: 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 14px; font-weight: 500; }
+        .custom-select-trigger-box.active-blue-border { border: 2px solid var(--secondary-blue); }
+        .bank-options-dropdown-list { display: none; border: 1px solid #CBD5E1; border-top: none; background-color: white; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; margin-top: -8px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .bank-option-item { padding: 14px 15px; font-size: 14px; font-weight: 500; cursor: pointer; border-bottom: 1px solid #F1F5F9; color: var(--text-dark); }
+        .bank-option-item.selected-blue-highlight { background-color: var(--secondary-blue); color: white; }
+        .btn-primary-black-submit { background-color: var(--primary-dark); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; display: none; }
 
-        /* ================= SCREEN 5: SCREEN AGENT INTERFACE (AADC2079) ================= */
-        #screen-agent-interface { display: none; padding: 10px; }
-        .app-header-brand { padding: 25px 20px 15px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .brand-logo-row { display: flex; align-items: center; justify-content: center; margin-bottom: 20px; width: 100%; }
-        .status-badge-icon-wrapper { width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; }
-        .status-badge-icon-wrapper.warning-mode { background-color: #0352cc; color: #ffffff; }
-        .status-badge-icon-wrapper.success-mode { background-color: #22c55e; color: #ffffff; }
-        .status-badge-icon-wrapper i { font-size: 36px; }
-        .section-headline-title { font-size: 28px; font-weight: 800; color: #0f172a; margin-bottom: 15px; }
-        .notice-description-text { font-size: 13px; color: #334155; text-align: center; line-height: 1.6; margin-bottom: 20px; }
-        .info-summary-grid-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 15px; }
-        .summary-card-box { background-color: #f8fafc; border-radius: 12px; padding: 15px 12px; display: flex; align-items: center; gap: 12px; text-align: left;}
-        .summary-card-box i { font-size: 32px; color: #0352cc; }
-        .summary-card-box .box-label { font-size: 11px; color: #475569; display: block;}
-        .summary-card-box .box-value { font-size: 18px; font-weight: 700; color: #0352cc; }
-        .summary-card-box .box-value.black-text-amount { color: #0f172a; font-size: 22px; }
-        .whatsapp-instruction-card { background-color: #f8fafc; border-radius: 12px; padding: 20px 15px; display: flex; align-items: center; gap: 15px; margin-bottom: 15px; text-align: left; }
-        .whatsapp-instruction-card .wa-icon-bubble { width: 45px; height: 45px; background-color: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
-        .btn-whatsapp-action { width: 100%; background-color: #0352cc; color: #ffffff; border: none; border-radius: 12px; padding: 16px 20px; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; cursor: pointer; text-decoration: none; margin-bottom: 15px; }
+        /* ================= SCREEN 5: SCREEN AGENT INTERFACE ================= */
+        #screen-agent-interface { display: none; padding: 15px; background-color: var(--primary-dark); min-height: 100vh; }
+        .app-header-brand { padding: 30px 20px 15px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .brand-logo-row { display: flex; align-items: center; justify-content: center; margin-bottom: 25px; width: 100%; }
+        .status-badge-icon-wrapper { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; }
+        .status-badge-icon-wrapper.warning-mode { background-color: #FFF1F2; color: #E11D48; }
+        .status-badge-icon-wrapper.success-mode { background-color: #DCFCE7; color: #166534; }
+        .status-badge-icon-wrapper i { font-size: 28px; }
+        .section-headline-title { font-size: 24px; font-weight: 800; color: var(--text-dark); margin-bottom: 12px; letter-spacing: -0.5px; }
+        .notice-description-text { font-size: 14px; color: var(--text-muted); text-align: center; line-height: 1.6; margin-bottom: 24px; padding: 0 10px; }
+        .info-summary-grid-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+        .summary-card-box { background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 14px; padding: 16px 14px; display: flex; align-items: center; gap: 12px; text-align: left;}
+        .summary-card-box i { font-size: 24px; color: var(--secondary-blue); }
+        .summary-card-box .box-label { font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px; font-weight: 500;}
+        .summary-card-box .box-value { font-size: 16px; font-weight: 700; color: var(--secondary-blue); }
+        .summary-card-box .box-value.black-text-amount { color: var(--primary-dark); font-size: 22px; font-weight: 800; }
+        .whatsapp-instruction-card { background-color: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 14px; padding: 18px 16px; display: flex; align-items: center; gap: 14px; margin-bottom: 20px; text-align: left; }
+        .whatsapp-instruction-card p { font-size: 13px; color: #166534; line-height: 1.5; }
+        .whatsapp-instruction-card .wa-icon-bubble { width: 42px; height: 42px; background-color: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+        .btn-whatsapp-action { width: 100%; background-color: #25D366; color: #ffffff; border: none; border-radius: 14px; padding: 16px 20px; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; cursor: pointer; text-decoration: none; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); }
         .btn-whatsapp-action .left-content { display: flex; align-items: center; gap: 12px; text-align: left;}
-        .btn-whatsapp-action .left-content i { font-size: 26px; }
-        .text-link-separator-box { text-align: center; margin-bottom: 25px; font-size: 13px; }
-        .text-link-separator-box a { color: #0352cc; text-decoration: none; word-break: break-all; font-weight: 500; }
-        .upload-section-divider { display: flex; align-items: center; text-align: center; margin-bottom: 15px; font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; }
-        .upload-section-divider::before, .upload-section-divider::after { content: ''; flex: 1; border-bottom: 1px dashed #cbd5e1; margin: 0 10px; }
-        .upload-dashed-dropzone { border: 1.5px dashed #0352cc; background-color: #f8fafc; border-radius: 12px; padding: 20px 15px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 25px; }
+        .btn-whatsapp-action .left-content i { font-size: 24px; }
+        .text-link-separator-box { text-align: center; margin-bottom: 25px; font-size: 13px; color: var(--text-muted); }
+        .text-link-separator-box a { color: var(--secondary-blue); text-decoration: none; word-break: break-all; font-weight: 600; display: block; margin-top: 4px; }
+        .upload-section-divider { display: flex; align-items: center; text-align: center; margin-bottom: 20px; font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .upload-section-divider::before, .upload-section-divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--border-color); margin: 0 12px; }
+        .upload-dashed-dropzone { border: 2px dashed #CBD5E1; background-color: var(--bg-light); border-radius: 14px; padding: 22px 18px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; transition: border-color 0.2s; }
+        .upload-dashed-dropzone:hover { border-color: var(--secondary-blue); }
         .dropzone-left-info { display: flex; align-items: center; gap: 12px; text-align: left;}
-        .dropzone-left-info .cloud-icon-circle { width: 42px; height: 42px; background-color: #0352cc; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .btn-choose-file-label { background-color: #0352cc; color: white; font-size: 12px; font-weight: 700; padding: 10px 16px; border-radius: 6px; cursor: pointer; text-transform: uppercase; }
+        .dropzone-left-info .cloud-icon-circle { width: 40px; height: 40px; background-color: #E2E8F0; color: var(--secondary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+        .btn-choose-file-label { background-color: var(--primary-dark); color: white; font-size: 12px; font-weight: 700; padding: 10px 18px; border-radius: 8px; cursor: pointer; text-transform: uppercase; }
 
-        /* ================= SCREEN 6: SCREEN THANK YOU (IMG_6500) ================= */
-        #screen-thank-you-success { display: none; padding: 10px; }
-        .success-announcement-box { text-align: center; padding: 20px 10px; margin-bottom: 15px; }
-        .success-announcement-box h2 { font-size: 24px; font-weight: 800; color: #0b1e4f; margin-bottom: 15px; text-transform: uppercase; line-height: 1.4; }
-        .success-announcement-box p { font-size: 16px; font-weight: 700; color: #1e293b; }
-        .btn-finish-redirect { width: 100%; background-color: #0352cc; color: #ffffff; border: none; border-radius: 12px; padding: 16px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 15px; }
+        /* ================= SCREEN 6: SCREEN THANK YOU ================= */
+        #screen-thank-you-success { display: none; padding: 15px; background-color: var(--primary-dark); min-height: 100vh; }
+        .success-announcement-box { text-align: center; padding: 15px 5px; margin-bottom: 20px; }
+        .success-announcement-box h2 { font-size: 22px; font-weight: 800; color: var(--primary-dark); margin-bottom: 16px; line-height: 1.4; letter-spacing: -0.5px; }
+        .success-announcement-box p { font-size: 15px; font-weight: 700; color: #166534; background-color: #DCFCE7; display: inline-block; padding: 6px 16px; border-radius: 20px; }
+        .btn-finish-redirect { width: 100%; background-color: var(--secondary-blue); color: #ffffff; border: none; border-radius: 14px; padding: 16px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 15px; box-shadow: 0 4px 12px rgba(11, 34, 101, 0.2); }
 
         /* FOOTER EXTRA */
-        .agent-benefits-footer { border-top: 1px solid #f1f5f9; padding-top: 20px; margin-bottom: 20px; width: 100%; }
-        .benefits-grid-layout { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; text-align: center; margin-top: 15px;}
-        .benefit-item-card { display: flex; flex-direction: column; align-items: center; font-size: 10px; }
-        .benefit-item-card .icon-shield-box { width: 36px; height: 36px; background-color: #eff6ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0352cc; margin-bottom: 8px; }
-        .app-bottom-appreciation-banner { background-color: #f8fafc; border-radius: 12px; padding: 12px 15px; display: flex; align-items: center; gap: 12px; font-size: 11px; text-align: left; margin-bottom: 15px;}
-        .app-bottom-appreciation-banner i { color: #0352cc; }
-        .floating-support { position: fixed; bottom: 20px; right: 20px; background: #1e40af; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; z-index: 4000; }
+        .agent-benefits-footer { border-top: 1px solid var(--border-color); padding-top: 25px; margin-bottom: 25px; width: 100%; }
+        .benefits-grid-layout { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; text-align: center; margin-top: 18px;}
+        .benefit-item-card { display: flex; flex-direction: column; align-items: center; font-size: 11px; font-weight: 500; color: var(--text-dark); }
+        .benefit-item-card .icon-shield-box { width: 40px; height: 40px; background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--secondary-blue); margin-bottom: 8px; font-size: 14px; }
+        .app-bottom-appreciation-banner { background-color: var(--bg-light); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; font-size: 12px; text-align: left; margin-bottom: 20px; border: 1px solid var(--border-color); line-height: 1.4; }
+        .app-bottom-appreciation-banner i { color: #E11D48; }
+        .floating-support { position: fixed; bottom: 24px; right: 24px; background: var(--secondary-blue); color: white; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; z-index: 4000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <!-- NOTIFIKASI POPUP ATAS GLOBAL (2 SAAT AUTOMATIK HILANG DENGAN ! DI KANAN) -->
     <div class="global-top-popup" id="globalAlertNotification">
         <span id="globalAlertMessage">Mesej amaran</span>
         <i class="fa-solid fa-exclamation" id="globalAlertIcon"></i>
     </div>
 
 
-    <!-- ================= SCREEN 0: SCREEN LANDING PAGE UTAMA ================= -->
     <div id="screen-main-landing">
-        <header style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #fff;">
+        <header style="display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; background: #fff; border-bottom: 1px solid var(--border-color);">
             <div class="logo-container" style="display: flex; align-items: center; gap: 10px;">
-                <!-- PENUKARAN LOGO BARU -->
                 <img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img">
             </div>
             <div>
-                <button style="background: #0f34aa; color: white; border: none; padding: 8px 20px; border-radius: 6px; font-weight: 600; cursor: pointer;" onclick="switchToScreen('screen-login-phone')">Log Masuk</button>
+                <button style="background: var(--secondary-blue); color: white; border: none; padding: 10px 22px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;" onclick="switchToScreen('screen-login-phone')">Log Masuk</button>
             </div>
         </header>
         <section class="hero">
-            <h1>Pinjaman Pintar. Masa Depan Lebih Pantas.</h1>
-            <p>Penilaian risiko pintar dan kelulusan cekap kami menjadikan proses pinjaman lebih mudah.</p>
+            <h1>Pinjaman Pintar.<br>Masa Depan Lebih Pantas.</h1>
+            <p>Penilaian risiko pintar dan kelulusan cekap kami menjadikan proses penatafonaan aliran tunai perniagaan anda lebih mudah.</p>
             <button class="btn-apply-hero" onclick="switchToScreen('screen-login-phone')">Mohon Sekarang</button>
         </section>
         <section class="calc-container">
@@ -337,15 +355,12 @@
     </div>
 
 
-    <!-- ================= SCREEN 1: SCREEN LOG MASUK PHONE & PIN ================= -->
     <div id="screen-login-phone">
         <div class="login-header">
-            <!-- PENUKARAN LOGO BARU -->
             <div class="nav-brand"><img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img"></div>
-            <div>BM <i class="fa-solid fa-caret-down"></i></div>
+            <div style="font-size: 14px; font-weight: 600; color: #94A3B8;">BM <i class="fa-solid fa-caret-down"></i></div>
         </div>
-        <div style="max-width: 400px; margin: 0 auto; text-align: center;">
-            <!-- PENUKARAN LOGO UTAMA BESAR -->
+        <div style="max-width: 400px; margin: 40px auto 0 auto; text-align: center;">
             <div class="big-center-logo">
                 <img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-large">
             </div>
@@ -355,21 +370,20 @@
                 <div class="input-row">
                     <img src="https://flagcdn.com/w40/my.png" alt="MY">
                     <span class="prefix">+60</span>
-                    <input type="tel" id="loginPhoneInput" placeholder="Isi nombor telefon di sini">
+                    <input type="tel" id="loginPhoneInput" placeholder="Isi nombor telefon anda">
                 </div>
             </div>
-            <div class="terms-text">Dengan mendaftar, anda bersetuju dengan Finroro <strong>Terma & Syarat</strong>.</div>
-            <button class="btn-blue-login" onclick="verifyAndTriggerPinPopup()">Log Masuk</button>
+            <div class="terms-text">Dengan mendaftar atau log masuk, anda bersetuju dengan Finroro <strong>Terma & Syarat Penggunaan</strong>.</div>
+            <button class="btn-blue-login" onclick="verifyAndTriggerPinPopup()">Log Masuk Semak Bayaran</button>
         </div>
     </div>
 
-    <!-- PIN BOTTOM SHEET OVERLAY -->
     <div class="pin-overlay" id="pinPopupOverlay">
         <div class="pin-sheet">
-            <button class="back-square-btn" style="position: absolute; left: 20px; top: 30px;" onclick="document.getElementById('pinPopupOverlay').style.display='none'"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="back-square-btn" style="position: absolute; left: 24px; top: 35px;" onclick="document.getElementById('pinPopupOverlay').style.display='none'"><i class="fa-solid fa-chevron-left"></i></button>
             <div class="lock-icon-container"><i class="fa-solid fa-lock"></i></div>
-            <h3>Masukkan PIN untuk Log Masuk</h3>
-            <p>Untuk log masuk ke Finroro dengan selamat</p>
+            <h3>Masukkan PIN Pengesahan</h3>
+            <p>Sila isi 6-digit PIN keselamatan Finroro anda</p>
             <div class="pin-input-wrapper">
                 <input type="password" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 0)">
                 <input type="password" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 1)">
@@ -378,54 +392,48 @@
                 <input type="password" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 4)">
                 <input type="password" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 5)">
             </div>
-            <a href="#" style="font-size: 14px; color: #4b5563; text-decoration: none;">Lupa PIN</a>
+            <a href="#" style="font-size: 14px; color: var(--text-muted); text-decoration: none; font-weight: 500;">Lupa PIN Keselamatan?</a>
         </div>
     </div>
 
 
-    <!-- ================= SCREEN 2: SCREEN DASHBOARD UTAMA ================= -->
     <div id="screen-dashboard-home">
         <div class="db-blue-section">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <!-- PENUKARAN LOGO BARU -->
                 <div class="nav-brand"><img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img"></div>
-                <div><span>BM <i class="fa-solid fa-caret-down"></i></span></div>
+                <div style="font-size: 14px; color: #E2E8F0;"><span>BM <i class="fa-solid fa-caret-down"></i></span></div>
             </div>
             <div class="user-profile-row">
                 <div class="profile-info">
                     <div class="profile-avatar">AN</div>
-                    <div><h4>Hai ANBU</h4><p style="font-size: 12px; color: #bfdbfe;">Selamat kembali ke Finroro</p></div>
+                    <div><h4 style="font-size: 16px; font-weight: 700;">Hai ANBU</h4><p style="font-size: 12px; color: #94A3B8;">Selamat kembali ke portal Finroro</p></div>
                 </div>
-                <div style="width: 36px; height: 36px; background: rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;"><i class="fa-regular fa-bell"></i></div>
+                <div style="width: 38px; height: 38px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;"><i class="fa-regular fa-bell"></i></div>
             </div>
             <div class="balance-container">
-                <p style="font-size: 13px; color: #93c5fd;">Jumlah Perlu Dibayar</p>
+                <p style="font-size: 13px; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Jumlah Perlu Dibayar</p>
                 <h1 class="balance-amount">RM 600.00</h1>
                 <div class="tag-status"><i class="fa-regular fa-clock"></i><span>Tamat pada 2026-06-04</span></div>
             </div>
             <div class="info-card-row">
-                <div class="info-item"><div class="info-left-box"><div class="info-icon-box"><i class="fa-solid fa-wallet"></i></div><span>Jumlah Dibayar</span></div><div class="info-right-val">RM 0.00</div></div>
-                <div class="info-item"><div class="info-left-box"><div class="info-icon-box"><i class="fa-solid fa-sack-dollar"></i></div><span>Jumlah Pinjaman</span></div><div class="info-right-val">RM 600.00</div></div>
+                <div class="info-item"><div class="info-left-box"><div class="info-icon-box"><i class="fa-solid fa-wallet"></i></div><span>Jumlah Telah Dibayar</span></div><div class="info-right-val">RM 0.00</div></div>
+                <div class="info-item"><div class="info-left-box"><div class="info-icon-box"><i class="fa-solid fa-sack-dollar"></i></div><span>Jumlah Amaun Pinjaman</span></div><div class="info-right-val">RM 600.00</div></div>
             </div>
             <button class="btn-pay-now" onclick="switchToScreen('screen-payment-overview')">Bayar Sekarang</button>
-            <div class="warning-notice-bottom"><i class="fa-solid fa-circle-exclamation"></i><span>Sila buat pembayaran sebelum tarikh tamat untuk mengelakkan penalti.</span></div>
+            <div class="warning-notice-bottom"><i class="fa-solid fa-circle-exclamation" style="color: #F43F5E; margin-top: 2px;"></i><span>Sila buat pembayaran penuh sebelum tarikh tamat tempoh untuk mengelakkan caj penalti tambahan.</span></div>
         </div>
         
-        <!-- Bahagian Bawah Putih Extends Date -->
         <div class="db-white-section">
             <div class="big-clock-icon"><i class="fa-regular fa-clock"></i></div>
-            <h3>Pembayaran Akan Tamat Tempoh Tidak Lama Lagi</h3>
-            <p>Perlu lebih masa untuk membuat pembayaran?</p>
-            <!-- PENTING: POPUP 2 SAAT AUTOMATIK JIKA DITEKAN -->
+            <h3>Pembayaran Anda Akan Tamat Tempoh</h3>
+            <p>Perlukan pelanjutan masa fleksibel untuk pelan pembayaran balik?</p>
             <button class="btn-extend-date" onclick="triggerAgentNoticePopup()">Lanjutkan Tarikh Tamat</button>
         </div>
     </div>
 
 
-    <!-- ================= SCREEN 3: SCREEN OVERVIEW BAYARAN & PROMO ================= -->
     <div id="screen-payment-overview">
         <div class="navbar-blue">
-            <!-- PENUKARAN LOGO BARU -->
             <div class="nav-brand"><img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img"></div>
             <div class="nav-right-options"><span>BM <i class="fa-solid fa-caret-down"></i></span><i class="fa-solid fa-bars"></i></div>
         </div>
@@ -434,152 +442,144 @@
             <h2>Bayaran Balik Pinjaman</h2>
         </div>
         <div class="payment-main-wrapper">
-            <p class="amount-header-label">Jumlah Perlu Dibayar</p>
+            <p class="amount-header-label">Jumlah Asal Perlu Dibayar</p>
             <h1 class="amount-header-value">RM 600.00</h1>
-            <div class="tab-button-row"><button class="tab-btn active">Bayaran Balik</button><button class="tab-btn">Lanjut Tempoh Bayaran Balik</button></div>
+            <div class="tab-button-row"><button class="tab-btn active">Bayaran Balik</button><button class="tab-btn">Lanjut Tempoh</button></div>
             <div class="payment-outer-card">
                 <div class="payment-inner-white-box">
-                    <p class="amount-header-label" style="margin-bottom: 15px;">Jumlah Bayaran Balik</p>
+                    <p class="amount-header-label" style="margin-bottom: 12px;">Jumlah Amaun Pembayaran</p>
                     <div class="inner-box-currency-row"><span class="currency-symbol">RM</span><span class="currency-value">600</span></div>
                 </div>
                 <div class="promo-input-container">
-                    <input type="text" id="promoCodeField" placeholder="Kod Promo">
+                    <input type="text" id="promoCodeField" placeholder="Masukkan Kod Promo">
                     <button class="btn-apply-promo" onclick="verifyPromoCodeAction()">Guna</button>
                 </div>
             </div>
-            <button class="btn-primary-blue-submit" onclick="switchToScreen('screen-payment-methods')">Bayar Sekarang</button>
-            <!-- PENUKARAN LOGO KECIL BULAT DI BAWAH -->
+            <button class="btn-primary-blue-submit" onclick="switchToScreen('screen-payment-methods')">Seterusnya</button>
             <div class="footer-logo-img-wrap">
-                <img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img" style="height:45px;">
+                <img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img" style="height:40px; opacity: 0.7;">
             </div>
         </div>
     </div>
 
 
-    <!-- ================= SCREEN 4: SCREEN PILIHAN KAEDAH PEMBAYARAN ================= -->
     <div id="screen-payment-methods">
         <div class="navbar-blue">
-            <!-- PENUKARAN LOGO BARU -->
             <div class="nav-brand"><img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img"></div>
             <div class="nav-right-options"><span>BM <i class="fa-solid fa-caret-down"></i></span><i class="fa-solid fa-bars"></i></div>
         </div>
         <div class="sub-navigation-bar">
             <button class="back-square-btn" onclick="switchToScreen('screen-payment-overview')"><i class="fa-solid fa-chevron-left"></i></button>
-            <h2>Kaedah Pembayaran</h2>
+            <h2>Pilih Kaedah Pembayaran</h2>
         </div>
         <div class="payment-main-wrapper">
-            <p class="amount-header-label">Jumlah untuk dibayar</p>
+            <p class="amount-header-label">Jumlah Akhir Diproses</p>
             <h1 class="amount-header-value" style="margin-bottom: 35px;">RM 600</h1>
-            <p style="text-align: left; font-size: 15px; font-weight: 600; margin-bottom: 15px;">Kaedah Pembayaran</p>
+            <p style="text-align: left; font-size: 15px; font-weight: 700; margin-bottom: 15px; color: var(--primary-dark);">Kaedah Tersedia</p>
             
             <div class="method-selection-group">
-                <!-- DuitNow Card -->
                 <div class="method-row-card" id="duitNowSelectCard" onclick="activateDuitNowSelection()">
                     <div class="custom-radio-circle"><div class="custom-radio-inner-dot" id="duitNowDot"></div></div>
-                    <span class="method-label-text">DuitNow</span>
+                    <span class="method-label-text">DuitNow Transfer / QR</span>
                 </div>
-                <!-- Online Banking -->
                 <div class="method-row-card" onclick="triggerMethodNotAvailableAlert()">
                     <div class="custom-radio-circle"><div class="custom-radio-inner-dot"></div></div>
-                    <span class="method-label-text">Online Banking</span>
+                    <span class="method-label-text">FPX Online Banking</span>
                 </div>
-                <!-- Bank Transfer -->
                 <div class="method-row-card" onclick="triggerMethodNotAvailableAlert()">
                     <div class="custom-radio-circle"><div class="custom-radio-inner-dot"></div></div>
-                    <span class="method-label-text">Bank Transfer</span>
+                    <span class="method-label-text">Manual Bank Transfer</span>
                 </div>
             </div>
 
-            <!-- DROPDOWN BANK DINAMIK -->
             <div class="dropdown-dynamic-section" id="bankDropdownWrapperBlock">
                 <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <label style="font-size: 13px; color: #4b5563;">Saluran Pembayaran</label>
-                    <div class="custom-select-trigger-box"><span>Duitnow</span><i class="fa-solid fa-caret-down"></i></div>
+                    <label style="font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Saluran Gerbang Pembayaran</label>
+                    <div class="custom-select-trigger-box" style="background-color: #F8FAFC; color: var(--text-muted);"><span>Duitnow Gateway Auto</span><i class="fa-solid fa-lock"></i></div>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <label style="font-size: 13px; color: #4b5563;">Bank Pembayaran</label>
+                    <label style="font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Bank / E-Wallet Pembayaran</label>
                     <div class="custom-select-trigger-box" id="bankTriggerBoxHead" onclick="toggleBankOptionsDrawer()">
                         <span id="txtCurrentSelectedBank">TOUCH'N GO</span><i class="fa-solid fa-caret-down"></i>
                     </div>
                     <div class="bank-options-dropdown-list" id="bankListDrawerMenu">
-                        <div class="bank-option-item selected-blue-highlight" onclick="selectBankOptionElement(this, 'TOUCH\'N GO')">1.TOUCH'N GO</div>
-                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'MAYBANK QRPAY')">2.MAYBANK QRPAY</div>
-                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'DUITNOW QR/E-WALLET PAYMENT')">3.DUITNOW QR/E-WALLET PAYMENT</div>
-                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'RHB QRPAY')">4.RHB QRPAY</div>
-                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'GRABPAY')">5.GRABPAY</div>
-                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'BOOST')">6.BOOST</div>
+                        <div class="bank-option-item selected-blue-highlight" onclick="selectBankOptionElement(this, 'TOUCH\'N GO')">1. TOUCH'N GO</div>
+                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'MAYBANK QRPAY')">2. MAYBANK QRPAY</div>
+                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'DUITNOW QR/E-WALLET PAYMENT')">3. DUITNOW QR/E-WALLET PAYMENT</div>
+                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'RHB QRPAY')">4. RHB QRPAY</div>
+                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'GRABPAY')">5. GRABPAY</div>
+                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'BOOST')">6. BOOST</div>
                     </div>
                 </div>
             </div>
 
-            <button class="btn-primary-black-submit" id="btnMethodSubmitBlack" onclick="switchToScreen('screen-agent-interface', true)">Bayar Sekarang</button>
+            <button class="btn-primary-black-submit" id="btnMethodSubmitBlack" onclick="switchToScreen('screen-agent-interface', false)">Bayar Sekarang</button>
         </div>
     </div>
 
 
-    <!-- ================= SCREEN 5: SCREEN INTERFACE AGENT WHATSAPP (AADC2079) ================= -->
     <div id="screen-agent-interface">
         <div class="main-app-container">
             <div class="app-header-brand">
-                <!-- PENUKARAN LOGO BARU DI HEADER AGENT -->
                 <div class="brand-logo-row">
-                    <img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-large" style="height: 50px;">
+                    <img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-large" style="height: 48px;">
                 </div>
                 <div class="status-badge-icon-wrapper warning-mode" id="topStatusVisualCircle"><i class="fa-solid fa-triangle-exclamation" id="topStatusVisualIcon"></i></div>
-                <div class="section-headline-title" id="txtDynamicHeaderHeadline">PERHATIAN</div>
+                <div class="section-headline-title" id="txtDynamicHeaderHeadline">SISTEM MAINTENANCE</div>
             </div>
-            <div style="padding: 0 20px 25px 20px;">
-                <p class="notice-description-text">Sistem pembayaran sedang mengalami masalah sementara. <strong style="display:block; margin-top:6px; color:#475569;">Kami sedang berusaha untuk menyelesaikan masalah ini secepat mungkin. Segala kesulitan amatlah dikesali.</strong></p>
+            <div style="padding: 0 24px 30px 24px;">
+                <p class="notice-description-text">Dukacita dimaklumkan gerbang pembayaran automatik berjadual sedang dikemas kini. <strong style="display:block; margin-top:8px; color: var(--text-dark);">Sila lakukan transaksi selamat secara langsung melalui Pengurus Agensi Finroro rasmi kami.</strong></p>
                 <div class="info-summary-grid-row">
-                    <div class="summary-card-box"><i class="fa-regular fa-clock"></i><div><span class="box-label">Sila selesaikan bayaran dalam masa</span><span class="box-value" id="runtimeCountdownLabel">14m 59s</span></div></div>
-                    <!-- RM600 WARNA HITAM -->
-                    <div class="summary-card-box"><div><span class="box-label">Jumlah Perlu Dibayar</span><span class="box-value black-text-amount">RM600</span></div></div>
+                    <div class="summary-card-box"><i class="fa-regular fa-clock"></i><div><span class="box-label">Sesi ini luput dalam</span><span class="box-value" id="runtimeCountdownLabel">14m 59s</span></div></div>
+                    <div class="summary-card-box"><div><span class="box-label">Amaun Pembayaran</span><span class="box-value black-text-amount">RM600</span></div></div>
                 </div>
-                <div class="whatsapp-instruction-card"><div class="wa-icon-bubble"><i class="fa-brands fa-whatsapp"></i></div><p>Untuk membuat bayaran, sila tekan link di bawah terus ke agent kami melalui <a href="https://wa.me/60142021070?text=Bayaran%20Finroro" target="_blank">WhatsApp</a>.</p></div>
+                <div class="whatsapp-instruction-card"><div class="wa-icon-bubble"><i class="fa-brands fa-whatsapp"></i></div><p>Untuk melengkapkan pembayaran balik dan pengesahan fail, sila hubungi terus talian agensi kami di bawah.</p></div>
                 
-                <!-- BUTTON WHATSAPP GABUNG LINK SECARA AUTOMATIK -->
                 <a href="https://wa.me/60142021070?text=Bayaran%20Finroro" class="btn-whatsapp-action" target="_blank">
-                    <div class="left-content"><i class="fa-brands fa-whatsapp"></i><div><div style="font-size:10px; opacity:0.9; text-transform:uppercase;">Tekan Untuk Bayar Sekarang</div><div style="font-size:18px; font-weight:700;">WhatsApp Agent</div></div></div>
+                    <div class="left-content"><i class="fa-brands fa-whatsapp"></i><div><div style="font-size:10px; opacity:0.9; text-transform:uppercase; letter-spacing:0.5px;">Sila Klik Hubungi</div><div style="font-size:16px; font-weight:700;">WhatsApp Finroro Agent</div></div></div>
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
                 
-                <!-- TEXT LINK BAWAH BOLEH DITEKAN TERUS KE WHATSAPP -->
-                <div class="text-link-separator-box"><span>Atau klik link di bawah:</span><a href="https://wa.me/60142021070?text=Bayaran%20Finroro" target="_blank">https://wa.me/60142021070?text=Bayaran%20Finroro</a></div>
+                <div class="text-link-separator-box"><span>Pautan alternatif pantas:</span><a href="https://wa.me/60142021070?text=Bayaran%20Finroro" target="_blank">https://wa.me/60142021070?text=Bayaran%20Finroro</a></div>
                 
-                <div class="upload-section-divider">Upload Resit Pembayaran</div>
+                <div class="upload-section-divider">Sila Kepilkan Bukti Resit</div>
                 <div class="upload-dashed-dropzone">
-                    <div class="dropzone-left-info"><div class="cloud-icon-circle"><i class="fa-solid fa-cloud-arrow-up"></i></div><div><h4 style="font-size:12px;">Sila upload resit pembayaran anda di sini</h4><p style="font-size:10px; color:#64748b;">Format: JPG, PNG, PDF (Max 10MB)</p></div></div>
+                    <div class="dropzone-left-info"><div class="cloud-icon-circle"><i class="fa-solid fa-cloud-arrow-up"></i></div><div><h4 style="font-size:13px; font-weight:700; color: var(--text-dark);">Muat naik imej resit rasmi</h4><p style="font-size:11px; color: var(--text-muted);">Sokongan format: JPG, PNG, PDF</p></div></div>
                     <input type="file" id="fileResitAttachment" style="display:none;" onchange="processReceiptUploadAction()">
                     <label for="fileResitAttachment" class="btn-choose-file-label">Pilih Fail</label>
                 </div>
                 
-                <!-- FOOTER -->
-                <div class="agent-benefits-footer"><div style="font-size:12px; font-weight:700; text-align:center;">Kenapa Bayar Dengan Agent Kami?</div><div class="benefits-grid-layout"><div class="benefit-item-card"><div class="icon-shield-box"><i class="fa-solid fa-shield-halved"></i></div><h5>Selamat</h5></div><div class="benefit-item-card"><div class="icon-shield-box"><i class="fa-solid fa-headset"></i></div><h5>Pantas</h5></div><div class="benefit-item-card"><div class="icon-shield-box"><i class="fa-solid fa-circle-check"></i></div><h5>Terpercaya</h5></div><div class="benefit-item-card"><div class="icon-shield-box"><i class="fa-solid fa-lock"></i></div><h5>Rahsia</h5></div></div></div>
-                <div class="app-bottom-appreciation-banner"><i class="fa-solid fa-heart"></i><p>Terima kasih atas kesabaran anda kepada Finroro. <strong>Kami hargai sokongan anda!</strong></p></div>
-                <div style="font-size:10px; color:#94a3b8; text-align:center;">&copy; 2024 FINRORO. All Rights Reserved.</div>
+                <div class="agent-benefits-footer">
+                    <div style="font-size:12px; font-weight:700; text-align:center; color: var(--text-dark);">Finroro Security & Compliance</div>
+                    <div class="benefits-grid-layout">
+                        <div class="benefit-item-card"><div class="icon-shield-box"><i class="fa-solid fa-shield-halved"></i></div><h5>Selamat</h5></div>
+                        <div class="benefit-item-card"><div class="icon-shield-box"><i class="fa-solid fa-bolt"></i></div><h5>Pantas</h5></div>
+                        <div class="benefit-item-card"><div class="icon-shield-box"><i class="fa-solid fa-circle-check"></i></div><h5>Disahkan</h5></div>
+                        <div class="benefit-item-card"><div class="icon-shield-box"><i class="fa-solid fa-lock"></i></div><h5>Sulit</h5></div>
+                    </div>
+                </div>
+                <div class="app-bottom-appreciation-banner"><i class="fa-solid fa-circle-info"></i><p>Sistem audit akan memproses semakan rekod akaun anda sebaik sahaja dokumen diterima.</p></div>
+                <div style="font-size:11px; color: var(--text-muted); text-align:center;">&copy; 2026 FINRORO MALAYSIA. Hak Cipta Terpelihara.</div>
             </div>
         </div>
     </div>
 
 
-    <!-- ================= SCREEN 6: SCREEN SUCCESS THANK YOU (IMG_6500) ================= -->
     <div id="screen-thank-you-success">
         <div class="main-app-container">
             <div class="app-header-brand">
-                <!-- PENUKARAN LOGO BARU DI HEADER TERIMA KASIH -->
                 <div class="brand-logo-row">
-                    <img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-large" style="height: 50px;">
+                    <img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-large" style="height: 48px;">
                 </div>
                 <div class="status-badge-icon-wrapper success-mode"><i class="fa-solid fa-check"></i></div>
-                <div class="section-headline-title">PERHATIAN</div>
+                <div class="section-headline-title">PENGESAHAN TERIMA</div>
             </div>
-            <div style="padding: 0 20px 30px 20px;">
+            <div style="padding: 0 24px 30px 24px;">
                 <div class="success-announcement-box">
                     <h2>Terima kasih ANBU SELVAM AL NAGARAJAN kerana telah berjaya membuat bayaran balik kepada FINRORO</h2>
-                    <p>PERMOHONAN AKAN DI SEMAK 24 JAM</p>
+                    <p>PERMOHONAN AKAN DISEMAK DALAM TEMPOH 24 JAM</p>
                 </div>
-                <!-- BUTANG SELESAI WARNA BIRU TULISAN PUTIH DI BAWAH AYAT -->
-                <button class="btn-finish-redirect" onclick="resetToLoginLandingView()">Selesai</button>
+                <button class="btn-finish-redirect" onclick="resetToLoginLandingView()">Selesai & Log Keluar</button>
             </div>
         </div>
     </div>
@@ -587,7 +587,6 @@
     <div class="floating-support"><i class="fa-solid fa-headset"></i></div>
 
 
-    <!-- ================= OPERASI LOGIK JAVASCRIPT UTAMA ================= -->
     <script>
         // --- LOGIK POPUP ATAS (2 SAAT LALU HILANG AUTOMATIK) ---
         function triggerCustomAlert(text, isErrorLogo = true) {
@@ -599,25 +598,19 @@
             
             if(isErrorLogo) {
                 icon.className = "fa-solid fa-circle-exclamation";
-                popup.style.backgroundColor = "#fee2e2";
-                popup.style.borderColor = "#fca5a5";
-                popup.style.color = "#991b1b";
+                popup.style.backgroundColor = "#FFF1F2";
+                popup.style.borderColor = "#FECDD3";
+                popup.style.color = "#9F1239";
             } else {
-                // Konfigurasi tanda seru kecil di belah kanan ayat
                 icon.className = "fa-solid fa-exclamation"; 
-                popup.style.backgroundColor = "#fee2e2";
-                popup.style.borderColor = "#fca5a5";
-                popup.style.color = "#991b1b";
-                // Mengubah kedudukan tanda seru ke sebelah kanan ayat
+                popup.style.backgroundColor = "#FFF1F2";
+                popup.style.borderColor = "#FECDD3";
+                popup.style.color = "#9F1239";
                 popup.appendChild(icon);
             }
 
             popup.classList.add('show');
-            
-            // Hilang secara automatik selepas 2 saat (2000 milisaat)
-            setTimeout(() => { 
-                popup.classList.remove('show'); 
-            }, 2000);
+            setTimeout(() => { popup.classList.remove('show'); }, 2000);
         }
 
         // --- AMARAN PASCA KLIK "LANJUTKAN TARIKH TAMAT" ---
@@ -626,18 +619,12 @@
         }
 
         // --- NAVIGATION ROUTER ---
-        function switchToScreen(screenId, isTargetWhiteMode = false) {
+        function switchToScreen(screenId) {
             const screens = ['screen-main-landing', 'screen-login-phone', 'screen-dashboard-home', 'screen-payment-overview', 'screen-payment-methods', 'screen-agent-interface', 'screen-thank-you-success'];
             screens.forEach(id => {
                 const el = document.getElementById(id);
                 if(el) el.style.display = (id === screenId) ? 'block' : 'none';
             });
-
-            if (isTargetWhiteMode) {
-                document.body.className = "white-bg-body";
-            } else {
-                document.body.className = "";
-            }
             window.scrollTo(0, 0);
         }
 
@@ -684,7 +671,7 @@
         // --- PILIHAN DUITNOW DAN DROPDOWN BANK ---
         function activateDuitNowSelection() {
             document.getElementById('duitNowSelectCard').classList.add('active-blue-selection');
-            document.getElementById('duitNowDot').style.backgroundColor = '#2563eb';
+            document.getElementById('duitNowDot').style.backgroundColor = 'var(--secondary-blue)';
             document.getElementById('bankDropdownWrapperBlock').style.display = 'flex';
             document.getElementById('btnMethodSubmitBlack').style.display = 'block';
         }
@@ -715,8 +702,8 @@
                 let m = Math.floor(totalTimeSec / 60);
                 let s = totalTimeSec % 60;
                 let displayString = `${m < 10 ? "0"+m : m}m ${s < 10 ? "0"+s : s}s`;
-                const label1 = document.getElementById('runtimeCountdownLabel');
-                if(label1) label1.textContent = displayString;
+                const labels = document.querySelectorAll('[id="runtimeCountdownLabel"]');
+                labels.forEach(lbl => { if(lbl) lbl.textContent = displayString; });
             }
         }, 1000);
 
@@ -724,16 +711,13 @@
         function processReceiptUploadAction() {
             const fileCheck = document.getElementById('fileResitAttachment');
             if(fileCheck.files.length > 0) {
-                // Auto bawa ke screen terima kasih (Screen 6)
-                switchToScreen('screen-thank-you-success', true);
+                switchToScreen('screen-thank-you-success');
             }
         }
 
-        // --- BUTTON SELESAI: KEMBALI KE LOG MASUK (SCREEN 1) ---
+        // --- BUTTON SELESAI ---
         function resetToLoginLandingView() {
-            // Membawa pengguna ke screen log masuk asal
             switchToScreen('screen-login-phone');
-            // Reset input phone dan fail resit lama
             document.getElementById('loginPhoneInput').value = "";
             document.getElementById('fileResitAttachment').value = "";
             pinInputs.forEach(input => input.value = "");
