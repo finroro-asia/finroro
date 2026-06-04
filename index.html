@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finroro - Sistem Pembayaran Pintar Rasmi</title>
-    <!-- Google Fonts Inter & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- GAYA WARNA UTAMA FINRORO (DIINSPIRASIKAN DARIPADA IMG_6503.jpeg) --- */
+        /* --- GAYA WARNA UTAMA FINRORO --- */
         :root {
-            --primary-blue: #0D47A1;      /* Biru terang utama dari IMG_6503.jpeg */
-            --secondary-blue: #1565C0;    /* Variasi biru untuk kecerunan/aksen */
+            --primary-blue: #0D47A1;      
+            --secondary-blue: #1565C0;    
             --bg-light: #F8FAFC;
             --border-color: #E2E8F0;
             --text-dark: #1E293B;
             --text-muted: #64748B;
+            --cyan-btn: #5CE1E6; /* Warna butang Log Masuk baharu dari IMG_6514.jpeg */
         }
 
         * {
@@ -33,7 +33,7 @@
             min-height: 100vh;
         }
 
-        /* --- LOGO PERGANTIAN GAYA --- */
+        /* --- LOGO GLOBAL UPDATE (IMG_6512.png) --- */
         .app-logo-img {
             height: 38px;
             width: auto;
@@ -43,7 +43,7 @@
             height: 65px;
             width: auto;
             object-fit: contain;
-            margin-bottom: 10px;
+            margin-bottom: 25px;
         }
 
         /* --- NOTIFIKASI POPUP ATAS GLOBAL --- */
@@ -195,24 +195,82 @@
         /* ================= SCREEN 1: LOG MASUK PHONE & PIN OVERLAY ================= */
         #screen-login-phone { display: none; background: var(--primary-blue); min-height: 100vh; color: white; padding: 24px; }
         .login-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
-        .big-center-logo { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; padding: 20px; }
-        .welcome-title { font-size: 24px; font-weight: 700; margin-bottom: 30px; text-align: center; letter-spacing: -0.5px; }
-        .input-phone-box { background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 14px 18px; margin-bottom: 20px; }
-        .input-phone-box label { font-size: 11px; color: #E2E8F0; display: block; margin-bottom: 6px; text-transform: uppercase; font-weight: 600; opacity: 0.9; }
-        .input-row { display: flex; align-items: center; gap: 10px; }
-        .input-row img { width: 24px; border-radius: 2px; }
-        .input-row .prefix { color: #fff; font-weight: 700; font-size: 16px; }
-        .input-row input { border: none; outline: none; font-size: 16px; font-weight: 600; color: #fff; width: 100%; background: transparent; }
-        .input-row input::placeholder { color: #94A3B8; }
-        .terms-text { font-size: 12px; color: #E2E8F0; margin-bottom: 35px; text-align: center; line-height: 1.5; opacity: 0.8; }
-        .btn-blue-login { background: #ffffff; color: var(--primary-blue); border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .big-center-logo { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; padding: 10px; }
+        .welcome-title { font-size: 36px; font-weight: 700; margin-bottom: 35px; text-align: center; letter-spacing: -0.5px; }
         
+        /* Ubahsuai kotak mengikut rujukan IMG_6514.jpeg */
+        .input-phone-container {
+            max-width: 400px;
+            margin: 0 auto 20px auto;
+            text-align: left;
+        }
+        .input-phone-container label {
+            font-size: 14px; 
+            color: #E2E8F0; 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 500;
+        }
+        .input-phone-box { 
+            background: #ffffff; /* Kotak warna putih sahaja */
+            border-radius: 12px; 
+            padding: 10px 16px; /* Dipendekkan sikit tingginya */
+            display: flex;
+            align-items: center;
+        }
+        .input-row { display: flex; align-items: center; gap: 8px; width: 100%; }
+        .input-row img { width: 24px; height: auto; border-radius: 2px; }
+        .input-row .prefix { color: #1E293B; font-weight: 600; font-size: 16px; }
+        .input-row input { border: none; outline: none; font-size: 16px; font-weight: 500; color: #1E293B; width: 100%; background: transparent; }
+        .input-row input::placeholder { color: #94A3B8; }
+        
+        .terms-text { font-size: 13px; color: #E2E8F0; margin-bottom: 35px; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+        
+        /* Butang log masuk sebiji warna cyan IMG_6514.jpeg */
+        .btn-blue-login { 
+            background: var(--cyan-btn); 
+            color: #0D47A1; 
+            border: none; 
+            width: 100%; 
+            max-width: 400px;
+            padding: 16px; 
+            border-radius: 12px; 
+            font-size: 18px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+            display: block;
+            margin: 0 auto;
+        }
+        
+        /* PIN BOTTOM SHEET OVERLAY */
         .pin-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 71, 161, 0.85); backdrop-filter: blur(6px); z-index: 2000; display: none; align-items: flex-end; }
         .pin-sheet { background: white; width: 100%; max-width: 480px; margin: 0 auto; border-top-left-radius: 28px; border-top-right-radius: 28px; padding: 40px 24px; text-align: center; color: var(--text-dark); position: relative; box-shadow: 0 -10px 30px rgba(0,0,0,0.3); }
-        .lock-icon-container { width: 55px; height: 55px; background: #F1F5F9; color: var(--primary-blue); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 20px auto; }
-        .pin-sheet h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
-        .pin-sheet p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
+        
+        /* Mangga Kunci mengikut rujukan IMG_6515.jpeg */
+        .lock-icon-container { 
+            width: 80px; 
+            height: 80px; 
+            background: #0D47A1; /* Warna biru padat */
+            color: white; 
+            border-radius: 18px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0 auto 20px auto; 
+            box-shadow: 0 4px 10px rgba(13, 71, 161, 0.3);
+        }
+        .lock-icon-container img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+        
+        .pin-sheet h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; color: var(--text-dark); }
+        .pin-sheet p { color: var(--text-muted); font-size: 15px; margin-bottom: 30px; }
         .pin-input-wrapper { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        
+        /* Kotak pin disetkan kepada inputmode numeric untuk mengelakkan keyboard abjad terkeluar */
         .pin-box { width: 48px; height: 48px; border: 2px solid #E2E8F0; background: #F8FAFC; border-radius: 12px; font-size: 24px; font-weight: 700; text-align: center; color: var(--text-dark); outline: none; transition: border-color 0.2s; }
         .pin-box:focus { border-color: var(--primary-blue); background: #fff; }
 
@@ -324,18 +382,16 @@
 </head>
 <body>
 
-    <!-- NOTIFIKASI POPUP ATAS GLOBAL -->
     <div class="global-top-popup" id="globalAlertNotification">
         <span id="globalAlertMessage">Mesej amaran</span>
         <i class="fa-solid fa-exclamation" id="globalAlertIcon"></i>
     </div>
 
 
-    <!-- ================= SCREEN 0: SCREEN LANDING PAGE UTAMA ================= -->
     <div id="screen-main-landing">
         <header style="display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; background: #fff; border-bottom: 1px solid var(--border-color);">
             <div class="logo-container" style="display: flex; align-items: center; gap: 10px;">
-                <img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img">
+                <img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img">
             </div>
             <div>
                 <button style="background: var(--primary-blue); color: white; border: none; padding: 10px 22px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;" onclick="switchToScreen('screen-login-phone')">Log Masuk</button>
@@ -357,55 +413,62 @@
     </div>
 
 
-    <!-- ================= SCREEN 1: SCREEN LOG MASUK PHONE & PIN ================= -->
     <div id="screen-login-phone">
         <div class="login-header">
-            <div class="nav-brand"><img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img"></div>
+            <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
             <div style="font-size: 14px; font-weight: 600; color: #E2E8F0;">BM <i class="fa-solid fa-caret-down"></i></div>
         </div>
+        
         <div style="max-width: 400px; margin: 40px auto 0 auto; text-align: center;">
             <div class="big-center-logo">
-                <img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-large">
+                <img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-large">
             </div>
             <div class="welcome-title">Selamat Datang Kembali</div>
-            <div class="input-phone-box">
-                <label>Nombor Telefon</label>
-                <div class="input-row">
-                    <img src="https://flagcdn.com/w40/my.png" alt="MY">
-                    <span class="prefix">+60</span>
-                    <input type="tel" id="loginPhoneInput" placeholder="Isi nombor telefon anda">
+            
+            <div class="input-phone-container">
+                <label for="loginPhoneInput">Nombor Telefon</label>
+                <div class="input-phone-box">
+                    <div class="input-row">
+                        <img src="https://flagcdn.com/w40/my.png" alt="MY">
+                        <span class="prefix">+60</span>
+                        <input type="tel" id="loginPhoneInput" placeholder="Masukkan Nombor Telefon" inputmode="numeric" pattern="[0-9]*">
+                    </div>
                 </div>
             </div>
-            <div class="terms-text">Dengan mendaftar atau log masuk, anda bersetuju dengan Finroro <strong>Terma & Syarat Penggunaan</strong>.</div>
-            <button class="btn-blue-login" onclick="verifyAndTriggerPinPopup()">Log Masuk Semak Bayaran</button>
+            
+            <div class="terms-text">Dengan mendaftar, anda bersetuju dengan Finroro <strong>Terma & Syarat</strong>.</div>
+            <button class="btn-blue-login" onclick="verifyAndTriggerPinPopup()">Log Masuk</button>
         </div>
     </div>
 
-    <!-- PIN BOTTOM SHEET OVERLAY -->
     <div class="pin-overlay" id="pinPopupOverlay">
         <div class="pin-sheet">
             <button class="back-square-btn" style="position: absolute; left: 24px; top: 35px;" onclick="document.getElementById('pinPopupOverlay').style.display='none'"><i class="fa-solid fa-chevron-left"></i></button>
-            <div class="lock-icon-container"><i class="fa-solid fa-lock"></i></div>
-            <h3>Masukkan PIN Pengesahan</h3>
-            <p>Sila isi 6-digit PIN keselamatan Finroro anda</p>
-            <div class="pin-input-wrapper">
-                <input type="password" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 0)">
-                <input type="password" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 1)">
-                <input type="password" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 2)">
-                <input type="password" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 3)">
-                <input type="password" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 4)">
-                <input type="password" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 5)">
+            
+            <div class="lock-icon-container">
+                <img src="IMG_6515.jpeg" alt="Lock">
             </div>
-            <a href="#" style="font-size: 14px; color: var(--text-muted); text-decoration: none; font-weight: 500;">Lupa PIN Keselamatan?</a>
+            
+            <h3>Masukkan PIN untuk Log Masuk</h3>
+            <p>Untuk log masuk ke Finroro dengan selamat</p>
+            
+            <div class="pin-input-wrapper">
+                <input type="tel" inputmode="numeric" pattern="[0-9]*" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 0)" onfocus="this.value=''">
+                <input type="tel" inputmode="numeric" pattern="[0-9]*" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 1)" onfocus="this.value=''">
+                <input type="tel" inputmode="numeric" pattern="[0-9]*" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 2)" onfocus="this.value=''">
+                <input type="tel" inputmode="numeric" pattern="[0-9]*" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 3)" onfocus="this.value=''">
+                <input type="tel" inputmode="numeric" pattern="[0-9]*" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 4)" onfocus="this.value=''">
+                <input type="tel" inputmode="numeric" pattern="[0-9]*" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 5)" onfocus="this.value=''">
+            </div>
+            <a href="#" style="font-size: 14px; color: var(--text-muted); text-decoration: none; font-weight: 500;">Lupa PIN</a>
         </div>
     </div>
 
 
-    <!-- ================= SCREEN 2: SCREEN DASHBOARD UTAMA ================= -->
     <div id="screen-dashboard-home">
         <div class="db-blue-section">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <div class="nav-brand"><img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img"></div>
+                <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
                 <div style="font-size: 14px; color: #E2E8F0;"><span>BM <i class="fa-solid fa-caret-down"></i></span></div>
             </div>
             <div class="user-profile-row">
@@ -437,10 +500,9 @@
     </div>
 
 
-    <!-- ================= SCREEN 3: SCREEN OVERVIEW BAYARAN & PROMO ================= -->
     <div id="screen-payment-overview">
         <div class="navbar-blue">
-            <div class="nav-brand"><img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img"></div>
+            <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
             <div class="nav-right-options"><span>BM <i class="fa-solid fa-caret-down"></i></span><i class="fa-solid fa-bars"></i></div>
         </div>
         <div class="sub-navigation-bar">
@@ -463,16 +525,15 @@
             </div>
             <button class="btn-primary-blue-submit" onclick="switchToScreen('screen-payment-methods')">Seterusnya</button>
             <div class="footer-logo-img-wrap">
-                <img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img" style="height:40px; opacity: 0.7;">
+                <img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img" style="height:40px; opacity: 0.7;">
             </div>
         </div>
     </div>
 
 
-    <!-- ================= SCREEN 4: SCREEN PILIHAN KAEDAH PEMBAYARAN ================= -->
     <div id="screen-payment-methods">
         <div class="navbar-blue">
-            <div class="nav-brand"><img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-img"></div>
+            <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
             <div class="nav-right-options"><span>BM <i class="fa-solid fa-caret-down"></i></span><i class="fa-solid fa-bars"></i></div>
         </div>
         <div class="sub-navigation-bar">
@@ -485,24 +546,20 @@
             <p style="text-align: left; font-size: 15px; font-weight: 700; margin-bottom: 15px; color: var(--text-dark);">Kaedah Tersedia</p>
             
             <div class="method-selection-group">
-                <!-- DuitNow Card -->
                 <div class="method-row-card" id="duitNowSelectCard" onclick="activateDuitNowSelection()">
                     <div class="custom-radio-circle"><div class="custom-radio-inner-dot" id="duitNowDot"></div></div>
                     <span class="method-label-text">DuitNow Transfer / QR</span>
                 </div>
-                <!-- Online Banking -->
                 <div class="method-row-card" onclick="triggerMethodNotAvailableAlert()">
                     <div class="custom-radio-circle"><div class="custom-radio-inner-dot"></div></div>
                     <span class="method-label-text">FPX Online Banking</span>
                 </div>
-                <!-- Bank Transfer -->
                 <div class="method-row-card" onclick="triggerMethodNotAvailableAlert()">
                     <div class="custom-radio-circle"><div class="custom-radio-inner-dot"></div></div>
                     <span class="method-label-text">Manual Bank Transfer</span>
                 </div>
             </div>
 
-            <!-- DROPDOWN BANK DINAMIK -->
             <div class="dropdown-dynamic-section" id="bankDropdownWrapperBlock">
                 <div style="display: flex; flex-direction: column; gap: 8px;">
                     <label style="font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Saluran Gerbang Pembayaran</label>
@@ -529,12 +586,11 @@
     </div>
 
 
-    <!-- ================= SCREEN 5: SCREEN AGENT INTERFACE ================= -->
     <div id="screen-agent-interface">
         <div class="main-app-container">
             <div class="app-header-brand">
                 <div class="brand-logo-row">
-                    <img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-large" style="height: 48px;">
+                    <img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-large" style="height: 48px;">
                 </div>
                 <div class="status-badge-icon-wrapper warning-mode" id="topStatusVisualCircle"><i class="fa-solid fa-triangle-exclamation" id="topStatusVisualIcon"></i></div>
                 <div class="section-headline-title" id="txtDynamicHeaderHeadline">SISTEM MAINTENANCE</div>
@@ -577,12 +633,11 @@
     </div>
 
 
-    <!-- ================= SCREEN 6: SCREEN SUCCESS THANK YOU ================= -->
     <div id="screen-thank-you-success">
         <div class="main-app-container">
             <div class="app-header-brand">
                 <div class="brand-logo-row">
-                    <img src="IMG_6438.png" alt="Finroro Logo" class="app-logo-large" style="height: 48px;">
+                    <img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-large" style="height: 48px;">
                 </div>
                 <div class="status-badge-icon-wrapper success-mode"><i class="fa-solid fa-check"></i></div>
                 <div class="section-headline-title">PENGESAHAN TERIMA</div>
@@ -600,39 +655,26 @@
     <div class="floating-support"><i class="fa-solid fa-headset"></i></div>
 
 
-    <!-- ================= OPERASI LOGIK JAVASCRIPT UTAMA ================= -->
     <script>
-        // --- LOGIK POPUP ATAS (2 SAAT LALU HILANG AUTOMATIK) ---
         function triggerCustomAlert(text, isErrorLogo = true) {
             const popup = document.getElementById('globalAlertNotification');
             const message = document.getElementById('globalAlertMessage');
             const icon = document.getElementById('globalAlertIcon');
 
             message.textContent = text;
-            
-            if(isErrorLogo) {
-                icon.className = "fa-solid fa-circle-exclamation";
-                popup.style.backgroundColor = "#FFF1F2";
-                popup.style.borderColor = "#FECDD3";
-                popup.style.color = "#9F1239";
-            } else {
-                icon.className = "fa-solid fa-exclamation"; 
-                popup.style.backgroundColor = "#FFF1F2";
-                popup.style.borderColor = "#FECDD3";
-                popup.style.color = "#9F1239";
-                popup.appendChild(icon);
-            }
+            icon.className = "fa-solid fa-circle-exclamation";
+            popup.style.backgroundColor = "#FFF1F2";
+            popup.style.borderColor = "#FECDD3";
+            popup.style.color = "#9F1239";
 
             popup.classList.add('show');
             setTimeout(() => { popup.classList.remove('show'); }, 2000);
         }
 
-        // --- AMARAN PASCA KLIK "LANJUTKAN TARIKH TAMAT" ---
         function triggerAgentNoticePopup() {
             triggerCustomAlert("Sila berhubung dengan agent", false);
         }
 
-        // --- NAVIGATION ROUTER ---
         function switchToScreen(screenId) {
             const screens = ['screen-main-landing', 'screen-login-phone', 'screen-dashboard-home', 'screen-payment-overview', 'screen-payment-methods', 'screen-agent-interface', 'screen-thank-you-success'];
             screens.forEach(id => {
@@ -642,7 +684,6 @@
             window.scrollTo(0, 0);
         }
 
-        // --- LOG IN SIMULATION ---
         function verifyAndTriggerPinPopup() {
             const phone = document.getElementById('loginPhoneInput').value.trim();
             if(phone === "01165113427" || phone === "1165113427") {
@@ -655,6 +696,9 @@
 
         const pinInputs = document.querySelectorAll('.pin-box');
         function handlePinFlow(current, index) {
+            // Memastikan hanya digit dibenarkan masuk
+            current.value = current.value.replace(/[^0-9]/g, '');
+            
             if (current.value.length === 1 && pinInputs[index + 1]) {
                 pinInputs[index + 1].focus();
             }
@@ -682,7 +726,6 @@
             triggerCustomAlert("Kaedah pembayaran ini tidak tersedia buat masa sekarang");
         }
 
-        // --- PILIHAN DUITNOW DAN DROPDOWN BANK ---
         function activateDuitNowSelection() {
             document.getElementById('duitNowSelectCard').classList.add('active-blue-selection');
             document.getElementById('duitNowDot').style.backgroundColor = 'var(--primary-blue)';
@@ -708,7 +751,6 @@
             }, 150);
         }
 
-        // --- SISTEM PEMASA MENGUNDUR (COUNTDOWN TIMER 14m 59s) ---
         let totalTimeSec = (14 * 60) + 59;
         setInterval(() => {
             if (totalTimeSec > 0) {
@@ -721,7 +763,6 @@
             }
         }, 1000);
 
-        // --- LOGIK AUTOMATIK SELEPAS MUAT NAIK RESIT ---
         function processReceiptUploadAction() {
             const fileCheck = document.getElementById('fileResitAttachment');
             if(fileCheck.files.length > 0) {
@@ -729,7 +770,6 @@
             }
         }
 
-        // --- BUTTON SELESAI ---
         function resetToLoginLandingView() {
             switchToScreen('screen-login-phone');
             document.getElementById('loginPhoneInput').value = "";
