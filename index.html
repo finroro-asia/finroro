@@ -1,23 +1,25 @@
+Faham! Sila salin kod penuh `index.html` yang telah dikemaskini sepenuhnya di bawah untuk menggantikan kod lama anda di Netlify:
+
+```html
 <!DOCTYPE html>
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finroro - Sistem Pembayaran Pintar Rasmi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* --- GAYA WARNA UTAMA FINRORO --- */
         :root {
             --primary-blue: #0D47A1;      
             --secondary-blue: #1565C0;    
-            --bright-blue: #0052FF; /* Warna biru terang baharu dari gambar rujukan */
             --bg-light: #F8FAFC;
             --border-color: #E2E8F0;
             --text-dark: #1E293B;
             --text-muted: #64748B;
-            --cyan-btn: #5CE1E6; 
-            --bright-cyan: #49e3f6; /* Warna cyan menyala untuk butang bayar sekarang */
+            --cyan-btn: #5CE1E6; /* Warna butang Log Masuk baharu dari IMG_6514.jpeg */
         }
 
         * {
@@ -34,7 +36,7 @@
             min-height: 100vh;
         }
 
-        /* --- LOGO GLOBAL UPDATE --- */
+        /* --- LOGO GLOBAL UPDATE (IMG_6512.png) --- */
         .app-logo-img {
             height: 38px;
             width: auto;
@@ -45,13 +47,6 @@
             width: auto;
             object-fit: contain;
             margin-bottom: 25px;
-        }
-
-        /* --- TULISAN SEAKAN KACA (GLASSMORPHISM) --- */
-        .glass-text {
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.2), 0 4px 12px rgba(0, 0, 0, 0.15);
-            font-weight: 800;
         }
 
         /* --- NOTIFIKASI POPUP ATAS GLOBAL --- */
@@ -77,8 +72,24 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             white-space: nowrap;
         }
-        .global-top-popup.show { opacity: 1; visibility: visible; top: 20px; }
-        .global-top-popup i { font-size: 12px; background-color: #E11D48; color: white; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+        .global-top-popup.show {
+            opacity: 1;
+            visibility: visible;
+            top: 20px;
+        }
+
+        .global-top-popup i {
+            font-size: 12px;
+            background-color: #E11D48;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         /* --- LAYOUT WRAPPER UTAMA --- */
         .main-app-container {
@@ -90,7 +101,6 @@
             overflow: hidden;
             margin: 30px auto;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
         }
 
         /* --- BANNER NAVIGASI --- */
@@ -103,8 +113,21 @@
             align-items: center;
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .nav-brand { display: flex; align-items: center; gap: 8px; }
-        .nav-right-options { display: flex; align-items: center; gap: 15px; font-size: 14px; font-weight: 500; color: #E2E8F0; }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-right-options {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #E2E8F0;
+        }
 
         .sub-navigation-bar {
             display: flex;
@@ -128,55 +151,34 @@
             transition: background 0.2s;
         }
         .back-square-btn:hover { background-color: #E2E8F0; }
-        .sub-navigation-bar h2 { font-size: 18px; font-weight: 700; color: var(--text-dark); }
 
-        /* --- SIDEBAR DRAWER MENU --- */
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 5000;
-            display: none;
-            justify-content: flex-end;
+        .sub-navigation-bar h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
         }
-        .sidebar-content {
-            width: 280px;
-            background: white;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-        }
-        .sidebar-header {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .sidebar-links { padding: 24px; display: flex; flex-direction: column; gap: 20px; }
-        .sidebar-links a { text-decoration: none; font-size: 16px; font-weight: 600; color: var(--text-dark); transition: color 0.2s; }
-        .sidebar-links a:hover { color: var(--bright-blue); }
 
-        /* --- PAPARAN PROFIL SKRIN PENUH --- */
-        .profile-page-view { display: none; background: white; min-height: 100vh; color: var(--text-dark); }
-        .profile-section-title { font-size: 12px; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 1px; margin: 25px 24px 10px 24px; }
-        .profile-menu-item { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-bottom: 1px solid #F1F5F9; cursor: pointer; }
-        .profile-menu-item.disabled { opacity: 0.5; cursor: not-allowed; }
-        .profile-menu-left { display: flex; align-items: center; gap: 14px; font-size: 15px; font-weight: 500; }
-        .profile-menu-left i { width: 20px; color: var(--text-muted); font-size: 16px; }
-        .btn-logout-outline { margin: 40px 24px; border: 2px solid #E2E8F0; background: transparent; color: var(--text-dark); width: calc(100% - 48px); padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .payment-main-wrapper {
+            max-width: 100%;
+            padding: 10px 24px 40px 24px;
+            text-align: center;
+        }
 
-        /* --- PAPARAN MAKLUMAT PERIBADI --- */
-        .personal-info-view { display: none; background: white; min-height: 100vh; color: var(--text-dark); }
-        .big-avatar-circle { width: 90px; height: 90px; background-color: #E2E8F0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; color: #64748B; margin: 30px auto; }
-        .info-display-card { border: 1px solid var(--border-color); background-color: #F8FAFC; border-radius: 14px; padding: 14px 18px; margin: 0 24px 16px 24px; }
-        .info-display-card label { font-size: 11px; font-weight: 700; color: #94A3B8; text-transform: uppercase; display: block; margin-bottom: 4px; }
-        .info-display-card p { font-size: 15px; font-weight: 700; color: var(--text-dark); }
+        .amount-header-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .amount-header-value {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+        }
 
         /* ================= SCREEN 0: LANDING PAGE UTAMA ================= */
         #screen-main-landing { display: block; background-color: var(--bg-light); min-height: 100vh; }
@@ -184,6 +186,7 @@
         .hero h1 { font-size: 28px; font-weight: 800; margin-bottom: 15px; letter-spacing: -0.5px; line-height: 1.3; }
         .hero p { font-size: 14px; color: #E2E8F0; margin-bottom: 30px; line-height: 1.5; opacity: 0.9; }
         .btn-apply-hero { background: #ffffff; color: var(--primary-blue); border: none; padding: 14px 40px; border-radius: 30px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: transform 0.2s; }
+        .btn-apply-hero:hover { transform: scale(1.03); }
         .calc-container { background: var(--primary-blue); color: white; text-align: center; border-top-left-radius: 35px; border-top-right-radius: 35px; padding: 40px 24px; margin-top: -25px; }
         .calc-container h2 { font-size: 20px; margin-bottom: 20px; font-weight: 700; }
         .calc-box { background: white; color: #333; border-radius: 20px; padding: 30px 24px; max-width: 440px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
@@ -198,9 +201,26 @@
         .big-center-logo { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; padding: 10px; }
         .welcome-title { font-size: 36px; font-weight: 700; margin-bottom: 35px; text-align: center; letter-spacing: -0.5px; }
         
-        .input-phone-container { max-width: 400px; margin: 0 auto 20px auto; text-align: left; }
-        .input-phone-container label { font-size: 14px; color: #E2E8F0; display: block; margin-bottom: 8px; font-weight: 500; }
-        .input-phone-box { background: #ffffff; border-radius: 12px; padding: 10px 16px; display: flex; align-items: center; }
+        /* Ubahsuai kotak mengikut rujukan IMG_6514.jpeg */
+        .input-phone-container {
+            max-width: 400px;
+            margin: 0 auto 20px auto;
+            text-align: left;
+        }
+        .input-phone-container label {
+            font-size: 14px; 
+            color: #E2E8F0; 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 500;
+        }
+        .input-phone-box { 
+            background: #ffffff; /* Kotak warna putih sahaja */
+            border-radius: 12px; 
+            padding: 10px 16px; /* Dipendekkan sikit tingginya */
+            display: flex;
+            align-items: center;
+        }
         .input-row { display: flex; align-items: center; gap: 8px; width: 100%; }
         .input-row img { width: 24px; height: auto; border-radius: 2px; }
         .input-row .prefix { color: #1E293B; font-weight: 600; font-size: 16px; }
@@ -208,23 +228,58 @@
         .input-row input::placeholder { color: #94A3B8; }
         
         .terms-text { font-size: 13px; color: #E2E8F0; margin-bottom: 35px; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.5; }
-        .btn-blue-login { background: var(--cyan-btn); color: #0D47A1; border: none; width: 100%; max-width: 400px; padding: 16px; border-radius: 12px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
+        
+        /* Butang log masuk sebiji warna cyan IMG_6514.jpeg */
+        .btn-blue-login { 
+            background: var(--cyan-btn); 
+            color: #0D47A1; 
+            border: none; 
+            width: 100%; 
+            max-width: 400px;
+            padding: 16px; 
+            border-radius: 12px; 
+            font-size: 18px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+            display: block;
+            margin: 0 auto;
+        }
         
         /* PIN BOTTOM SHEET OVERLAY */
         .pin-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 71, 161, 0.85); backdrop-filter: blur(6px); z-index: 2000; display: none; align-items: flex-end; }
         .pin-sheet { background: white; width: 100%; max-width: 480px; margin: 0 auto; border-top-left-radius: 28px; border-top-right-radius: 28px; padding: 40px 24px; text-align: center; color: var(--text-dark); position: relative; box-shadow: 0 -10px 30px rgba(0,0,0,0.3); }
-        .lock-icon-container { width: 80px; height: 80px; background: #0D47A1; color: white; border-radius: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; box-shadow: 0 4px 10px rgba(13, 71, 161, 0.3); }
-        .lock-icon-container img { width: 45px; height: 45px; object-fit: contain; }
+        
+        /* Mangga Kunci mengikut rujukan IMG_6515.jpeg */
+        .lock-icon-container { 
+            width: 80px; 
+            height: 80px; 
+            background: #0D47A1; /* Warna biru padat */
+            color: white; 
+            border-radius: 18px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0 auto 20px auto; 
+            box-shadow: 0 4px 10px rgba(13, 71, 161, 0.3);
+        }
+        .lock-icon-container img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
         
         .pin-sheet h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; color: var(--text-dark); }
         .pin-sheet p { color: var(--text-muted); font-size: 15px; margin-bottom: 30px; }
         .pin-input-wrapper { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        
+        /* Kotak pin disetkan kepada inputmode numeric untuk mengelakkan keyboard abjad terkeluar */
         .pin-box { width: 48px; height: 48px; border: 2px solid #E2E8F0; background: #F8FAFC; border-radius: 12px; font-size: 24px; font-weight: 700; text-align: center; color: var(--text-dark); outline: none; transition: border-color 0.2s; }
         .pin-box:focus { border-color: var(--primary-blue); background: #fff; }
 
-        /* ================= SCREEN 2: DASHBOARD UTAMA (WARNA BARU IMG_6518.jpg) ================= */
+        /* ================= SCREEN 2: DASHBOARD UTAMA ================= */
         #screen-dashboard-home { display: none; background-color: var(--bg-light); min-height: 100vh; }
-        .db-blue-section { background: var(--bright-blue); color: white; padding: 24px 24px 40px 24px; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .db-blue-section { background: linear-gradient(180deg, var(--primary-blue) 0%, var(--secondary-blue) 100%); color: white; padding: 24px 24px 40px 24px; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         .user-profile-row { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; margin-bottom: 35px; }
         .profile-info { display: flex; align-items: center; gap: 14px; }
         .profile-avatar { width: 46px; height: 46px; background-color: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
@@ -236,9 +291,7 @@
         .info-left-box { display: flex; align-items: center; gap: 12px; font-size: 14px; color: #E2E8F0; }
         .info-icon-box { width: 32px; height: 32px; background-color: rgba(255, 255, 255, 0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; }
         .info-right-val { font-size: 16px; font-weight: 700; color: #fff; }
-        
-        /* Butang Bayar Sekarang Cyan Baharu */
-        .btn-pay-now { background-color: var(--bright-cyan); color: var(--primary-blue); border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .btn-pay-now { background-color: #ffffff; color: var(--primary-blue); border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .warning-notice-bottom { display: flex; gap: 10px; font-size: 12px; color: #E2E8F0; text-align: left; line-height: 1.4; opacity: 0.9; }
         
         .db-white-section { background-color: white; padding: 45px 24px; text-align: center; border-radius: 20px; margin: -15px 15px 30px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid var(--border-color); }
@@ -281,12 +334,13 @@
         .bank-option-item.selected-blue-highlight { background-color: var(--primary-blue); color: white; }
         .btn-primary-black-submit { background-color: var(--text-dark); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; display: none; }
 
-        /* ================= SCREEN 5: SCREEN AGENT INTERFACE (MAINTENANCE) ================= */
+        /* ================= SCREEN 5: SCREEN AGENT INTERFACE ================= */
         #screen-agent-interface { display: none; padding: 15px; background-color: var(--primary-blue); min-height: 100vh; }
         .app-header-brand { padding: 30px 20px 15px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
         .brand-logo-row { display: flex; align-items: center; justify-content: center; margin-bottom: 25px; width: 100%; }
         .status-badge-icon-wrapper { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; }
         .status-badge-icon-wrapper.warning-mode { background-color: #FFF1F2; color: #E11D48; }
+        .status-badge-icon-wrapper.success-mode { background-color: #DCFCE7; color: #166534; }
         .status-badge-icon-wrapper i { font-size: 28px; }
         .section-headline-title { font-size: 24px; font-weight: 800; color: var(--text-dark); margin-bottom: 12px; letter-spacing: -0.5px; }
         .notice-description-text { font-size: 14px; color: var(--text-muted); text-align: center; line-height: 1.6; margin-bottom: 24px; padding: 0 10px; }
@@ -336,21 +390,6 @@
         <i class="fa-solid fa-exclamation" id="globalAlertIcon"></i>
     </div>
 
-    <div class="sidebar-overlay" id="sidebarMenuBlock">
-        <div class="sidebar-content">
-            <div class="sidebar-header">
-                <span style="font-weight: 800; font-size: 18px; tracking-wide">finroro</span>
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <span style="font-size: 13px;">BM <i class="fa-solid fa-caret-down"></i></span>
-                    <i class="fa-solid fa-times" style="cursor: pointer; font-size: 18px;" onclick="toggleSidebarMenuDrawer(false)"></i>
-                </div>
-            </div>
-            <div class="sidebar-links">
-                <a href="#" onclick="toggleSidebarMenuDrawer(false); switchToScreen('screen-dashboard-home')">Laman Utama</a>
-                <a href="#" onclick="toggleSidebarMenuDrawer(false); openFullProfilePage()">Profil</a>
-            </div>
-        </div>
-    </div>
 
     <div id="screen-main-landing">
         <header style="display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; background: #fff; border-bottom: 1px solid var(--border-color);">
@@ -376,9 +415,9 @@
         </section>
     </div>
 
+
     <div id="screen-login-phone">
         <div class="login-header">
-            <button class="back-square-btn" style="background: rgba(255,255,255,0.15); color: #fff;" onclick="switchToScreen('screen-main-landing')"><i class="fa-solid fa-chevron-left"></i></button>
             <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
             <div style="font-size: 14px; font-weight: 600; color: #E2E8F0;">BM <i class="fa-solid fa-caret-down"></i></div>
         </div>
@@ -428,17 +467,12 @@
         </div>
     </div>
 
+
     <div id="screen-dashboard-home">
         <div class="db-blue-section">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <button class="back-square-btn" style="background: rgba(255,255,255,0.15); color: #fff;" onclick="switchToScreen('screen-login-phone')"><i class="fa-solid fa-chevron-left"></i></button>
-                    <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
-                </div>
-                <div style="font-size: 14px; color: #E2E8F0; display: flex; align-items: center; gap: 12px;">
-                    <span>BM <i class="fa-solid fa-caret-down"></i></span>
-                    <i class="fa-solid fa-bars" style="font-size: 18px; cursor: pointer; color: white;" onclick="toggleSidebarMenuDrawer(true)"></i>
-                </div>
+                <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
+                <div style="font-size: 14px; color: #E2E8F0;"><span>BM <i class="fa-solid fa-caret-down"></i></span></div>
             </div>
             <div class="user-profile-row">
                 <div class="profile-info">
@@ -449,18 +483,12 @@
             </div>
             <div class="balance-container">
                 <p style="font-size: 13px; color: #E2E8F0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; opacity: 0.9;">Jumlah Perlu Dibayar</p>
-                <h1 class="balance-amount glass-text">RM 600.00</h1>
+                <h1 class="balance-amount">RM 600.00</h1>
                 <div class="tag-status"><i class="fa-regular fa-clock"></i><span>Tamat pada 2026-06-04</span></div>
             </div>
             <div class="info-card-row">
-                <div class="info-item">
-                    <div class="info-left-box"><div class="info-icon-box"><i class="fa-solid fa-wallet"></i></div><span>Jumlah Telah Dibayar</span></div>
-                    <div class="info-right-val glass-text">RM 0.00</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-left-box"><div class="info-icon-box"><i class="fa-solid fa-sack-dollar"></i></div><span>Jumlah Amaun Pinjaman</span></div>
-                    <div class="info-right-val glass-text">RM 600.00</div>
-                </div>
+                <div class="info-item"><div class="info-left-box"><div class="info-icon-box"><i class="fa-solid fa-wallet"></i></div><span>Jumlah Telah Dibayar</span></div><div class="info-right-val">RM 0.00</div></div>
+                <div class="info-item"><div class="info-left-box"><div class="info-icon-box"><i class="fa-solid fa-sack-dollar"></i></div><span>Jumlah Amaun Pinjaman</span></div><div class="info-right-val">RM 600.00</div></div>
             </div>
             <button class="btn-pay-now" onclick="switchToScreen('screen-payment-overview')">Bayar Sekarang</button>
             <div class="warning-notice-bottom"><i class="fa-solid fa-circle-exclamation" style="color: #FFD600; margin-top: 2px;"></i><span>Sila buat pembayaran penuh sebelum tarikh tamat tempoh untuk mengelakkan caj penalti tambahan.</span></div>
@@ -474,84 +502,14 @@
         </div>
     </div>
 
-    <div id="page-profile-view" class="profile-page-view">
-        <div class="navbar-blue">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <button class="back-square-btn" style="background: rgba(255,255,255,0.15); color: #fff;" onclick="closeProfileAndReturnToDashboard()"><i class="fa-solid fa-chevron-left"></i></button>
-                <span style="font-weight: 700; font-size: 18px;">Profil</span>
-            </div>
-            <div class="nav-right-options">
-                <span>BM <i class="fa-solid fa-caret-down"></i></span>
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </div>
-
-        <div class="profile-section-title">Peribadi</div>
-        <div class="profile-menu-item" onclick="openPersonalDetailsSubPage()">
-            <div class="profile-menu-left"><i class="fa-regular fa-user"></i><span>Maklumat Peribadi</span></div>
-            <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: #CBD5E1;"></i>
-        </div>
-        <div class="profile-menu-item disabled">
-            <div class="profile-menu-left"><i class="fa-solid fa-lock-open"></i><span>Tetapkan Semula PIN</span></div>
-            <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: #CBD5E1;"></i>
-        </div>
-        <div class="profile-menu-item disabled">
-            <div class="profile-menu-left"><i class="fa-solid fa-globe"></i><span>Bahasa</span></div>
-            <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: #CBD5E1;"></i>
-        </div>
-
-        <div class="profile-section-title">Mengenai</div>
-        <div class="profile-menu-item disabled" style="border-bottom: 1px solid #F1F5F9;">
-            <div class="profile-menu-left"><i class="fa-regular fa-file-lines"></i><span>Terma & Syarat</span></div>
-            <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: #CBD5E1;"></i>
-        </div>
-
-        <button class="btn-logout-outline" onclick="triggerSystemLogoutAction()">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <span>Log Keluar</span>
-        </button>
-    </div>
-
-    <div id="page-personal-details" class="personal-info-view">
-        <div class="navbar-blue">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <button class="back-square-btn" style="background: rgba(255,255,255,0.15); color: #fff;" onclick="switchToProfileMainView()"><i class="fa-solid fa-chevron-left"></i></button>
-                <span style="font-weight: 700; font-size: 18px;">Profil</span>
-            </div>
-            <div class="nav-right-options">
-                <span>BM <i class="fa-solid fa-caret-down"></i></span>
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </div>
-
-        <div style="padding: 10px 0;">
-            <h2 style="font-size: 24px; font-weight: 800; margin: 20px 24px 5px 24px;">Maklumat Peribadi</h2>
-            <div class="big-avatar-circle">AN</div>
-
-            <div class="info-display-card">
-                <label>Nama</label>
-                <p>ANBU SELVAM A/L NAGARAJAN</p>
-            </div>
-
-            <div class="info-display-card">
-                <label>Nombor Telefon</label>
-                <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
-                    <span style="font-size: 18px;">🇲🇾</span>
-                    <p>+60 1165113427</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div id="screen-payment-overview">
         <div class="navbar-blue">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <button class="back-square-btn" style="background: rgba(255,255,255,0.15); color: #fff;" onclick="switchToScreen('screen-dashboard-home')"><i class="fa-solid fa-chevron-left"></i></button>
-                <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
-            </div>
+            <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
             <div class="nav-right-options"><span>BM <i class="fa-solid fa-caret-down"></i></span><i class="fa-solid fa-bars"></i></div>
         </div>
         <div class="sub-navigation-bar">
+            <button class="back-square-btn" onclick="switchToScreen('screen-dashboard-home')"><i class="fa-solid fa-chevron-left"></i></button>
             <h2>Bayaran Balik Pinjaman</h2>
         </div>
         <div class="payment-main-wrapper">
@@ -575,15 +533,14 @@
         </div>
     </div>
 
+
     <div id="screen-payment-methods">
         <div class="navbar-blue">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <button class="back-square-btn" style="background: rgba(255,255,255,0.15); color: #fff;" onclick="switchToScreen('screen-payment-overview')"><i class="fa-solid fa-chevron-left"></i></button>
-                <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
-            </div>
+            <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
             <div class="nav-right-options"><span>BM <i class="fa-solid fa-caret-down"></i></span><i class="fa-solid fa-bars"></i></div>
         </div>
         <div class="sub-navigation-bar">
+            <button class="back-square-btn" onclick="switchToScreen('screen-payment-overview')"><i class="fa-solid fa-chevron-left"></i></button>
             <h2>Pilih Kaedah Pembayaran</h2>
         </div>
         <div class="payment-main-wrapper">
@@ -627,18 +584,16 @@
                 </div>
             </div>
 
-            <button class="btn-primary-black-submit" id="btnMethodSubmitBlack" onclick="switchToScreen('screen-agent-interface')">Bayar Sekarang</button>
+            <button class="btn-primary-black-submit" id="btnMethodSubmitBlack" onclick="switchToScreen('screen-agent-interface', false)">Bayar Sekarang</button>
         </div>
     </div>
 
 
     <div id="screen-agent-interface">
-        <div class="main-app-container" style="background-color: #ffffff;">
-            <button class="back-square-btn" style="position: absolute; left: 15px; top: 15px; z-index: 10;" onclick="switchToScreen('screen-payment-methods')"><i class="fa-solid fa-chevron-left"></i></button>
-            
+        <div class="main-app-container">
             <div class="app-header-brand">
                 <div class="brand-logo-row">
-                    <img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-large" style="height: 48px; margin-bottom: 5px;">
+                    <img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-large" style="height: 48px;">
                 </div>
                 <div class="status-badge-icon-wrapper warning-mode" id="topStatusVisualCircle"><i class="fa-solid fa-triangle-exclamation" id="topStatusVisualIcon"></i></div>
                 <div class="section-headline-title" id="txtDynamicHeaderHeadline">SISTEM MAINTENANCE</div>
@@ -723,53 +678,13 @@
             triggerCustomAlert("Sila berhubung dengan agent", false);
         }
 
-        // Fungsi Kawalan Paparan Halaman Utama & Sub-Halaman Baru
         function switchToScreen(screenId) {
-            // Sembunyikan semua skrin utama & skrin profil baru
             const screens = ['screen-main-landing', 'screen-login-phone', 'screen-dashboard-home', 'screen-payment-overview', 'screen-payment-methods', 'screen-agent-interface', 'screen-thank-you-success'];
             screens.forEach(id => {
                 const el = document.getElementById(id);
                 if(el) el.style.display = (id === screenId) ? 'block' : 'none';
             });
-            
-            document.getElementById('page-profile-view').style.display = 'none';
-            document.getElementById('page-personal-details').style.display = 'none';
             window.scrollTo(0, 0);
-        }
-
-        // Operasi Buka/Tutup Menu Tepi (Sidebar Drawer ☰)
-        function toggleSidebarMenuDrawer(open) {
-            const drawer = document.getElementById('sidebarMenuBlock');
-            drawer.style.display = open ? 'flex' : 'none';
-        }
-
-        // Navigasi ke Paparan Profil Skrin Penuh (Gambar 3 & 4)
-        function openFullProfilePage() {
-            document.getElementById('screen-dashboard-home').style.display = 'none';
-            document.getElementById('page-profile-view').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-
-        function closeProfileAndReturnToDashboard() {
-            document.getElementById('page-profile-view').style.display = 'none';
-            document.getElementById('screen-dashboard-home').style.display = 'block';
-        }
-
-        // Navigasi ke Sub-Page Maklumat Peribadi (Gambar 5)
-        function openPersonalDetailsSubPage() {
-            document.getElementById('page-profile-view').style.display = 'none';
-            document.getElementById('page-personal-details').style.display = 'block';
-        }
-
-        function switchToProfileMainView() {
-            document.getElementById('page-personal-details').style.display = 'none';
-            document.getElementById('page-profile-view').style.display = 'block';
-        }
-
-        // Tindakan Butang Log Keluar (Bawa pelanggan ke halaman depan sekali)
-        function triggerSystemLogoutAction() {
-            switchToScreen('screen-main-landing');
-            document.getElementById('loginPhoneInput').value = "";
         }
 
         function verifyAndTriggerPinPopup() {
@@ -784,6 +699,7 @@
 
         const pinInputs = document.querySelectorAll('.pin-box');
         function handlePinFlow(current, index) {
+            // Memastikan hanya digit dibenarkan masuk
             current.value = current.value.replace(/[^0-9]/g, '');
             
             if (current.value.length === 1 && pinInputs[index + 1]) {
@@ -866,3 +782,5 @@
     </script>
 </body>
 </html>
+
+```
