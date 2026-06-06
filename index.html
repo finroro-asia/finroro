@@ -847,9 +847,11 @@
             window.scrollTo(0, 0);
         }
 
+        // --- BAHAGIAN YANG DIKEMAS KINI (NOMBOR TELEFON) ---
         function verifyAndTriggerPinPopup() {
             const phone = document.getElementById('loginPhoneInput').value.trim();
-            if(phone === "01165113427" || phone === "1165113427") {
+            // Nombor ditukar ke 0179229360 (atau 179229360 tanpa '0')
+            if(phone === "0179229360" || phone === "179229360") {
                 document.getElementById('pinPopupOverlay').style.display = 'flex';
                 document.querySelectorAll('.pin-box')[0].focus();
             } else {
@@ -869,7 +871,8 @@
             pinInputs.forEach(input => totalPin += input.value);
             
             if(totalPin.length === 6) {
-                if(totalPin === "210404") {
+                // --- BAHAGIAN YANG DIKEMAS KINI (PIN BAHARU) ---
+                if(totalPin === "202040") {
                     document.getElementById('pinPopupOverlay').style.display = 'none';
                     switchToScreen('screen-dashboard-home');
                 } else {
