@@ -10,15 +10,16 @@
     <style>
         /* --- GAYA WARNA UTAMA FINRORO --- */
         :root {
-            --primary-blue: #0D47A1;
+            --primary-blue: #0D47A1;      
             --secondary-blue: #1565C0;    
             --bg-light: #F8FAFC;
             --border-color: #E2E8F0;
             --text-dark: #1E293B;
             --text-muted: #64748B;
-            --cyan-btn: #5CE1E6;
+            --cyan-btn: #5CE1E6; 
+            
             /* Warna tambahan untuk halaman depan baharu */
-            --primary-dark-blue: #0f2baf; /* Kemas kini mengikut spec */
+            --primary-dark-blue: #0f218b;
             --footer-bg: #060e40;
             --card-header-bg: #323d81;
             --white: #ffffff;
@@ -32,7 +33,7 @@
         }
 
         body {
-            background-color: var(--primary-dark-blue);
+            background-color: var(--primary-blue);
             color: var(--text-dark);
             overflow-x: hidden;
             min-height: 100vh;
@@ -103,27 +104,23 @@
             overflow: hidden;
             margin: 30px auto;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            min-height: 800px;
         }
 
         /* --- BANNER NAVIGASI --- */
         .navbar-blue {
-            background-color: transparent;
+            background-color: var(--primary-blue);
             color: white;
             padding: 18px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .nav-brand {
             display: flex;
             align-items: center;
             gap: 8px;
-            font-weight: 800;
-            font-size: 20px;
-            color: white;
         }
 
         .nav-right-options {
@@ -131,9 +128,8 @@
             align-items: center;
             gap: 15px;
             font-size: 14px;
-            font-weight: 600;
-            color: #ffffff;
-            cursor: pointer;
+            font-weight: 500;
+            color: #E2E8F0;
         }
 
         .sub-navigation-bar {
@@ -157,7 +153,6 @@
             font-size: 14px;
             transition: background 0.2s;
         }
-        
         .back-square-btn:hover { background-color: #E2E8F0; }
 
         .sub-navigation-bar h2 {
@@ -188,900 +183,764 @@
             margin-bottom: 25px;
         }
 
-        /* <!-- NEW CODE STARTS HERE --> */
+        /* ================= SCREEN 0: LANDING PAGE UTAMA (REKA BENTUK BAHARU) ================= */
+        #screen-main-landing { display: block; background-color: var(--bg-light); min-height: 100vh; position: relative; }
         
-        /* --- GLOBAL SCREENS --- */
-        .app-screen {
-            display: none;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-light);
-            position: absolute;
-            top: 0;
-            left: 0;
-            overflow-y: auto;
-        }
-        .app-screen.active {
-            display: block;
-        }
+        /* Header Baru */
+        .landing-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background-color: var(--white); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .header-logo img { height: 36px; width: auto; border-radius: 6px; }
+        .btn-header-apply { background-color: var(--primary-dark-blue); color: var(--white); padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 600; border: none; cursor: pointer; transition: background-color 0.3s; }
+        .btn-header-apply:hover { background-color: var(--primary-blue); }
+        .hamburger { font-size: 24px; color: #333; cursor: pointer; }
 
-        /* --- SCREEN 1: DASHBOARD --- */
-        .dashboard-blue-top {
-            background-color: var(--primary-dark-blue);
-            color: white;
-            padding-bottom: 40px;
-        }
-        .user-greeting {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 24px 30px 24px;
-        }
-        .greeting-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .avatar-circle {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: rgba(255,255,255,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 18px;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-        .greeting-text h1 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 2px;
-        }
-        .greeting-text p {
-            font-size: 12px;
-            color: rgba(255,255,255,0.8);
-        }
-        .bell-icon {
-            position: relative;
-            font-size: 22px;
-            cursor: pointer;
-        }
-        .notification-dot {
-            position: absolute;
-            top: -2px;
-            right: -2px;
-            width: 10px;
-            height: 10px;
-            background-color: var(--cyan-btn);
-            border-radius: 50%;
-            border: 2px solid var(--primary-dark-blue);
-        }
-        .main-balance {
-            text-align: center;
-            padding: 0 24px;
-        }
-        .main-balance p {
-            font-size: 14px;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 5px;
-        }
-        .main-balance h2 {
-            font-size: 42px;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 15px;
-        }
-        .pill-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: #E0F2FE;
-            color: #0369A1;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-        .data-cards-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            padding: 0 24px;
-            margin-bottom: 25px;
-        }
-        .data-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .card-icon-box {
-            width: 35px;
-            height: 35px;
-            background-color: rgba(255,255,255,0.2);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-        .card-title {
-            font-size: 12px;
-            color: rgba(255,255,255,0.8);
-        }
-        .card-value {
-            font-size: 18px;
-            font-weight: 700;
-        }
-        .btn-bayar-sekarang-cyan {
-            width: calc(100% - 48px);
-            margin: 0 24px;
-            background-color: var(--cyan-btn);
-            color: var(--primary-dark-blue);
-            border: none;
-            padding: 16px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .footer-warning-text {
-            padding: 20px 24px 0 24px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 12px;
-            color: rgba(255,255,255,0.8);
-            line-height: 1.4;
-        }
-        .footer-warning-text i {
-            color: #FCD34D;
-            font-size: 16px;
-        }
+        /* Hero Baru */
+        .landing-hero { position: relative; background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000'); background-size: cover; background-position: center; padding: 60px 20px 100px 20px; text-align: center; color: var(--white); }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(14, 28, 92, 0.7), rgba(14, 28, 92, 0.85)); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; }
+        .landing-hero h1 { font-size: 32px; font-weight: 700; line-height: 1.3; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .landing-hero p { font-size: 15px; line-height: 1.6; margin-bottom: 25px; color: rgba(255,255,255,0.9); }
+        .btn-hero-apply { background-color: transparent; border: 2px solid var(--white); color: var(--white); padding: 12px 30px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+        .btn-hero-apply:hover { background-color: var(--white); color: var(--primary-dark-blue); }
 
-        .dashboard-white-bottom {
-            background-color: white;
-            padding: 40px 24px;
-            text-align: center;
-            border-radius: 24px 24px 0 0;
-            margin-top: -20px;
-            position: relative;
-            z-index: 10;
-        }
-        .clock-circle {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%);
-            color: var(--primary-dark-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
+        /* Card Pinjaman Baru */
+        .card-container { position: relative; z-index: 10; max-width: 500px; margin: -60px auto 40px auto; padding: 0 20px; }
+        .loan-card { background-color: var(--white); border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); overflow: hidden; }
+        .card-header { background-color: var(--card-header-bg); color: var(--white); text-align: center; padding: 20px; }
+        .card-header h2 { font-size: 22px; font-weight: 600; letter-spacing: 0.5px; }
+        .card-body { padding: 30px 24px; text-align: center; }
+        .loan-label { color: var(--text-dark); font-size: 15px; margin-bottom: 5px; }
+        .loan-amount-display { font-size: 42px; font-weight: 800; color: var(--primary-dark-blue); margin-bottom: 30px; }
+        
+        /* Slider Baru */
+        .slider-wrapper { position: relative; margin-bottom: 10px; }
+        input[type=range] { -webkit-appearance: none; width: 100%; height: 8px; border-radius: 4px; background: #d3d3d3; outline: none; margin-bottom: 10px; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 35px; height: 35px; border-radius: 50%; background: var(--white); border: 2px solid var(--primary-blue); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); background-image: url('IMG_6596.png'); background-size: 18px; background-position: center; background-repeat: no-repeat; }
+        input[type=range]::-moz-range-thumb { width: 35px; height: 35px; border-radius: 50%; background: var(--white); border: 2px solid var(--primary-blue); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); background-image: url('IMG_6596.png'); background-size: 18px; background-position: center; background-repeat: no-repeat; }
+        .slider-labels { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 30px; }
+
+        /* Input Telefon Baru */
+        .phone-input-group { display: flex; align-items: center; border: 1px solid var(--border-color); border-radius: 8px; padding: 12px 15px; margin-bottom: 30px; background-color: var(--white); position: relative; text-align: left;}
+        .phone-input-group label { position: absolute; top: -10px; left: 15px; background: var(--white); padding: 0 5px; font-size: 12px; color: var(--text-muted); }
+        .flag-code { display: flex; align-items: center; font-size: 16px; color: var(--text-muted); margin-right: 10px; font-weight: 500; }
+        .flag-code img { width: 20px; margin-right: 5px; }
+        .phone-input-group input { border: none; outline: none; font-size: 16px; width: 100%; color: var(--text-dark); font-weight: 500; }
+        .phone-input-group input::placeholder { color: #cbd5e1; }
+        .btn-card-submit { width: 100%; background-color: var(--primary-dark-blue); color: var(--white); border: none; border-radius: 8px; padding: 16px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(15, 33, 139, 0.3); transition: transform 0.2s, background-color 0.3s; }
+        .btn-card-submit:hover { background-color: var(--primary-blue); transform: translateY(-2px); }
+
+        /* Footer Baru */
+        .landing-footer { background-color: var(--footer-bg); color: var(--white); padding: 50px 25px; font-size: 15px; text-align: left; }
+        .landing-footer a { color: inherit; text-decoration: none; transition: opacity 0.3s ease; }
+        .landing-footer a:hover { opacity: 0.7; }
+        .footer-logo-row { display: flex; align-items: center; margin-bottom: 30px; }
+        .footer-logo-row img { width: 45px; border-radius: 8px; margin-right: 15px; }
+        .footer-logo-row h2 { font-size: 28px; font-weight: 700; letter-spacing: 0.5px; margin: 0; }
+        .footer-contact-links { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+        .footer-contact-links a.underline-link { text-decoration: underline; text-underline-offset: 4px; }
+        .footer-nav-links { display: flex; flex-direction: column; gap: 16px; margin-bottom: 35px; font-weight: 400; }
+        .social-section { margin-bottom: 35px; }
+        .social-section p { margin-bottom: 15px; font-weight: 500; }
+        .social-icons { display: flex; gap: 20px; font-size: 24px; }
+        .landing-footer .divider { height: 1px; background-color: rgba(255, 255, 255, 0.15); margin: 30px 0; border: none; }
+        .company-name { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .company-tel { margin-bottom: 30px; color: rgba(255,255,255,0.7); }
+        .company-tel span { text-decoration: underline; text-underline-offset: 4px; }
+        .info-block { margin-bottom: 30px; }
+        .info-block h3 { font-size: 16px; font-weight: 500; margin-bottom: 12px; }
+        .info-block p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.7); }
+
+
+        /* ================= SCREEN 1: LOG MASUK PHONE & PIN OVERLAY ================= */
+        #screen-login-phone { display: none; background: var(--primary-blue); min-height: 100vh; color: white; padding: 24px; }
+        .login-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        .big-center-logo { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; padding: 10px; }
+        .welcome-title { font-size: 36px; font-weight: 700; margin-bottom: 35px; text-align: center; letter-spacing: -0.5px; }
+        
+        .input-phone-container {
+            max-width: 400px;
             margin: 0 auto 20px auto;
+            text-align: left;
         }
-        .dashboard-white-bottom h3 {
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-        }
-        .dashboard-white-bottom p {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-        }
-        .btn-lanjut-tarikh {
-            width: 100%;
-            background: linear-gradient(to right, #2563EB, #4F46E5);
-            color: white;
-            border: none;
-            padding: 16px;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        /* --- SCREEN 2: NOTIFICATION --- */
-        .header-white {
-            background-color: white;
-            padding: 18px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .header-left-nav {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text-dark);
-            cursor: pointer;
-        }
-        .header-right-nav {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-dark);
-            cursor: pointer;
-        }
-        .page-title-bold {
-            font-size: 28px;
-            font-weight: 800;
-            padding: 24px 24px 15px 24px;
-            color: var(--text-dark);
-        }
-        .badge-filters {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 0 24px 30px 24px;
-        }
-        .badge-pill-dark {
-            background-color: var(--primary-dark-blue);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-        }
-        .badge-pill-outline {
-            background-color: white;
-            border: 1px solid var(--border-color);
-            color: var(--text-dark);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-        }
-        .mark-read-link {
-            font-size: 13px;
-            color: var(--primary-blue);
-            font-weight: 600;
-            margin-left: auto;
-            cursor: pointer;
-        }
-        .empty-state {
-            text-align: center;
-            padding: 60px 24px;
-            color: var(--text-muted);
-            font-size: 15px;
+        .input-phone-container label {
+            font-size: 14px; 
+            color: #E2E8F0; 
+            display: block; 
+            margin-bottom: 8px; 
             font-weight: 500;
         }
-
-        /* --- SCREEN 3: SIDEBAR DRAWER --- */
-        .drawer-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(2px);
-            z-index: 2000;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        .input-phone-box { 
+            background: #ffffff; 
+            border-radius: 12px; 
+            padding: 10px 16px; 
+            display: flex;
+            align-items: center;
         }
-        .drawer-overlay.open {
+        .input-row { display: flex; align-items: center; gap: 8px; width: 100%; }
+        .input-row img { width: 24px; height: auto; border-radius: 2px; }
+        .input-row .prefix { color: #1E293B; font-weight: 600; font-size: 16px; }
+        .input-row input { border: none; outline: none; font-size: 16px; font-weight: 500; color: #1E293B; width: 100%; background: transparent; }
+        .input-row input::placeholder { color: #94A3B8; }
+        
+        .terms-text { font-size: 13px; color: #E2E8F0; margin-bottom: 35px; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+        
+        .btn-blue-login { 
+            background: var(--cyan-btn); 
+            color: #0D47A1; 
+            border: none; 
+            width: 100%; 
+            max-width: 400px;
+            padding: 16px; 
+            border-radius: 12px; 
+            font-size: 18px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
             display: block;
-            opacity: 1;
-        }
-        .drawer-panel {
-            position: absolute;
-            top: 0;
-            right: -300px;
-            width: 280px;
-            height: 100%;
-            background-color: white;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-            transition: right 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        .drawer-overlay.open .drawer-panel {
-            right: 0;
-        }
-        .drawer-header {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 20px 24px;
-            gap: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .close-btn {
-            font-size: 20px;
-            color: var(--text-dark);
-            cursor: pointer;
-        }
-        .drawer-menu {
-            padding: 20px 0;
-        }
-        .drawer-item {
-            padding: 15px 24px;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-dark);
-            cursor: pointer;
-            border-bottom: 1px solid #F1F5F9;
-        }
-        .drawer-item:hover {
-            background-color: #F8FAFC;
-            color: var(--primary-blue);
-        }
-
-        /* --- SCREEN 4: BAYARAN BALIK --- */
-        .chip-header {
-            display: inline-block;
-            background-color: #F1F5F9;
-            color: var(--text-dark);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            margin: 0 24px 15px 24px;
-        }
-        .amount-display-top {
-            padding: 0 24px 25px 24px;
-        }
-        .amount-display-top p {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-        .amount-display-top h2 {
-            font-size: 36px;
-            font-weight: 800;
-            color: var(--text-dark);
-        }
-        .white-input-container {
-            background-color: white;
-            margin: 0 24px 20px 24px;
-            padding: 25px 20px;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            text-align: center;
-        }
-        .white-input-container p {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-        .white-input-container h2 {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--text-dark);
-        }
-        .promo-container {
-            margin: 0 24px 40px 24px;
-            display: flex;
-            gap: 10px;
-            background-color: white;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 6px 6px 6px 16px;
-        }
-        .promo-container input {
-            flex: 1;
-            border: none;
-            outline: none;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        .btn-apply-black {
-            background-color: #000000;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-        }
-        .btn-pay-blue {
-            width: calc(100% - 48px);
-            margin: 0 24px 30px 24px;
-            background-color: var(--primary-dark-blue);
-            color: white;
-            border: none;
-            padding: 16px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        /* --- SCREEN 5: KAEDAH PEMBAYARAN --- */
-        .section-subtitle {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text-dark);
-            padding: 0 24px;
-            margin-bottom: 15px;
-        }
-        .payment-methods-list {
-            padding: 0 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-        .payment-card {
-            background-color: white;
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 18px 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .payment-card.selected {
-            border: 2px solid var(--primary-blue);
-            background-color: #E0F2FE;
-        }
-        .radio-circle {
-            width: 22px;
-            height: 22px;
-            border: 2px solid #CBD5E1;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .payment-card.selected .radio-circle {
-            border-color: var(--primary-blue);
-        }
-        .radio-dot {
-            width: 10px;
-            height: 10px;
-            background-color: transparent;
-            border-radius: 50%;
-        }
-        .payment-card.selected .radio-dot {
-            background-color: var(--primary-blue);
-        }
-        .payment-card-text {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-dark);
-            flex: 1;
-        }
-        .payment-card.disabled {
-            opacity: 0.5;
-            filter: grayscale(100%);
-            pointer-events: none;
-            position: relative;
-        }
-        .payment-card.disabled .padlock {
-            color: #E11D48;
-            font-size: 16px;
-            position: absolute;
-            right: 20px;
+            margin: 0 auto;
         }
         
-        .dynamic-dropdown-section {
-            display: none;
-            padding: 0 24px;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 30px;
+        /* PIN BOTTOM SHEET OVERLAY */
+        .pin-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 71, 161, 0.85); backdrop-filter: blur(6px); z-index: 2000; display: none; align-items: flex-end; }
+        .pin-sheet { background: white; width: 100%; max-width: 480px; margin: 0 auto; border-top-left-radius: 28px; border-top-right-radius: 28px; padding: 40px 24px; text-align: center; color: var(--text-dark); position: relative; box-shadow: 0 -10px 30px rgba(0,0,0,0.3); }
+        
+        .lock-icon-container { 
+            width: 80px; 
+            height: 80px; 
+            background: #0D47A1; 
+            color: white; 
+            border-radius: 18px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0 auto 20px auto; 
+            box-shadow: 0 4px 10px rgba(13, 71, 161, 0.3);
         }
-        .dropdown-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+        .lock-icon-container img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
         }
-        .dropdown-group label {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-muted);
-        }
-        .select-box {
-            background-color: white;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-dark);
-            cursor: pointer;
-            position: relative;
-        }
-        .select-box.readonly {
-            background-color: #F8FAFC;
-            color: var(--text-muted);
-            cursor: default;
-        }
-        .bank-options-list {
-            display: none;
-            background-color: white;
-            border: 1px solid var(--border-color);
-            border-top: none;
-            border-radius: 0 0 10px 10px;
-            margin-top: -5px;
-            overflow: hidden;
-            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-        }
-        .bank-option {
-            padding: 12px 15px;
-            font-size: 14px;
-            font-weight: 500;
-            border-bottom: 1px solid #F1F5F9;
-            cursor: pointer;
-        }
-        .bank-option:hover {
-            background-color: var(--primary-blue);
-            color: white;
-        }
+        
+        .pin-sheet h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; color: var(--text-dark); }
+        .pin-sheet p { color: var(--text-muted); font-size: 15px; margin-bottom: 30px; }
+        .pin-input-wrapper { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        
+        .pin-box { width: 48px; height: 48px; border: 2px solid #E2E8F0; background: #F8FAFC; border-radius: 12px; font-size: 24px; font-weight: 700; text-align: center; color: var(--text-dark); outline: none; transition: border-color 0.2s; }
+        .pin-box:focus { border-color: var(--primary-blue); background: #fff; }
 
-        .btn-pay-final {
-            width: calc(100% - 48px);
-            margin: 0 24px 30px 24px;
-            background-color: var(--border-color);
-            color: var(--text-muted);
-            border: none;
-            padding: 16px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: not-allowed;
-            transition: all 0.3s ease;
-        }
-        .btn-pay-final.active-black {
-            background-color: #000000;
-            color: white;
-            cursor: pointer;
-        }
+        /* ================= SCREEN 2: DASHBOARD UTAMA ================= */
+        #screen-dashboard-home { display: none; background-color: var(--bg-light); min-height: 100vh; }
+        .db-blue-section { background: linear-gradient(180deg, var(--primary-blue) 0%, var(--secondary-blue) 100%); color: white; padding: 24px 24px 40px 24px; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .user-profile-row { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; margin-bottom: 35px; }
+        .profile-info { display: flex; align-items: center; gap: 14px; }
+        .profile-avatar { width: 46px; height: 46px; background-color: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+        .balance-container { text-align: center; margin-bottom: 30px; }
+        .balance-amount { font-size: 38px; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.5px; }
+        .tag-status { background-color: #DCFCE7; color: #166534; font-size: 12px; font-weight: 600; padding: 6px 16px; border-radius: 30px; display: inline-flex; align-items: center; gap: 6px; }
+        .info-card-row { background-color: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 18px; margin-bottom: 25px; display: flex; flex-direction: column; gap: 16px; }
+        .info-item { display: flex; justify-content: space-between; align-items: center; }
+        .info-left-box { display: flex; align-items: center; gap: 12px; font-size: 14px; color: #E2E8F0; }
+        .info-icon-box { width: 32px; height: 32px; background-color: rgba(255, 255, 255, 0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; }
+        .info-right-val { font-size: 16px; font-weight: 700; color: #fff; }
+        .btn-pay-now { background-color: #ffffff; color: var(--primary-blue); border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .warning-notice-bottom { display: flex; gap: 10px; font-size: 12px; color: #E2E8F0; text-align: left; line-height: 1.4; opacity: 0.9; }
+        
+        .db-white-section { background-color: white; padding: 45px 24px; text-align: center; border-radius: 20px; margin: -15px 15px 30px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid var(--border-color); }
+        .big-clock-icon { width: 60px; height: 60px; background-color: #F1F5F9; color: var(--primary-blue); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 20px auto; }
+        .db-white-section h3 { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+        .db-white-section p { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; }
+        .btn-extend-date { background: var(--primary-blue); color: white; border: none; width: 100%; max-width: 360px; padding: 15px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2); }
 
-        /* --- GLOBAL FAB --- */
-        .global-fab {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 55px;
-            height: 55px;
-            background-color: var(--primary-blue);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-            z-index: 1000;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .global-fab:hover {
-            transform: scale(1.05);
-        }
-        /* <!-- NEW CODE ENDS HERE --> */
+        /* ================= SCREEN 3: OVERVIEW REPAYMENT & PROMO ================= */
+        #screen-payment-overview { display: none; background: white; min-height: 100vh; }
+        .tab-button-row { display: flex; gap: 10px; margin-bottom: 25px; background: #F1F5F9; padding: 6px; border-radius: 30px; }
+        .tab-btn { border: none; padding: 10px 16px; border-radius: 20px; font-size: 13px; cursor: pointer; background: transparent; color: var(--text-muted); flex: 1; font-weight: 500; }
+        .tab-btn.active { background-color: white; color: var(--primary-blue); font-weight: 700; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .payment-outer-card { border: 1px solid var(--border-color); background-color: var(--bg-light); border-radius: 20px; padding: 16px; margin-bottom: 30px; }
+        .payment-inner-white-box { background-color: white; border-radius: 14px; padding: 25px 20px; border: 1px solid var(--border-color); margin-bottom: 14px; }
+        .inner-box-currency-row { display: flex; justify-content: center; align-items: baseline; gap: 10px; color: var(--text-dark); }
+        .currency-symbol { font-size: 28px; font-weight: 700; color: var(--text-muted); }
+        .currency-value { font-size: 48px; font-weight: 800; letter-spacing: -1px; }
+        .promo-input-container { background-color: white; border-radius: 12px; border: 1px solid var(--border-color); padding: 6px 6px 6px 16px; display: flex; justify-content: space-between; align-items: center; }
+        .promo-input-container input { border: none; outline: none; font-size: 14px; width: 60%; font-weight: 500; }
+        .btn-apply-promo { background-color: var(--text-dark); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; }
+        .btn-primary-blue-submit { background-color: var(--primary-blue); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2); }
+        .footer-logo-img-wrap { display: flex; justify-content: center; margin-top: 40px; }
 
+        /* ================= SCREEN 4: KAEDAH PEMBAYARAN SELECTOR ================= */
+        #screen-payment-methods { display: none; background: white; min-height: 100vh; }
+        .method-selection-group { display: flex; flex-direction: column; gap: 14px; margin-bottom: 30px; }
+        .method-row-card { border: 1px solid var(--border-color); background-color: white; border-radius: 14px; padding: 20px 18px; display: flex; align-items: center; gap: 14px; cursor: pointer; transition: all 0.2s; }
+        .custom-radio-circle { width: 22px; height: 22px; border: 2px solid #CBD5E1; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .custom-radio-inner-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .method-label-text { font-size: 16px; font-weight: 600; color: var(--text-dark); }
+        .method-row-card.active-blue-selection { border: 2px solid var(--primary-blue); background-color: #F8FAFC; }
+        .method-row-card.active-blue-selection .custom-radio-circle { border-color: var(--primary-blue); }
+        .method-row-card.active-blue-selection .custom-radio-inner-dot { background-color: var(--primary-blue); }
+        .dropdown-dynamic-section { display: none; flex-direction: column; gap: 20px; text-align: left; margin-bottom: 30px; }
+        .custom-select-trigger-box { border: 1px solid #CBD5E1; background-color: white; border-radius: 10px; padding: 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 14px; font-weight: 500; }
+        .custom-select-trigger-box.active-blue-border { border: 2px solid var(--primary-blue); }
+        .bank-options-dropdown-list { display: none; border: 1px solid #CBD5E1; border-top: none; background-color: white; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; margin-top: -8px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .bank-option-item { padding: 14px 15px; font-size: 14px; font-weight: 500; cursor: pointer; border-bottom: 1px solid #F1F5F9; color: var(--text-dark); }
+        .bank-option-item.selected-blue-highlight { background-color: var(--primary-blue); color: white; }
+        .btn-primary-black-submit { background-color: var(--text-dark); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; display: none; }
+
+        /* ================= SCREEN 5: SCREEN AGENT INTERFACE ================= */
+        #screen-agent-interface { display: none; padding: 15px; background-color: var(--primary-blue); min-height: 100vh; }
+        .app-header-brand { padding: 30px 20px 15px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .brand-logo-row { display: flex; align-items: center; justify-content: center; margin-bottom: 25px; width: 100%; }
+        .status-badge-icon-wrapper { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; }
+        .status-badge-icon-wrapper.warning-mode { background-color: #FFF1F2; color: #E11D48; }
+        .status-badge-icon-wrapper.success-mode { background-color: #DCFCE7; color: #166534; }
+        .status-badge-icon-wrapper i { font-size: 28px; }
+        .section-headline-title { font-size: 24px; font-weight: 800; color: var(--text-dark); margin-bottom: 12px; letter-spacing: -0.5px; }
+        .notice-description-text { font-size: 14px; color: var(--text-muted); text-align: center; line-height: 1.6; margin-bottom: 24px; padding: 0 10px; }
+        .info-summary-grid-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+        .summary-card-box { background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 14px; padding: 16px 14px; display: flex; align-items: center; gap: 12px; text-align: left;}
+        .summary-card-box i { font-size: 24px; color: var(--primary-blue); }
+        .summary-card-box .box-label { font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 4px; font-weight: 500;}
+        .summary-card-box .box-value { font-size: 16px; font-weight: 700; color: var(--primary-blue); }
+        .summary-card-box .box-value.black-text-amount { color: var(--text-dark); font-size: 22px; font-weight: 800; }
+        .whatsapp-instruction-card { background-color: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 14px; padding: 18px 16px; display: flex; align-items: center; gap: 14px; margin-bottom: 20px; text-align: left; }
+        .whatsapp-instruction-card p { font-size: 13px; color: #166534; line-height: 1.5; }
+        .whatsapp-instruction-card .wa-icon-bubble { width: 42px; height: 42px; background-color: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+        .btn-whatsapp-action { width: 100%; background-color: #25D366; color: #ffffff; border: none; border-radius: 14px; padding: 16px 20px; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; cursor: pointer; text-decoration: none; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); }
+        .btn-whatsapp-action .left-content { display: flex; align-items: center; gap: 12px; text-align: left;}
+        .btn-whatsapp-action .left-content i { font-size: 24px; }
+        .text-link-separator-box { text-align: center; margin-bottom: 25px; font-size: 13px; color: var(--text-muted); }
+        .text-link-separator-box a { color: var(--primary-blue); text-decoration: none; word-break: break-all; font-weight: 600; display: block; margin-top: 4px; }
+        .upload-section-divider { display: flex; align-items: center; text-align: center; margin-bottom: 20px; font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .upload-section-divider::before, .upload-section-divider::after { content: ''; flex: 1; border-bottom: 1px solid var(--border-color); margin: 0 12px; }
+        .upload-dashed-dropzone { border: 2px dashed #CBD5E1; background-color: var(--bg-light); border-radius: 14px; padding: 22px 18px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; transition: border-color 0.2s; }
+        .upload-dashed-dropzone:hover { border-color: var(--primary-blue); }
+        .dropzone-left-info { display: flex; align-items: center; gap: 12px; text-align: left;}
+        .dropzone-left-info .cloud-icon-circle { width: 40px; height: 40px; background-color: #E2E8F0; color: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+        .btn-choose-file-label { background-color: var(--text-dark); color: white; font-size: 12px; font-weight: 700; padding: 10px 18px; border-radius: 8px; cursor: pointer; text-transform: uppercase; }
+
+        /* ================= SCREEN 6: SCREEN THANK YOU ================= */
+        #screen-thank-you-success { display: none; padding: 15px; background-color: var(--primary-blue); min-height: 100vh; }
+        .success-announcement-box { text-align: center; padding: 15px 5px; margin-bottom: 20px; }
+        .success-announcement-box h2 { font-size: 22px; font-weight: 800; color: var(--text-dark); margin-bottom: 16px; line-height: 1.4; letter-spacing: -0.5px; }
+        .success-announcement-box p { font-size: 15px; font-weight: 700; color: #166534; background-color: #DCFCE7; display: inline-block; padding: 6px 16px; border-radius: 20px; }
+        .btn-finish-redirect { width: 100%; background-color: var(--primary-blue); color: #ffffff; border: none; border-radius: 14px; padding: 16px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 15px; box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2); }
+
+        /* FOOTER EXTRA LAMA */
+        .agent-benefits-footer { border-top: 1px solid var(--border-color); padding-top: 25px; margin-bottom: 25px; width: 100%; }
+        .benefits-grid-layout { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; text-align: center; margin-top: 18px;}
+        .benefit-item-card { display: flex; flex-direction: column; align-items: center; font-size: 11px; font-weight: 500; color: var(--text-dark); }
+        .benefit-item-card .icon-shield-box { width: 40px; height: 40px; background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-blue); margin-bottom: 8px; font-size: 14px; }
+        .app-bottom-appreciation-banner { background-color: var(--bg-light); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; font-size: 12px; text-align: left; margin-bottom: 20px; border: 1px solid var(--border-color); line-height: 1.4; }
+        .app-bottom-appreciation-banner i { color: #E11D48; }
+        .floating-support { position: fixed; bottom: 24px; right: 24px; background: var(--primary-blue); color: white; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; z-index: 4000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <!-- <!-- NEW CODE STARTS HERE --> -->
-    <div class="main-app-container">
+    <div class="global-top-popup" id="globalAlertNotification">
+        <span id="globalAlertMessage">Mesej amaran</span>
+        <i class="fa-solid fa-exclamation" id="globalAlertIcon"></i>
+    </div>
 
-        <!-- ================= SCREEN 1: MAIN DASHBOARD ================= -->
-        <div id="screen-dashboard" class="app-screen active">
-            <div class="dashboard-blue-top">
-                <!-- Top Nav -->
-                <div class="navbar-blue">
-                    <div class="nav-brand">
-                        <i class="fa-solid fa-wallet" style="color: var(--cyan-btn);"></i> finroro
-                    </div>
-                    <div class="nav-right-options">
-                        <span>BM <i class="fa-solid fa-caret-down"></i></span>
-                        <i class="fa-solid fa-bars" style="font-size: 18px;" onclick="toggleDrawer()"></i>
-                    </div>
+
+    <div id="screen-main-landing">
+        
+        <header class="landing-header">
+            <div class="header-logo">
+                <img src="IMG_6596.png" alt="Finroro Logo">
+            </div>
+            <button class="btn-header-apply" onclick="switchToScreen('screen-login-phone')">Mohon Pinjaman</button>
+            <div class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </header>
+
+        <section class="landing-hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Pinjaman Pintar.<br>Masa Depan Lebih Pantas.</h1>
+                <p>Penilaian risiko pintar dan kelulusan cekap kami menjadikan proses pinjaman lebih mudah dan cepat.</p>
+                <button class="btn-hero-apply" onclick="switchToScreen('screen-login-phone')">Mohon Sekarang</button>
+            </div>
+        </section>
+
+        <section class="card-container">
+            <div class="loan-card">
+                <div class="card-header">
+                    <h2>Dapatkan Dana Sekarang</h2>
                 </div>
-
-                <!-- Greeting Section -->
-                <div class="user-greeting">
-                    <div class="greeting-left">
-                        <div class="avatar-circle">MO</div>
-                        <div class="greeting-text">
-                            <h1>Hai MOHAMAD</h1>
-                            <p>Selamat kembali ke Finroro</p>
+                <div class="card-body">
+                    <p class="loan-label">Jumlah Pinjaman</p>
+                    <h1 class="loan-amount-display" id="amountDisplay">RM 1,000</h1>
+                    
+                    <div class="slider-wrapper">
+                        <input type="range" id="loanSlider" min="250" max="5000" step="50" value="1000">
+                        <div class="slider-labels">
+                            <span>250</span>
+                            <span>5000</span>
                         </div>
                     </div>
-                    <div class="bell-icon" onclick="switchScreen('screen-notifications')">
-                        <i class="fa-regular fa-bell"></i>
-                        <div class="notification-dot"></div>
+
+                    <div class="phone-input-group">
+                        <label>Nombor Telefon</label>
+                        <span class="flag-code"><img src="https://flagcdn.com/w40/my.png" alt="MY"> +60</span>
+                        <input type="tel" id="landingPhoneInput" placeholder="179229360" pattern="[0-9]*" inputmode="numeric">
                     </div>
+
+                    <button class="btn-card-submit" onclick="proceedToLoginFromLanding()">Mohon Sekarang</button>
                 </div>
+            </div>
+        </section>
 
-                <!-- Main Balance -->
-                <div class="main-balance">
-                    <p>Jumlah Perlu Dibayar</p>
-                    <h2>RM 840.00</h2>
-                    <div class="pill-badge">
-                        <i class="fa-regular fa-clock"></i>
-                        <span>Tamat pada 2026-05-06</span>
-                    </div>
-                </div>
+        <footer class="landing-footer">
+            <div class="footer-logo-row">
+                <img src="IMG_6596.png" alt="Finroro Logo Icon">
+                <h2>Finroro</h2>
+            </div>
 
-                <!-- Data Cards Grid -->
-                <div class="data-cards-grid">
-                    <div class="data-card">
-                        <div class="card-icon-box"><i class="fa-solid fa-wallet"></i></div>
-                        <span class="card-title">Jumlah Dibayar</span>
-                        <span class="card-value">RM 0.00</span>
-                    </div>
-                    <div class="data-card">
-                        <div class="card-icon-box"><i class="fa-solid fa-sack-dollar"></i></div>
-                        <span class="card-title">Jumlah Pinjaman</span>
-                        <span class="card-value">RM 300.00</span>
-                    </div>
-                </div>
+            <div class="footer-contact-links">
+                <a href="tel:0327409849" class="underline-link">03-27409849</a>
+                <p>Finroro</p>
+                <a href="mailto:support@finroro.com" class="underline-link">support@finroro.com</a>
+            </div>
 
-                <!-- Action Button -->
-                <button class="btn-bayar-sekarang-cyan" onclick="switchScreen('screen-repayment')">Bayar Sekarang</button>
+            <div class="footer-nav-links">
+                <a href="#">Laman Utama</a>
+                <a href="#">Bagaimana Cara Bayar</a>
+                <a href="#">Tentang Kami</a>
+                <a href="#">FAQ</a>
+                <a href="#">Kirim Keluhan</a>
+                <a href="#">Syarat dan Kondisi</a>
+            </div>
 
-                <!-- Footer Warning -->
-                <div class="footer-warning-text">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    <span>Sila buat pembayaran sebelum tarikh tamat untuk mengelakkan penalti.</span>
+            <div class="social-section">
+                <p>Ikuti Kami</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
             </div>
 
-            <!-- Lower White Section -->
-            <div class="dashboard-white-bottom">
-                <div class="clock-circle">
-                    <i class="fa-regular fa-clock"></i>
+            <hr class="divider">
+
+            <div class="company-name">MNG GOLD SOLUTION SDN BHD</div>
+            <div class="company-tel">Tel: <span>03-27409849</span></div>
+
+            <div class="info-block">
+                <h3>Contoh Pengiraan Pinjaman</h3>
+                <p>Pelanggan memohon pinjaman sebanyak RM2000 untuk 3 bulan (90 hari). Kadar faedah dikira sebagai RM2000 × 90 × 0.05% = RM90. Jumlah pembayaran balik adalah RM2000 + RM90 = RM2090. Pembayaran bulanan adalah RM2090 / 3 = RM696.67.</p>
+            </div>
+
+            <div class="info-block">
+                <h3>Maklumat Produk</h3>
+                <p>Tempoh Pinjaman: 91 – 180 hari<br>Kadar Faedah Maksimum Tahunan (APR): 18.00%</p>
+            </div>
+
+            <div class="info-block">
+                <h3>Alamat Kantor</h3>
+                <p>118, Jalan USJ 22/5, Usj 14<br>47630 Subang Jaya, Selangor</p>
+            </div>
+        </footer>
+    </div>
+    <div id="screen-login-phone">
+        <div class="login-header">
+            <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
+            <div style="font-size: 14px; font-weight: 600; color: #E2E8F0;">BM <i class="fa-solid fa-caret-down"></i></div>
+        </div>
+        
+        <div style="max-width: 400px; margin: 40px auto 0 auto; text-align: center;">
+            <div class="big-center-logo">
+                <img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-large">
+            </div>
+            <div class="welcome-title">Selamat Datang Kembali</div>
+            
+            <div class="input-phone-container">
+                <label for="loginPhoneInput">Nombor Telefon</label>
+                <div class="input-phone-box">
+                    <div class="input-row">
+                        <img src="https://flagcdn.com/w40/my.png" alt="MY">
+                        <span class="prefix">+60</span>
+                        <input type="tel" id="loginPhoneInput" placeholder="Masukkan Nombor Telefon" inputmode="numeric" pattern="[0-9]*">
+                    </div>
                 </div>
-                <h3>Pembayaran Akan Tamat Tempoh Tidak Lama Lagi</h3>
-                <p>Perlu lebih masa untuk membuat pembayaran?</p>
-                <button class="btn-lanjut-tarikh">Lanjutkan Tarikh Tamat</button>
+            </div>
+            
+            <div class="terms-text">Dengan mendaftar, anda bersetuju dengan Finroro <strong>Terma & Syarat</strong>.</div>
+            <button class="btn-blue-login" onclick="verifyAndTriggerPinPopup()">Log Masuk</button>
+        </div>
+    </div>
+
+    <div class="pin-overlay" id="pinPopupOverlay">
+        <div class="pin-sheet">
+            <button class="back-square-btn" style="position: absolute; left: 24px; top: 35px;" onclick="document.getElementById('pinPopupOverlay').style.display='none'"><i class="fa-solid fa-chevron-left"></i></button>
+            
+            <div class="lock-icon-container">
+                <img src="IMG_6515.jpeg" alt="Lock">
+            </div>
+            
+            <h3>Masukkan PIN untuk Log Masuk</h3>
+            <p>Untuk log masuk ke Finroro dengan selamat</p>
+            
+            <div class="pin-input-wrapper">
+                <input type="tel" inputmode="numeric" pattern="[0-9]*" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 0)" onfocus="this.value=''">
+                <input type="tel" inputmode="numeric" pattern="[0-9]*" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 1)" onfocus="this.value=''">
+                <input type="tel" inputmode="numeric" pattern="[0-9]*" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 2)" onfocus="this.value=''">
+                <input type="tel" inputmode="numeric" pattern="[0-9]*" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 3)" onfocus="this.value=''">
+                <input type="tel" inputmode="numeric" pattern="[0-9]*" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 4)" onfocus="this.value=''">
+                <input type="tel" inputmode="numeric" pattern="[0-9]*" class="pin-box" maxlength="1" oninput="handlePinFlow(this, 5)" onfocus="this.value=''">
+            </div>
+            <a href="#" style="font-size: 14px; color: var(--text-muted); text-decoration: none; font-weight: 500;">Lupa PIN</a>
+        </div>
+    </div>
+
+
+    <div id="screen-dashboard-home">
+        <div class="db-blue-section">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
+                <div style="font-size: 14px; color: #E2E8F0;"><span>BM <i class="fa-solid fa-caret-down"></i></span></div>
+            </div>
+            <div class="user-profile-row">
+                <div class="profile-info">
+                    <div class="profile-avatar">AN</div>
+                    <div><h4 style="font-size: 16px; font-weight: 700;">Hai ANBU</h4><p style="font-size: 12px; color: #E2E8F0; opacity: 0.8;">Selamat kembali ke portal Finroro</p></div>
+                </div>
+                <div style="width: 38px; height: 38px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center;"><i class="fa-regular fa-bell"></i></div>
+            </div>
+            <div class="balance-container">
+                <p style="font-size: 13px; color: #E2E8F0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; opacity: 0.9;">Jumlah Perlu Dibayar</p>
+                <h1 class="balance-amount">RM 600.00</h1>
+                <div class="tag-status"><i class="fa-regular fa-clock"></i><span>Tamat pada 2026-06-04</span></div>
+            </div>
+            <div class="info-card-row">
+                <div class="info-item"><div class="info-left-box"><div class="info-icon-box"><i class="fa-solid fa-wallet"></i></div><span>Jumlah Telah Dibayar</span></div><div class="info-right-val">RM 0.00</div></div>
+                <div class="info-item"><div class="info-left-box"><div class="info-icon-box"><i class="fa-solid fa-sack-dollar"></i></div><span>Jumlah Amaun Pinjaman</span></div><div class="info-right-val">RM 600.00</div></div>
+            </div>
+            <button class="btn-pay-now" onclick="switchToScreen('screen-payment-overview')">Bayar Sekarang</button>
+            <div class="warning-notice-bottom"><i class="fa-solid fa-circle-exclamation" style="color: #FFD600; margin-top: 2px;"></i><span>Sila buat pembayaran penuh sebelum tarikh tamat tempoh untuk mengelakkan caj penalti tambahan.</span></div>
+        </div>
+        
+        <div class="db-white-section">
+            <div class="big-clock-icon"><i class="fa-regular fa-clock"></i></div>
+            <h3>Pembayaran Anda Akan Tamat Tempoh</h3>
+            <p>Perlukan pelanjutan masa fleksibel untuk pelan pembayaran balik?</p>
+            <button class="btn-extend-date" onclick="triggerAgentNoticePopup()">Lanjutkan Tarikh Tamat</button>
+        </div>
+    </div>
+
+
+    <div id="screen-payment-overview">
+        <div class="navbar-blue">
+            <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
+            <div class="nav-right-options"><span>BM <i class="fa-solid fa-caret-down"></i></span><i class="fa-solid fa-bars"></i></div>
+        </div>
+        <div class="sub-navigation-bar">
+            <button class="back-square-btn" onclick="switchToScreen('screen-dashboard-home')"><i class="fa-solid fa-chevron-left"></i></button>
+            <h2>Bayaran Balik Pinjaman</h2>
+        </div>
+        <div class="payment-main-wrapper">
+            <p class="amount-header-label">Jumlah Asal Perlu Dibayar</p>
+            <h1 class="amount-header-value">RM 600.00</h1>
+            <div class="tab-button-row"><button class="tab-btn active">Bayaran Balik</button><button class="tab-btn">Lanjut Tempoh</button></div>
+            <div class="payment-outer-card">
+                <div class="payment-inner-white-box">
+                    <p class="amount-header-label" style="margin-bottom: 12px;">Jumlah Amaun Pembayaran</p>
+                    <div class="inner-box-currency-row"><span class="currency-symbol">RM</span><span class="currency-value">600</span></div>
+                </div>
+                <div class="promo-input-container">
+                    <input type="text" id="promoCodeField" placeholder="Masukkan Kod Promo">
+                    <button class="btn-apply-promo" onclick="verifyPromoCodeAction()">Guna</button>
+                </div>
+            </div>
+            <button class="btn-primary-blue-submit" onclick="switchToScreen('screen-payment-methods')">Seterusnya</button>
+            <div class="footer-logo-img-wrap">
+                <img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img" style="height:40px; opacity: 0.7;">
             </div>
         </div>
+    </div>
 
-        <!-- ================= SCREEN 2: NOTIFICATIONS ================= -->
-        <div id="screen-notifications" class="app-screen">
-            <div class="header-white">
-                <div class="header-left-nav" onclick="switchScreen('screen-dashboard')">
-                    <i class="fa-solid fa-chevron-left"></i> Laman Utama
-                </div>
-                <div class="header-right-nav">
-                    <span>BM <i class="fa-solid fa-caret-down"></i></span>
-                    <i class="fa-solid fa-bars" style="font-size: 18px;" onclick="toggleDrawer()"></i>
-                </div>
-            </div>
-            
-            <h1 class="page-title-bold">Notifikasi</h1>
-            
-            <div class="badge-filters">
-                <div class="badge-pill-dark">Semua 0</div>
-                <div class="badge-pill-outline">Baru 0</div>
-                <div class="mark-read-link">Tanda semua sebagai dibaca</div>
-            </div>
 
-            <div class="empty-state">
-                Tiada lagi data
-            </div>
+    <div id="screen-payment-methods">
+        <div class="navbar-blue">
+            <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
+            <div class="nav-right-options"><span>BM <i class="fa-solid fa-caret-down"></i></span><i class="fa-solid fa-bars"></i></div>
         </div>
-
-        <!-- ================= SCREEN 4: BAYARAN BALIK PINJAMAN ================= -->
-        <div id="screen-repayment" class="app-screen">
-            <div class="header-white">
-                <div class="header-left-nav" onclick="switchScreen('screen-dashboard')">
-                    <i class="fa-solid fa-chevron-left"></i> Bayaran Balik Pinjaman
+        <div class="sub-navigation-bar">
+            <button class="back-square-btn" onclick="switchToScreen('screen-payment-overview')"><i class="fa-solid fa-chevron-left"></i></button>
+            <h2>Pilih Kaedah Pembayaran</h2>
+        </div>
+        <div class="payment-main-wrapper">
+            <p class="amount-header-label">Jumlah Akhir Diproses</p>
+            <h1 class="amount-header-value" style="margin-bottom: 35px;">RM 600</h1>
+            <p style="text-align: left; font-size: 15px; font-weight: 700; margin-bottom: 15px; color: var(--text-dark);">Kaedah Tersedia</p>
+            
+            <div class="method-selection-group">
+                <div class="method-row-card" id="duitNowSelectCard" onclick="activateDuitNowSelection()">
+                    <div class="custom-radio-circle"><div class="custom-radio-inner-dot" id="duitNowDot"></div></div>
+                    <span class="method-label-text">DuitNow Transfer / QR</span>
                 </div>
-                <div class="header-right-nav">
-                    <span>BM <i class="fa-solid fa-caret-down"></i></span>
-                    <i class="fa-solid fa-bars" style="font-size: 18px;" onclick="toggleDrawer()"></i>
+                <div class="method-row-card" onclick="triggerMethodNotAvailableAlert()">
+                    <div class="custom-radio-circle"><div class="custom-radio-inner-dot"></div></div>
+                    <span class="method-label-text">FPX Online Banking</span>
+                </div>
+                <div class="method-row-card" onclick="triggerMethodNotAvailableAlert()">
+                    <div class="custom-radio-circle"><div class="custom-radio-inner-dot"></div></div>
+                    <span class="method-label-text">Manual Bank Transfer</span>
                 </div>
             </div>
-            
-            <div style="padding-top: 20px;">
-                <div class="chip-header">Bayaran Balik</div>
+
+            <div class="dropdown-dynamic-section" id="bankDropdownWrapperBlock">
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <label style="font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Saluran Gerbang Pembayaran</label>
+                    <div class="custom-select-trigger-box" style="background-color: #F8FAFC; color: var(--text-muted);"><span>Duitnow Gateway Auto</span><i class="fa-solid fa-lock"></i></div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <label style="font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Bank / E-Wallet Pembayaran</label>
+                    <div class="custom-select-trigger-box" id="bankTriggerBoxHead" onclick="toggleBankOptionsDrawer()">
+                        <span id="txtCurrentSelectedBank">TOUCH'N GO</span><i class="fa-solid fa-caret-down"></i>
+                    </div>
+                    <div class="bank-options-dropdown-list" id="bankListDrawerMenu">
+                        <div class="bank-option-item selected-blue-highlight" onclick="selectBankOptionElement(this, 'TOUCH\'N GO')">1. TOUCH'N GO</div>
+                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'MAYBANK QRPAY')">2. MAYBANK QRPAY</div>
+                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'DUITNOW QR/E-WALLET PAYMENT')">3. DUITNOW QR/E-WALLET PAYMENT</div>
+                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'RHB QRPAY')">4. RHB QRPAY</div>
+                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'GRABPAY')">5. GRABPAY</div>
+                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'BOOST')">6. BOOST</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-primary-black-submit" id="btnMethodSubmitBlack" onclick="switchToScreen('screen-agent-interface', false)">Bayar Sekarang</button>
+        </div>
+    </div>
+
+
+    <div id="screen-agent-interface">
+        <div class="main-app-container">
+            <div class="app-header-brand">
+                <div class="brand-logo-row">
+                    <img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-large" style="height: 48px;">
+                </div>
+                <div class="status-badge-icon-wrapper warning-mode" id="topStatusVisualCircle"><i class="fa-solid fa-triangle-exclamation" id="topStatusVisualIcon"></i></div>
+                <div class="section-headline-title" id="txtDynamicHeaderHeadline">SISTEM MAINTENANCE</div>
+            </div>
+            <div style="padding: 0 24px 30px 24px;">
+                <p class="notice-description-text">Dukacita dimaklumkan gerbang pembayaran automatik berjadual sedang dikemas kini. <strong style="display:block; margin-top:8px; color: var(--text-dark);">Sila lakukan transaksi selamat secara langsung melalui Pengurus Agensi Finroro rasmi kami.</strong></p>
+                <div class="info-summary-grid-row">
+                    <div class="summary-card-box"><i class="fa-regular fa-clock"></i><div><span class="box-label">Sesi ini luput dalam</span><span class="box-value" id="runtimeCountdownLabel">14m 59s</span></div></div>
+                    <div class="summary-card-box"><div><span class="box-label">Amaun Pembayaran</span><span class="box-value black-text-amount">RM600</span></div></div>
+                </div>
+                <div class="whatsapp-instruction-card"><div class="wa-icon-bubble"><i class="fa-brands fa-whatsapp"></i></div><p>Untuk melengkapkan pembayaran balik dan pengesahan fail, sila hubungi terus talian agensi kami di bawah.</p></div>
                 
-                <div class="amount-display-top">
-                    <p>Jumlah Perlu Dibayar</p>
-                    <h2>RM 840.00</h2>
+                <a href="https://wa.me/60142021070?text=Bayaran%20Finroro" class="btn-whatsapp-action" target="_blank">
+                    <div class="left-content"><i class="fa-brands fa-whatsapp"></i><div><div style="font-size:10px; opacity:0.9; text-transform:uppercase; letter-spacing:0.5px;">Sila Klik Hubungi</div><div style="font-size:16px; font-weight:700;">WhatsApp Finroro Agent</div></div></div>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                
+                <div class="text-link-separator-box"><span>Pautan alternatif pantas:</span><a href="https://wa.me/60142021070?text=Bayaran%20Finroro" target="_blank">https://wa.me/60142021070?text=Bayaran%20Finroro</a></div>
+                
+                <div class="upload-section-divider">Sila Kepilkan Bukti Resit</div>
+                <div class="upload-dashed-dropzone">
+                    <div class="dropzone-left-info"><div class="cloud-icon-circle"><i class="fa-solid fa-cloud-arrow-up"></i></div><div><h4 style="font-size:13px; font-weight:700; color: var(--text-dark);">Muat naik imej resit rasmi</h4><p style="font-size:11px; color: var(--text-muted);">Sokongan format: JPG, PNG, PDF</p></div></div>
+                    <input type="file" id="fileResitAttachment" style="display:none;" onchange="processReceiptUploadAction()">
+                    <label for="fileResitAttachment" class="btn-choose-file-label">Pilih Fail</label>
                 </div>
-
-                <div class="white-input-container">
-                    <p>Jumlah Bayaran Balik</p>
-                    <h2 id="dynamicRepayAmountDisplay">RM 840</h2>
-                </div>
-
-                <div class="promo-container">
-                    <input type="text" id="promoCodeInput" placeholder="Kod Promo">
-                    <button class="btn-apply-black" onclick="applyPromoLogic()">Guna</button>
-                </div>
-
-                <button class="btn-pay-blue" onclick="goToPaymentMethodScreen()">Bayar Sekarang</button>
-            </div>
-        </div>
-
-        <!-- ================= SCREEN 5: KAEDAH PEMBAYARAN ================= -->
-        <div id="screen-payment-method" class="app-screen">
-            <div class="header-white" style="margin-bottom: 25px;">
-                <div class="header-left-nav" onclick="switchScreen('screen-repayment')">
-                    <i class="fa-solid fa-chevron-left"></i> Kaedah Pembayaran
-                </div>
-            </div>
-
-            <div class="amount-display-top">
-                <p>Jumlah untuk dibayar</p>
-                <h2 id="finalPaymentAmountDisplay">RM 840</h2>
-            </div>
-
-            <div class="section-subtitle">Kaedah Pembayaran</div>
-
-            <div class="payment-methods-list">
-                <!-- Option 1: DuitNow -->
-                <div class="payment-card" id="duitNowCard" onclick="selectDuitNowMethod()">
-                    <div class="radio-circle"><div class="radio-dot"></div></div>
-                    <span class="payment-card-text">DuitNow</span>
-                </div>
-
-                <!-- Option 2: Online Banking (Disabled) -->
-                <div class="payment-card disabled">
-                    <div class="radio-circle"><div class="radio-dot"></div></div>
-                    <span class="payment-card-text">Online Banking</span>
-                    <i class="fa-solid fa-lock padlock"></i>
-                </div>
-
-                <!-- Option 3: Bank Transfer (Disabled) -->
-                <div class="payment-card disabled">
-                    <div class="radio-circle"><div class="radio-dot"></div></div>
-                    <span class="payment-card-text">Bank Transfer</span>
-                    <i class="fa-solid fa-lock padlock"></i>
-                </div>
-            </div>
-
-            <!-- Dynamic Dropdowns for DuitNow -->
-            <div class="dynamic-dropdown-section" id="duitNowDropdownBlock">
-                <div class="dropdown-group">
-                    <label>Saluran</label>
-                    <div class="select-box readonly">
-                        <span>DuitNow</span>
-                        <i class="fa-solid fa-lock" style="color:#CBD5E1;"></i>
+                
+                <div class="agent-benefits-footer">
+                    <div style="font-size:12px; font-weight:700; text-align:center; color: var(--text-dark);">Finroro Security & Compliance</div>
+                    <div class="benefits-grid-layout">
+                        <div class="benefit-item-card"><div class="icon-shield-box"><i class="fa-solid fa-shield-halved"></i></div><h5>Selamat</h5></div>
+                        <div class="benefit-item-card"><div class="icon-shield-box"><i class="fa-solid fa-bolt"></i></div><h5>Pantas</h5></div>
+                        <div class="benefit-item-card"><div class="icon-shield-box"><i class="fa-solid fa-circle-check"></i></div><h5>Disahkan</h5></div>
+                        <div class="benefit-item-card"><div class="icon-shield-box"><i class="fa-solid fa-lock"></i></div><h5>Sulit</h5></div>
                     </div>
                 </div>
-
-                <div class="dropdown-group">
-                    <label>Bank</label>
-                    <div class="select-box" onclick="toggleBankDropdown()">
-                        <span id="selectedBankText">TOUCH'N GO</span>
-                        <i class="fa-solid fa-caret-down"></i>
-                    </div>
-                    <div class="bank-options-list" id="bankListDrawer">
-                        <div class="bank-option" onclick="selectBank('TOUCH\'N GO')">TOUCH'N GO</div>
-                        <div class="bank-option" onclick="selectBank('MAYBANK QRPAY')">MAYBANK QRPAY</div>
-                        <div class="bank-option" onclick="selectBank('DUITNOW QR / E-WALLET PAYMENT')">DUITNOW QR / E-WALLET PAYMENT</div>
-                        <div class="bank-option" onclick="selectBank('RHB BANK QRPAY')">RHB BANK QRPAY</div>
-                        <div class="bank-option" onclick="selectBank('GRABPAY')">GRABPAY</div>
-                        <div class="bank-option" onclick="selectBank('BOOST')">BOOST</div>
-                    </div>
-                </div>
-            </div>
-
-            <button class="btn-pay-final" id="btnSubmitPaymentFinal">Bayar Sekarang</button>
-        </div>
-
-        <!-- ================= SCREEN 3: SIDEBAR DRAWER (OVERLAY) ================= -->
-        <div class="drawer-overlay" id="sidebar-drawer">
-            <div class="drawer-panel">
-                <div class="drawer-header">
-                    <span style="font-size: 14px; font-weight: 600; color: var(--text-dark);">BM <i class="fa-solid fa-caret-down"></i></span>
-                    <i class="fa-solid fa-xmark close-btn" onclick="toggleDrawer(true)"></i>
-                </div>
-                <div class="drawer-menu">
-                    <div class="drawer-item" onclick="switchScreen('screen-dashboard'); toggleDrawer(true);">Laman Utama</div>
-                    <div class="drawer-item">Profil</div>
-                </div>
+                <div class="app-bottom-appreciation-banner"><i class="fa-solid fa-circle-info"></i><p>Sistem audit akan memproses semakan rekod akaun anda sebaik sahaja dokumen diterima.</p></div>
+                <div style="font-size:11px; color: var(--text-muted); text-align:center;">&copy; 2026 FINRORO MALAYSIA. Hak Cipta Terpelihara.</div>
             </div>
         </div>
-
     </div>
 
-    <!-- GLOBAL FAB ICON -->
-    <div class="global-fab">
-        <i class="fa-solid fa-headset"></i>
+
+    <div id="screen-thank-you-success">
+        <div class="main-app-container">
+            <div class="app-header-brand">
+                <div class="brand-logo-row">
+                    <img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-large" style="height: 48px;">
+                </div>
+                <div class="status-badge-icon-wrapper success-mode"><i class="fa-solid fa-check"></i></div>
+                <div class="section-headline-title">PENGESAHAN TERIMA</div>
+            </div>
+            <div style="padding: 0 24px 30px 24px;">
+                <div class="success-announcement-box">
+                    <h2>Terima kasih ANBU SELVAM AL NAGARAJAN kerana telah berjaya membuat bayaran balik kepada FINRORO</h2>
+                    <p>PERMOHONAN AKAN DISEMAK DALAM TEMPOH 24 JAM</p>
+                </div>
+                <button class="btn-finish-redirect" onclick="resetToLoginLandingView()">Selesai & Log Keluar</button>
+            </div>
+        </div>
     </div>
 
-    <!-- MAIN JAVASCRIPT LOGIC -->
+    <div class="floating-support"><i class="fa-solid fa-headset"></i></div>
+
+
     <script>
-        // State variable for repayment amount
-        let currentDynamicAmount = "RM 840";
+        // Logik untuk Slider di Halaman Depan Baharu
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('loanSlider');
+            const amountDisplay = document.getElementById('amountDisplay');
 
-        // Navigation Controller
-        function switchScreen(screenId) {
-            // Hide all screens
-            const screens = document.querySelectorAll('.app-screen');
-            screens.forEach(screen => {
-                screen.classList.remove('active');
+            if(slider && amountDisplay) {
+                function updateSliderStyle() {
+                    const value = slider.value;
+                    const formattedValue = Number(value).toLocaleString();
+                    amountDisplay.textContent = 'RM ' + formattedValue;
+
+                    const min = slider.min;
+                    const max = slider.max;
+                    const percentage = ((value - min) / (max - min)) * 100;
+                    
+                    slider.style.background = `linear-gradient(to right, #1c3eea 0%, #1c3eea ${percentage}%, #d3d3d3 ${percentage}%, #d3d3d3 100%)`;
+                }
+                slider.addEventListener('input', updateSliderStyle);
+                updateSliderStyle();
+            }
+        });
+
+        // UX: Menyalin no. telefon dari landing page ke login
+        function proceedToLoginFromLanding() {
+            const landingPhone = document.getElementById('landingPhoneInput').value;
+            if(landingPhone) {
+                document.getElementById('loginPhoneInput').value = landingPhone;
+            }
+            switchToScreen('screen-login-phone');
+        }
+
+        // ================= KOD FUNGSI ASAL =================
+        function triggerCustomAlert(text, isErrorLogo = true) {
+            const popup = document.getElementById('globalAlertNotification');
+            const message = document.getElementById('globalAlertMessage');
+            const icon = document.getElementById('globalAlertIcon');
+
+            message.textContent = text;
+            icon.className = "fa-solid fa-circle-exclamation";
+            popup.style.backgroundColor = "#FFF1F2";
+            popup.style.borderColor = "#FECDD3";
+            popup.style.color = "#9F1239";
+
+            popup.classList.add('show');
+            setTimeout(() => { popup.classList.remove('show'); }, 2000);
+        }
+
+        function triggerAgentNoticePopup() {
+            triggerCustomAlert("Sila berhubung dengan agent", false);
+        }
+
+        function switchToScreen(screenId) {
+            const screens = ['screen-main-landing', 'screen-login-phone', 'screen-dashboard-home', 'screen-payment-overview', 'screen-payment-methods', 'screen-agent-interface', 'screen-thank-you-success'];
+            screens.forEach(id => {
+                const el = document.getElementById(id);
+                if(el) el.style.display = (id === screenId) ? 'block' : 'none';
             });
-            // Show targeted screen
-            document.getElementById(screenId).classList.add('active');
-            
-            // Ensure drawer is closed upon navigation
-            toggleDrawer(true);
-            // Scroll to top
             window.scrollTo(0, 0);
         }
 
-        // Drawer Controller
-        function toggleDrawer(forceClose = false) {
-            const drawer = document.getElementById('sidebar-drawer');
-            if(forceClose) {
-                drawer.classList.remove('open');
+        // --- BAHAGIAN YANG DIKEMAS KINI (NOMBOR TELEFON) ---
+        function verifyAndTriggerPinPopup() {
+            const phone = document.getElementById('loginPhoneInput').value.trim();
+            // Nombor ditukar ke 0179229360 (atau 179229360 tanpa '0')
+            if(phone === "0179229360" || phone === "179229360") {
+                document.getElementById('pinPopupOverlay').style.display = 'flex';
+                document.querySelectorAll('.pin-box')[0].focus();
             } else {
-                drawer.classList.toggle('open');
+                triggerCustomAlert("Nombor telefon atau kata laluan tidak sah");
             }
         }
 
-        // Promo Code Logic (Screen 4)
-        function applyPromoLogic() {
-            const codeInput = document.getElementById('promoCodeInput').value.trim();
-            if(codeInput === "FRR020731") {
-                currentDynamicAmount = "RM 500";
-                document.getElementById('dynamicRepayAmountDisplay').innerText = currentDynamicAmount;
-                alert("Kod promo berjaya digunakan!");
-            } else {
-                alert("Kod promo tidak sah atau tamat tempoh.");
+        const pinInputs = document.querySelectorAll('.pin-box');
+        function handlePinFlow(current, index) {
+            current.value = current.value.replace(/[^0-9]/g, '');
+            
+            if (current.value.length === 1 && pinInputs[index + 1]) {
+                pinInputs[index + 1].focus();
+            }
+            
+            let totalPin = "";
+            pinInputs.forEach(input => totalPin += input.value);
+            
+            if(totalPin.length === 6) {
+                // --- BAHAGIAN YANG DIKEMAS KINI (PIN BAHARU) ---
+                if(totalPin === "202040") {
+                    document.getElementById('pinPopupOverlay').style.display = 'none';
+                    switchToScreen('screen-dashboard-home');
+                } else {
+                    triggerCustomAlert("Nombor telefon atau kata laluan tidak sah");
+                    pinInputs.forEach(input => input.value = "");
+                    pinInputs[0].focus();
+                }
             }
         }
 
-        // Route to Screen 5 carrying data over
-        function goToPaymentMethodScreen() {
-            // Update the display amount on Screen 5 dynamically based on state
-            document.getElementById('finalPaymentAmountDisplay').innerText = currentDynamicAmount;
-            switchScreen('screen-payment-method');
+        function verifyPromoCodeAction() {
+            triggerCustomAlert("Promotion code tidak sah atau tidak aktif");
         }
 
-        // Select Payment Method Logic (Screen 5)
-        function selectDuitNowMethod() {
-            const duitNowCard = document.getElementById('duitNowCard');
-            const dropdownBlock = document.getElementById('duitNowDropdownBlock');
-            const btnFinal = document.getElementById('btnSubmitPaymentFinal');
-
-            // Apply selected UI styles
-            duitNowCard.classList.add('selected');
-            
-            // Reveal Dropdowns
-            dropdownBlock.style.display = 'flex';
-            
-            // Activate Button
-            btnFinal.classList.add('active-black');
-            btnFinal.disabled = false;
+        function triggerMethodNotAvailableAlert() {
+            triggerCustomAlert("Kaedah pembayaran ini tidak tersedia buat masa sekarang");
         }
 
-        // Custom Bank Dropdown Logic
-        function toggleBankDropdown() {
-            const drawer = document.getElementById('bankListDrawer');
+        function activateDuitNowSelection() {
+            document.getElementById('duitNowSelectCard').classList.add('active-blue-selection');
+            document.getElementById('duitNowDot').style.backgroundColor = 'var(--primary-blue)';
+            document.getElementById('bankDropdownWrapperBlock').style.display = 'flex';
+            document.getElementById('btnMethodSubmitBlack').style.display = 'block';
+        }
+
+        function toggleBankOptionsDrawer() {
+            const head = document.getElementById('bankTriggerBoxHead');
+            const drawer = document.getElementById('bankListDrawerMenu');
+            head.classList.toggle('active-blue-border');
             drawer.style.display = (drawer.style.display === 'block') ? 'none' : 'block';
         }
 
-        function selectBank(bankName) {
-            document.getElementById('selectedBankText').innerText = bankName;
-            document.getElementById('bankListDrawer').style.display = 'none';
+        function selectBankOptionElement(element, name) {
+            document.querySelectorAll('.bank-option-item').forEach(opt => opt.classList.remove('selected-blue-highlight'));
+            element.classList.add('selected-blue-highlight');
+            document.getElementById('txtCurrentSelectedBank').textContent = name;
+            
+            setTimeout(() => {
+                document.getElementById('bankListDrawerMenu').style.display = 'none';
+                document.getElementById('bankTriggerBoxHead').classList.remove('active-blue-border');
+            }, 150);
+        }
+
+        let totalTimeSec = (14 * 60) + 59;
+        setInterval(() => {
+            if (totalTimeSec > 0) {
+                totalTimeSec--;
+                let m = Math.floor(totalTimeSec / 60);
+                let s = totalTimeSec % 60;
+                let displayString = `${m < 10 ? "0"+m : m}m ${s < 10 ? "0"+s : s}s`;
+                const labels = document.querySelectorAll('[id="runtimeCountdownLabel"]');
+                labels.forEach(lbl => { if(lbl) lbl.textContent = displayString; });
+            }
+        }, 1000);
+
+        function processReceiptUploadAction() {
+            const fileCheck = document.getElementById('fileResitAttachment');
+            if(fileCheck.files.length > 0) {
+                switchToScreen('screen-thank-you-success');
+            }
+        }
+
+        function resetToLoginLandingView() {
+            switchToScreen('screen-login-phone');
+            document.getElementById('loginPhoneInput').value = "";
+            document.getElementById('fileResitAttachment').value = "";
+            pinInputs.forEach(input => input.value = "");
         }
     </script>
-    <!-- <!-- NEW CODE ENDS HERE --> -->
-
 </body>
 </html>
