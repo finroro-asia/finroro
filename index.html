@@ -16,7 +16,13 @@
             --border-color: #E2E8F0;
             --text-dark: #1E293B;
             --text-muted: #64748B;
-            --cyan-btn: #5CE1E6; /* Warna butang Log Masuk baharu dari IMG_6514.jpeg */
+            --cyan-btn: #5CE1E6; 
+            
+            /* Warna tambahan untuk halaman depan baharu */
+            --primary-dark-blue: #0f218b;
+            --footer-bg: #060e40;
+            --card-header-bg: #323d81;
+            --white: #ffffff;
         }
 
         * {
@@ -177,20 +183,72 @@
             margin-bottom: 25px;
         }
 
-        /* ================= SCREEN 0: LANDING PAGE UTAMA ================= */
-        #screen-main-landing { display: block; background-color: var(--bg-light); min-height: 100vh; }
-        .hero { background: linear-gradient(rgba(13, 71, 161, 0.85), rgba(21, 101, 192, 0.95)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; color: white; text-align: center; padding: 65px 24px; }
-        .hero h1 { font-size: 28px; font-weight: 800; margin-bottom: 15px; letter-spacing: -0.5px; line-height: 1.3; }
-        .hero p { font-size: 14px; color: #E2E8F0; margin-bottom: 30px; line-height: 1.5; opacity: 0.9; }
-        .btn-apply-hero { background: #ffffff; color: var(--primary-blue); border: none; padding: 14px 40px; border-radius: 30px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: transform 0.2s; }
-        .btn-apply-hero:hover { transform: scale(1.03); }
-        .calc-container { background: var(--primary-blue); color: white; text-align: center; border-top-left-radius: 35px; border-top-right-radius: 35px; padding: 40px 24px; margin-top: -25px; }
-        .calc-container h2 { font-size: 20px; margin-bottom: 20px; font-weight: 700; }
-        .calc-box { background: white; color: #333; border-radius: 20px; padding: 30px 24px; max-width: 440px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .amount-display { font-size: 38px; font-weight: 800; color: var(--primary-blue); margin-bottom: 20px; }
-        .slider { -webkit-appearance: none; width: 100%; height: 6px; border-radius: 5px; background: #E2E8F0; outline: none; margin-bottom: 25px; }
-        .slider::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--primary-blue); cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
-        .btn-submit-main { background: var(--primary-blue); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 15px; }
+        /* ================= SCREEN 0: LANDING PAGE UTAMA (REKA BENTUK BAHARU) ================= */
+        #screen-main-landing { display: block; background-color: var(--bg-light); min-height: 100vh; position: relative; }
+        
+        /* Header Baru */
+        .landing-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background-color: var(--white); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .header-logo img { height: 36px; width: auto; border-radius: 6px; }
+        .btn-header-apply { background-color: var(--primary-dark-blue); color: var(--white); padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 600; border: none; cursor: pointer; transition: background-color 0.3s; }
+        .btn-header-apply:hover { background-color: var(--primary-blue); }
+        .hamburger { font-size: 24px; color: #333; cursor: pointer; }
+
+        /* Hero Baru */
+        .landing-hero { position: relative; background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000'); background-size: cover; background-position: center; padding: 60px 20px 100px 20px; text-align: center; color: var(--white); }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(14, 28, 92, 0.7), rgba(14, 28, 92, 0.85)); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; }
+        .landing-hero h1 { font-size: 32px; font-weight: 700; line-height: 1.3; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .landing-hero p { font-size: 15px; line-height: 1.6; margin-bottom: 25px; color: rgba(255,255,255,0.9); }
+        .btn-hero-apply { background-color: transparent; border: 2px solid var(--white); color: var(--white); padding: 12px 30px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+        .btn-hero-apply:hover { background-color: var(--white); color: var(--primary-dark-blue); }
+
+        /* Card Pinjaman Baru */
+        .card-container { position: relative; z-index: 10; max-width: 500px; margin: -60px auto 40px auto; padding: 0 20px; }
+        .loan-card { background-color: var(--white); border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); overflow: hidden; }
+        .card-header { background-color: var(--card-header-bg); color: var(--white); text-align: center; padding: 20px; }
+        .card-header h2 { font-size: 22px; font-weight: 600; letter-spacing: 0.5px; }
+        .card-body { padding: 30px 24px; text-align: center; }
+        .loan-label { color: var(--text-dark); font-size: 15px; margin-bottom: 5px; }
+        .loan-amount-display { font-size: 42px; font-weight: 800; color: var(--primary-dark-blue); margin-bottom: 30px; }
+        
+        /* Slider Baru */
+        .slider-wrapper { position: relative; margin-bottom: 10px; }
+        input[type=range] { -webkit-appearance: none; width: 100%; height: 8px; border-radius: 4px; background: #d3d3d3; outline: none; margin-bottom: 10px; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 35px; height: 35px; border-radius: 50%; background: var(--white); border: 2px solid var(--primary-blue); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); background-image: url('IMG_6596.png'); background-size: 18px; background-position: center; background-repeat: no-repeat; }
+        input[type=range]::-moz-range-thumb { width: 35px; height: 35px; border-radius: 50%; background: var(--white); border: 2px solid var(--primary-blue); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); background-image: url('IMG_6596.png'); background-size: 18px; background-position: center; background-repeat: no-repeat; }
+        .slider-labels { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 30px; }
+
+        /* Input Telefon Baru */
+        .phone-input-group { display: flex; align-items: center; border: 1px solid var(--border-color); border-radius: 8px; padding: 12px 15px; margin-bottom: 30px; background-color: var(--white); position: relative; text-align: left;}
+        .phone-input-group label { position: absolute; top: -10px; left: 15px; background: var(--white); padding: 0 5px; font-size: 12px; color: var(--text-muted); }
+        .flag-code { display: flex; align-items: center; font-size: 16px; color: var(--text-muted); margin-right: 10px; font-weight: 500; }
+        .flag-code img { width: 20px; margin-right: 5px; }
+        .phone-input-group input { border: none; outline: none; font-size: 16px; width: 100%; color: var(--text-dark); font-weight: 500; }
+        .phone-input-group input::placeholder { color: #cbd5e1; }
+        .btn-card-submit { width: 100%; background-color: var(--primary-dark-blue); color: var(--white); border: none; border-radius: 8px; padding: 16px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(15, 33, 139, 0.3); transition: transform 0.2s, background-color 0.3s; }
+        .btn-card-submit:hover { background-color: var(--primary-blue); transform: translateY(-2px); }
+
+        /* Footer Baru */
+        .landing-footer { background-color: var(--footer-bg); color: var(--white); padding: 50px 25px; font-size: 15px; text-align: left; }
+        .landing-footer a { color: inherit; text-decoration: none; transition: opacity 0.3s ease; }
+        .landing-footer a:hover { opacity: 0.7; }
+        .footer-logo-row { display: flex; align-items: center; margin-bottom: 30px; }
+        .footer-logo-row img { width: 45px; border-radius: 8px; margin-right: 15px; }
+        .footer-logo-row h2 { font-size: 28px; font-weight: 700; letter-spacing: 0.5px; margin: 0; }
+        .footer-contact-links { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+        .footer-contact-links a.underline-link { text-decoration: underline; text-underline-offset: 4px; }
+        .footer-nav-links { display: flex; flex-direction: column; gap: 16px; margin-bottom: 35px; font-weight: 400; }
+        .social-section { margin-bottom: 35px; }
+        .social-section p { margin-bottom: 15px; font-weight: 500; }
+        .social-icons { display: flex; gap: 20px; font-size: 24px; }
+        .landing-footer .divider { height: 1px; background-color: rgba(255, 255, 255, 0.15); margin: 30px 0; border: none; }
+        .company-name { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .company-tel { margin-bottom: 30px; color: rgba(255,255,255,0.7); }
+        .company-tel span { text-decoration: underline; text-underline-offset: 4px; }
+        .info-block { margin-bottom: 30px; }
+        .info-block h3 { font-size: 16px; font-weight: 500; margin-bottom: 12px; }
+        .info-block p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.7); }
+
 
         /* ================= SCREEN 1: LOG MASUK PHONE & PIN OVERLAY ================= */
         #screen-login-phone { display: none; background: var(--primary-blue); min-height: 100vh; color: white; padding: 24px; }
@@ -198,7 +256,6 @@
         .big-center-logo { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; padding: 10px; }
         .welcome-title { font-size: 36px; font-weight: 700; margin-bottom: 35px; text-align: center; letter-spacing: -0.5px; }
         
-        /* Ubahsuai kotak mengikut rujukan IMG_6514.jpeg */
         .input-phone-container {
             max-width: 400px;
             margin: 0 auto 20px auto;
@@ -212,9 +269,9 @@
             font-weight: 500;
         }
         .input-phone-box { 
-            background: #ffffff; /* Kotak warna putih sahaja */
+            background: #ffffff; 
             border-radius: 12px; 
-            padding: 10px 16px; /* Dipendekkan sikit tingginya */
+            padding: 10px 16px; 
             display: flex;
             align-items: center;
         }
@@ -226,7 +283,6 @@
         
         .terms-text { font-size: 13px; color: #E2E8F0; margin-bottom: 35px; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.5; }
         
-        /* Butang log masuk sebiji warna cyan IMG_6514.jpeg */
         .btn-blue-login { 
             background: var(--cyan-btn); 
             color: #0D47A1; 
@@ -247,11 +303,10 @@
         .pin-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 71, 161, 0.85); backdrop-filter: blur(6px); z-index: 2000; display: none; align-items: flex-end; }
         .pin-sheet { background: white; width: 100%; max-width: 480px; margin: 0 auto; border-top-left-radius: 28px; border-top-right-radius: 28px; padding: 40px 24px; text-align: center; color: var(--text-dark); position: relative; box-shadow: 0 -10px 30px rgba(0,0,0,0.3); }
         
-        /* Mangga Kunci mengikut rujukan IMG_6515.jpeg */
         .lock-icon-container { 
             width: 80px; 
             height: 80px; 
-            background: #0D47A1; /* Warna biru padat */
+            background: #0D47A1; 
             color: white; 
             border-radius: 18px; 
             display: flex; 
@@ -270,7 +325,6 @@
         .pin-sheet p { color: var(--text-muted); font-size: 15px; margin-bottom: 30px; }
         .pin-input-wrapper { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
         
-        /* Kotak pin disetkan kepada inputmode numeric untuk mengelakkan keyboard abjad terkeluar */
         .pin-box { width: 48px; height: 48px; border: 2px solid #E2E8F0; background: #F8FAFC; border-radius: 12px; font-size: 24px; font-weight: 700; text-align: center; color: var(--text-dark); outline: none; transition: border-color 0.2s; }
         .pin-box:focus { border-color: var(--primary-blue); background: #fff; }
 
@@ -370,7 +424,7 @@
         .success-announcement-box p { font-size: 15px; font-weight: 700; color: #166534; background-color: #DCFCE7; display: inline-block; padding: 6px 16px; border-radius: 20px; }
         .btn-finish-redirect { width: 100%; background-color: var(--primary-blue); color: #ffffff; border: none; border-radius: 14px; padding: 16px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 15px; box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2); }
 
-        /* FOOTER EXTRA */
+        /* FOOTER EXTRA LAMA */
         .agent-benefits-footer { border-top: 1px solid var(--border-color); padding-top: 25px; margin-bottom: 25px; width: 100%; }
         .benefits-grid-layout { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; text-align: center; margin-top: 18px;}
         .benefit-item-card { display: flex; flex-direction: column; align-items: center; font-size: 11px; font-weight: 500; color: var(--text-dark); }
@@ -389,30 +443,107 @@
 
 
     <div id="screen-main-landing">
-        <header style="display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; background: #fff; border-bottom: 1px solid var(--border-color);">
-            <div class="logo-container" style="display: flex; align-items: center; gap: 10px;">
-                <img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img">
+        
+        <header class="landing-header">
+            <div class="header-logo">
+                <img src="IMG_6596.png" alt="Finroro Logo">
             </div>
-            <div>
-                <button style="background: var(--primary-blue); color: white; border: none; padding: 10px 22px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;" onclick="switchToScreen('screen-login-phone')">Log Masuk</button>
+            <button class="btn-header-apply" onclick="switchToScreen('screen-login-phone')">Mohon Pinjaman</button>
+            <div class="hamburger">
+                <i class="fa-solid fa-bars"></i>
             </div>
         </header>
-        <section class="hero">
-            <h1>Pinjaman Pintar.<br>Masa Depan Lebih Pantas.</h1>
-            <p>Penilaian risiko pintar dan kelulusan cekap kami menjadikan proses penatafonaan aliran tunai perniagaan anda lebih mudah.</p>
-            <button class="btn-apply-hero" onclick="switchToScreen('screen-login-phone')">Mohon Sekarang</button>
-        </section>
-        <section class="calc-container">
-            <h2>Dapatkan Dana Sekarang</h2>
-            <div class="calc-box">
-                <div class="amount-display" id="loanAmountLabel">RM 1,000</div>
-                <input type="range" min="250" max="5000" value="1000" step="50" class="slider" id="loanRangeSlider" oninput="document.getElementById('loanAmountLabel').textContent = 'RM ' + parseInt(this.value).toLocaleString()">
-                <button class="btn-submit-main" onclick="switchToScreen('screen-login-phone')">Mohon Sekarang</button>
+
+        <section class="landing-hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Pinjaman Pintar.<br>Masa Depan Lebih Pantas.</h1>
+                <p>Penilaian risiko pintar dan kelulusan cekap kami menjadikan proses pinjaman lebih mudah dan cepat.</p>
+                <button class="btn-hero-apply" onclick="switchToScreen('screen-login-phone')">Mohon Sekarang</button>
             </div>
         </section>
+
+        <section class="card-container">
+            <div class="loan-card">
+                <div class="card-header">
+                    <h2>Dapatkan Dana Sekarang</h2>
+                </div>
+                <div class="card-body">
+                    <p class="loan-label">Jumlah Pinjaman</p>
+                    <h1 class="loan-amount-display" id="amountDisplay">RM 1,000</h1>
+                    
+                    <div class="slider-wrapper">
+                        <input type="range" id="loanSlider" min="250" max="5000" step="50" value="1000">
+                        <div class="slider-labels">
+                            <span>250</span>
+                            <span>5000</span>
+                        </div>
+                    </div>
+
+                    <div class="phone-input-group">
+                        <label>Nombor Telefon</label>
+                        <span class="flag-code"><img src="https://flagcdn.com/w40/my.png" alt="MY"> +60</span>
+                        <input type="tel" id="landingPhoneInput" placeholder="179229360" pattern="[0-9]*" inputmode="numeric">
+                    </div>
+
+                    <button class="btn-card-submit" onclick="proceedToLoginFromLanding()">Mohon Sekarang</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="landing-footer">
+            <div class="footer-logo-row">
+                <img src="IMG_6596.png" alt="Finroro Logo Icon">
+                <h2>Finroro</h2>
+            </div>
+
+            <div class="footer-contact-links">
+                <a href="tel:0327409849" class="underline-link">03-27409849</a>
+                <p>Finroro</p>
+                <a href="mailto:support@finroro.com" class="underline-link">support@finroro.com</a>
+            </div>
+
+            <div class="footer-nav-links">
+                <a href="#">Laman Utama</a>
+                <a href="#">Bagaimana Cara Bayar</a>
+                <a href="#">Tentang Kami</a>
+                <a href="#">FAQ</a>
+                <a href="#">Kirim Keluhan</a>
+                <a href="#">Syarat dan Kondisi</a>
+            </div>
+
+            <div class="social-section">
+                <p>Ikuti Kami</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="company-name">MNG GOLD SOLUTION SDN BHD</div>
+            <div class="company-tel">Tel: <span>03-27409849</span></div>
+
+            <div class="info-block">
+                <h3>Contoh Pengiraan Pinjaman</h3>
+                <p>Pelanggan memohon pinjaman sebanyak RM2000 untuk 3 bulan (90 hari). Kadar faedah dikira sebagai RM2000 × 90 × 0.05% = RM90. Jumlah pembayaran balik adalah RM2000 + RM90 = RM2090. Pembayaran bulanan adalah RM2090 / 3 = RM696.67.</p>
+            </div>
+
+            <div class="info-block">
+                <h3>Maklumat Produk</h3>
+                <p>Tempoh Pinjaman: 91 – 180 hari<br>Kadar Faedah Maksimum Tahunan (APR): 18.00%</p>
+            </div>
+
+            <div class="info-block">
+                <h3>Alamat Kantor</h3>
+                <p>118, Jalan USJ 22/5, Usj 14<br>47630 Subang Jaya, Selangor</p>
+            </div>
+        </footer>
     </div>
-
-
     <div id="screen-login-phone">
         <div class="login-header">
             <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
@@ -656,6 +787,38 @@
 
 
     <script>
+        // Logik untuk Slider di Halaman Depan Baharu
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('loanSlider');
+            const amountDisplay = document.getElementById('amountDisplay');
+
+            if(slider && amountDisplay) {
+                function updateSliderStyle() {
+                    const value = slider.value;
+                    const formattedValue = Number(value).toLocaleString();
+                    amountDisplay.textContent = 'RM ' + formattedValue;
+
+                    const min = slider.min;
+                    const max = slider.max;
+                    const percentage = ((value - min) / (max - min)) * 100;
+                    
+                    slider.style.background = `linear-gradient(to right, #1c3eea 0%, #1c3eea ${percentage}%, #d3d3d3 ${percentage}%, #d3d3d3 100%)`;
+                }
+                slider.addEventListener('input', updateSliderStyle);
+                updateSliderStyle();
+            }
+        });
+
+        // UX: Menyalin no. telefon dari landing page ke login
+        function proceedToLoginFromLanding() {
+            const landingPhone = document.getElementById('landingPhoneInput').value;
+            if(landingPhone) {
+                document.getElementById('loginPhoneInput').value = landingPhone;
+            }
+            switchToScreen('screen-login-phone');
+        }
+
+        // ================= KOD FUNGSI ASAL =================
         function triggerCustomAlert(text, isErrorLogo = true) {
             const popup = document.getElementById('globalAlertNotification');
             const message = document.getElementById('globalAlertMessage');
@@ -696,7 +859,6 @@
 
         const pinInputs = document.querySelectorAll('.pin-box');
         function handlePinFlow(current, index) {
-            // Memastikan hanya digit dibenarkan masuk
             current.value = current.value.replace(/[^0-9]/g, '');
             
             if (current.value.length === 1 && pinInputs[index + 1]) {
