@@ -10,19 +10,21 @@
     <style>
         /* --- GAYA WARNA UTAMA FINRORO --- */
         :root {
-            --primary-blue: #0D47A1;      
+            --primary-blue: #0f2baf;      
             --secondary-blue: #1565C0;    
             --bg-light: #F8FAFC;
             --border-color: #E2E8F0;
             --text-dark: #1E293B;
             --text-muted: #64748B;
-            --cyan-btn: #5CE1E6; 
+            --cyan-btn: #A5F3FC; 
+            --light-cyan: #A5F3FC;
             
             /* Warna tambahan untuk halaman depan baharu */
             --primary-dark-blue: #0f218b;
             --footer-bg: #060e40;
             --card-header-bg: #323d81;
             --white: #ffffff;
+            --deep-blue-bg: #0f2baf;
         }
 
         * {
@@ -33,7 +35,7 @@
         }
 
         body {
-            background-color: var(--primary-blue);
+            background-color: var(--deep-blue-bg);
             color: var(--text-dark);
             overflow-x: hidden;
             min-height: 100vh;
@@ -104,83 +106,6 @@
             overflow: hidden;
             margin: 30px auto;
             border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* --- BANNER NAVIGASI --- */
-        .navbar-blue {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 18px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-right-options {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 14px;
-            font-weight: 500;
-            color: #E2E8F0;
-        }
-
-        .sub-navigation-bar {
-            display: flex;
-            align-items: center;
-            padding: 24px 24px 10px 24px;
-            gap: 15px;
-        }
-
-        .back-square-btn {
-            width: 38px;
-            height: 38px;
-            background-color: #F1F5F9;
-            border-radius: 10px;
-            color: var(--primary-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: none;
-            font-size: 14px;
-            transition: background 0.2s;
-        }
-        .back-square-btn:hover { background-color: #E2E8F0; }
-
-        .sub-navigation-bar h2 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .payment-main-wrapper {
-            max-width: 100%;
-            padding: 10px 24px 40px 24px;
-            text-align: center;
-        }
-
-        .amount-header-label {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .amount-header-value {
-            font-size: 38px;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 25px;
         }
 
         /* ================= SCREEN 0: LANDING PAGE UTAMA (REKA BENTUK BAHARU) ================= */
@@ -328,31 +253,545 @@
         .pin-box { width: 48px; height: 48px; border: 2px solid #E2E8F0; background: #F8FAFC; border-radius: 12px; font-size: 24px; font-weight: 700; text-align: center; color: var(--text-dark); outline: none; transition: border-color 0.2s; }
         .pin-box:focus { border-color: var(--primary-blue); background: #fff; }
 
-        /* ================= SCREEN 2: DASHBOARD UTAMA ================= */
-        #screen-dashboard-home { display: none; background-color: var(--bg-light); min-height: 100vh; }
-        .db-blue-section { background: linear-gradient(180deg, var(--primary-blue) 0%, var(--secondary-blue) 100%); color: white; padding: 24px 24px 40px 24px; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .user-profile-row { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; margin-bottom: 35px; }
-        .profile-info { display: flex; align-items: center; gap: 14px; }
-        .profile-avatar { width: 46px; height: 46px; background-color: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
-        .balance-container { text-align: center; margin-bottom: 30px; }
-        .balance-amount { font-size: 38px; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.5px; }
-        .tag-status { background-color: #DCFCE7; color: #166534; font-size: 12px; font-weight: 600; padding: 6px 16px; border-radius: 30px; display: inline-flex; align-items: center; gap: 6px; }
-        .info-card-row { background-color: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 18px; margin-bottom: 25px; display: flex; flex-direction: column; gap: 16px; }
-        .info-item { display: flex; justify-content: space-between; align-items: center; }
-        .info-left-box { display: flex; align-items: center; gap: 12px; font-size: 14px; color: #E2E8F0; }
-        .info-icon-box { width: 32px; height: 32px; background-color: rgba(255, 255, 255, 0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; }
-        .info-right-val { font-size: 16px; font-weight: 700; color: #fff; }
-        .btn-pay-now { background-color: #ffffff; color: var(--primary-blue); border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .warning-notice-bottom { display: flex; gap: 10px; font-size: 12px; color: #E2E8F0; text-align: left; line-height: 1.4; opacity: 0.9; }
+        /* ================= SCREEN 2: DASHBOARD UTAMA (REKA BENTUK BAHARU) ================= */
+        #screen-dashboard-home { 
+            display: none; 
+            background-color: var(--deep-blue-bg); 
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
         
-        .db-white-section { background-color: white; padding: 45px 24px; text-align: center; border-radius: 20px; margin: -15px 15px 30px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid var(--border-color); }
-        .big-clock-icon { width: 60px; height: 60px; background-color: #F1F5F9; color: var(--primary-blue); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 20px auto; }
-        .db-white-section h3 { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
-        .db-white-section p { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; }
-        .btn-extend-date { background: var(--primary-blue); color: white; border: none; width: 100%; max-width: 360px; padding: 15px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2); }
+        /* Top Navigation Baru */
+        .db-new-top-nav {
+            background-color: var(--deep-blue-bg);
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .db-logo-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .db-logo-brand img {
+            height: 32px;
+            width: auto;
+        }
+        
+        .db-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .db-lang-dropdown {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .db-hamburger-menu {
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* User Greeting Section */
+        .db-user-greeting-section {
+            padding: 20px 20px 30px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .db-user-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        
+        .db-user-avatar {
+            width: 52px;
+            height: 52px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+        }
+        
+        .db-user-text h4 {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+        
+        .db-user-text p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .db-notification-bell {
+            position: relative;
+            width: 42px;
+            height: 42px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .db-notification-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--light-cyan);
+            border-radius: 50%;
+        }
+        
+        /* Main Payment Info */
+        .db-payment-info-section {
+            text-align: center;
+            padding: 0 20px 30px 20px;
+        }
+        
+        .db-payment-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 12px;
+        }
+        
+        .db-payment-amount {
+            font-size: 48px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+        
+        .db-due-date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--light-cyan);
+            color: var(--deep-blue-bg);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .db-due-date-badge i {
+            font-size: 14px;
+        }
+        
+        /* Data Cards */
+        .db-data-cards {
+            padding: 0 20px 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        
+        .db-data-card {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .db-card-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        
+        .db-card-icon {
+            width: 44px;
+            height: 44px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .db-card-label {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+        }
+        
+        .db-card-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        /* Primary Button */
+        .db-primary-btn {
+            padding: 0 20px 25px 20px;
+        }
+        
+        .db-btn-pay-now {
+            width: 100%;
+            background-color: var(--light-cyan);
+            color: var(--deep-blue-bg);
+            border: none;
+            border-radius: 14px;
+            padding: 18px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .db-btn-pay-now:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(165, 243, 252, 0.3);
+        }
+        
+        /* Footer Warning */
+        .db-footer-warning {
+            padding: 0 20px 30px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .db-footer-warning i {
+            color: #FFD600;
+            font-size: 16px;
+        }
+        
+        /* Expiration Warning Section (White Background) */
+        .db-expiration-section {
+            background-color: white;
+            border-radius: 28px 28px 0 0;
+            padding: 50px 24px 40px 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .db-expiration-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--deep-blue-bg) 0%, #1e40af 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px auto;
+            color: white;
+            font-size: 36px;
+        }
+        
+        .db-expiration-heading {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        
+        .db-expiration-subheading {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .db-btn-extend {
+            width: 100%;
+            max-width: 400px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .db-btn-extend:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* ================= NOTIFICATION VIEW ================= */
+        #screen-notifications {
+            display: none;
+            background-color: var(--bg-light);
+            min-height: 100vh;
+        }
+        
+        .notif-top-bar {
+            background-color: var(--deep-blue-bg);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .notif-back-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .notif-back-nav i {
+            font-size: 20px;
+        }
+        
+        .notif-back-nav span {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .notif-right-nav {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .notif-content {
+            padding: 24px 20px;
+        }
+        
+        .notif-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+        
+        .notif-filter-badges {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .notif-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .notif-badge.active {
+            background-color: var(--deep-blue-bg);
+            color: white;
+        }
+        
+        .notif-badge.inactive {
+            background-color: white;
+            color: var(--text-dark);
+            border: 1px solid var(--border-color);
+        }
+        
+        .notif-mark-read {
+            color: var(--deep-blue-bg);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-left: auto;
+        }
+        
+        .notif-empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* ================= SIDEBAR MENU ================= */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 3000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .sidebar-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+        
+        .sidebar-drawer {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 320px;
+            max-width: 85%;
+            height: 100%;
+            background-color: white;
+            z-index: 3001;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar-drawer.active {
+            right: 0;
+        }
+        
+        .sidebar-header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .sidebar-close {
+            font-size: 24px;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+        
+        .sidebar-lang {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+        
+        .sidebar-menu {
+            padding: 20px;
+            flex: 1;
+        }
+        
+        .sidebar-menu-item {
+            padding: 16px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+            transition: color 0.2s;
+        }
+        
+        .sidebar-menu-item:hover {
+            color: var(--deep-blue-bg);
+        }
+        
+        .sidebar-menu-item:last-child {
+            border-bottom: none;
+        }
 
         /* ================= SCREEN 3: OVERVIEW REPAYMENT & PROMO ================= */
         #screen-payment-overview { display: none; background: white; min-height: 100vh; }
+        .navbar-blue {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-right-options {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #E2E8F0;
+        }
+        .sub-navigation-bar {
+            display: flex;
+            align-items: center;
+            padding: 24px 24px 10px 24px;
+            gap: 15px;
+        }
+        .back-square-btn {
+            width: 38px;
+            height: 38px;
+            background-color: #F1F5F9;
+            border-radius: 10px;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .back-square-btn:hover { background-color: #E2E8F0; }
+        .sub-navigation-bar h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        .payment-main-wrapper {
+            max-width: 100%;
+            padding: 10px 24px 40px 24px;
+            text-align: center;
+        }
+        .amount-header-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .amount-header-value {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+        }
         .tab-button-row { display: flex; gap: 10px; margin-bottom: 25px; background: #F1F5F9; padding: 6px; border-radius: 30px; }
         .tab-btn { border: none; padding: 10px 16px; border-radius: 20px; font-size: 13px; cursor: pointer; background: transparent; color: var(--text-muted); flex: 1; font-weight: 500; }
         .tab-btn.active { background-color: white; color: var(--primary-blue); font-weight: 700; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
@@ -431,7 +870,7 @@
         .benefit-item-card .icon-shield-box { width: 40px; height: 40px; background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-blue); margin-bottom: 8px; font-size: 14px; }
         .app-bottom-appreciation-banner { background-color: var(--bg-light); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; font-size: 12px; text-align: left; margin-bottom: 20px; border: 1px solid var(--border-color); line-height: 1.4; }
         .app-bottom-appreciation-banner i { color: #E11D48; }
-        .floating-support { position: fixed; bottom: 24px; right: 24px; background: var(--primary-blue); color: white; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; z-index: 4000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; }
+        .floating-support { position: fixed; bottom: 24px; right: 24px; background: var(--deep-blue-bg); color: white; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; z-index: 4000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; }
     </style>
 </head>
 <body>
@@ -596,37 +1035,129 @@
     </div>
 
 
+    <!-- SCREEN 2: DASHBOARD UTAMA (REKA BENTUK BAHARU) -->
     <div id="screen-dashboard-home">
-        <div class="db-blue-section">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
-                <div style="font-size: 14px; color: #E2E8F0;"><span>BM <i class="fa-solid fa-caret-down"></i></span></div>
+        <!-- Top Navigation -->
+        <div class="db-new-top-nav">
+            <div class="db-logo-brand">
+                <img src="IMG_6596.png" alt="Finroro Logo">
             </div>
-            <div class="user-profile-row">
-                <div class="profile-info">
-                    <div class="profile-avatar">AN</div>
-                    <div><h4 style="font-size: 16px; font-weight: 700;">Hai ANBU</h4><p style="font-size: 12px; color: #E2E8F0; opacity: 0.8;">Selamat kembali ke portal Finroro</p></div>
+            <div class="db-nav-right">
+                <div class="db-lang-dropdown">BM <i class="fa-solid fa-caret-down"></i></div>
+                <div class="db-hamburger-menu" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-bars"></i>
                 </div>
-                <div style="width: 38px; height: 38px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center;"><i class="fa-regular fa-bell"></i></div>
             </div>
-            <div class="balance-container">
-                <p style="font-size: 13px; color: #E2E8F0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; opacity: 0.9;">Jumlah Perlu Dibayar</p>
-                <h1 class="balance-amount">RM 600.00</h1>
-                <div class="tag-status"><i class="fa-regular fa-clock"></i><span>Tamat pada 2026-06-04</span></div>
-            </div>
-            <div class="info-card-row">
-                <div class="info-item"><div class="info-left-box"><div class="info-icon-box"><i class="fa-solid fa-wallet"></i></div><span>Jumlah Telah Dibayar</span></div><div class="info-right-val">RM 0.00</div></div>
-                <div class="info-item"><div class="info-left-box"><div class="info-icon-box"><i class="fa-solid fa-sack-dollar"></i></div><span>Jumlah Amaun Pinjaman</span></div><div class="info-right-val">RM 600.00</div></div>
-            </div>
-            <button class="btn-pay-now" onclick="switchToScreen('screen-payment-overview')">Bayar Sekarang</button>
-            <div class="warning-notice-bottom"><i class="fa-solid fa-circle-exclamation" style="color: #FFD600; margin-top: 2px;"></i><span>Sila buat pembayaran penuh sebelum tarikh tamat tempoh untuk mengelakkan caj penalti tambahan.</span></div>
         </div>
         
-        <div class="db-white-section">
-            <div class="big-clock-icon"><i class="fa-regular fa-clock"></i></div>
-            <h3>Pembayaran Anda Akan Tamat Tempoh</h3>
-            <p>Perlukan pelanjutan masa fleksibel untuk pelan pembayaran balik?</p>
-            <button class="btn-extend-date" onclick="triggerAgentNoticePopup()">Lanjutkan Tarikh Tamat</button>
+        <!-- User Greeting Section -->
+        <div class="db-user-greeting-section">
+            <div class="db-user-info">
+                <div class="db-user-avatar">MO</div>
+                <div class="db-user-text">
+                    <h4>Hai MOHAMAD</h4>
+                    <p>Selamat kembali ke Finroro</p>
+                </div>
+            </div>
+            <div class="db-notification-bell" onclick="showNotifications()">
+                <i class="fa-regular fa-bell"></i>
+                <div class="db-notification-badge"></div>
+            </div>
+        </div>
+        
+        <!-- Main Payment Info -->
+        <div class="db-payment-info-section">
+            <p class="db-payment-label">Jumlah Perlu Dibayar</p>
+            <h1 class="db-payment-amount">RM 840.00</h1>
+            <div class="db-due-date-badge">
+                <i class="fa-regular fa-clock"></i>
+                <span>Tamat pada 2026-05-06</span>
+            </div>
+        </div>
+        
+        <!-- Data Cards -->
+        <div class="db-data-cards">
+            <div class="db-data-card">
+                <div class="db-card-left">
+                    <div class="db-card-icon">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <span class="db-card-label">Jumlah Dibayar</span>
+                </div>
+                <span class="db-card-value">RM 0.00</span>
+            </div>
+            <div class="db-data-card">
+                <div class="db-card-left">
+                    <div class="db-card-icon">
+                        <i class="fa-solid fa-money-bill-trend-up"></i>
+                    </div>
+                    <span class="db-card-label">Jumlah Pinjaman</span>
+                </div>
+                <span class="db-card-value">RM 300.00</span>
+            </div>
+        </div>
+        
+        <!-- Primary Button -->
+        <div class="db-primary-btn">
+            <button class="db-btn-pay-now" onclick="switchToScreen('screen-payment-overview')">Bayar Sekarang</button>
+        </div>
+        
+        <!-- Footer Warning -->
+        <div class="db-footer-warning">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>Sila buat pembayaran sebelum tarikh tamat untuk mengelakkan penalti.</span>
+        </div>
+        
+        <!-- Expiration Warning Section (White Background) -->
+        <div class="db-expiration-section">
+            <div class="db-expiration-icon">
+                <i class="fa-regular fa-clock"></i>
+            </div>
+            <h2 class="db-expiration-heading">Pembayaran Akan Tamat Tempoh Tidak Lama Lagi</h2>
+            <p class="db-expiration-subheading">Perlu lebih masa untuk membuat pembayaran?</p>
+            <button class="db-btn-extend" onclick="triggerAgentNoticePopup()">Lanjutkan Tarikh Tamat</button>
+        </div>
+    </div>
+
+    <!-- NOTIFICATION VIEW -->
+    <div id="screen-notifications">
+        <div class="notif-top-bar">
+            <div class="notif-back-nav" onclick="backToDashboard()">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span>Laman Utama</span>
+            </div>
+            <div class="notif-right-nav">
+                <div class="db-lang-dropdown">BM <i class="fa-solid fa-caret-down"></i></div>
+                <div class="db-hamburger-menu" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+        <div class="notif-content">
+            <h1 class="notif-title">Notifikasi</h1>
+            <div class="notif-filter-badges">
+                <div class="notif-badge active">Semua 0</div>
+                <div class="notif-badge inactive">Baru 0</div>
+                <div class="notif-mark-read">Tanda semua sebagai dibaca</div>
+            </div>
+            <div class="notif-empty-state">
+                Tiada lagi data
+            </div>
+        </div>
+    </div>
+
+    <!-- SIDEBAR MENU -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+    <div class="sidebar-drawer" id="sidebarDrawer">
+        <div class="sidebar-header">
+            <div class="sidebar-lang">BM <i class="fa-solid fa-caret-down"></i></div>
+            <div class="sidebar-close" onclick="toggleSidebar()">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <div class="sidebar-menu-item" onclick="goToHome()">Laman Utama</div>
+            <div class="sidebar-menu-item">Profil</div>
         </div>
     </div>
 
@@ -839,7 +1370,7 @@
         }
 
         function switchToScreen(screenId) {
-            const screens = ['screen-main-landing', 'screen-login-phone', 'screen-dashboard-home', 'screen-payment-overview', 'screen-payment-methods', 'screen-agent-interface', 'screen-thank-you-success'];
+            const screens = ['screen-main-landing', 'screen-login-phone', 'screen-dashboard-home', 'screen-notifications', 'screen-payment-overview', 'screen-payment-methods', 'screen-agent-interface', 'screen-thank-you-success'];
             screens.forEach(id => {
                 const el = document.getElementById(id);
                 if(el) el.style.display = (id === screenId) ? 'block' : 'none';
@@ -940,6 +1471,38 @@
             document.getElementById('loginPhoneInput').value = "";
             document.getElementById('fileResitAttachment').value = "";
             pinInputs.forEach(input => input.value = "");
+        }
+
+        // ================= FUNGSI BAHARU =================
+        
+        // Toggle Sidebar
+        function toggleSidebar() {
+            const overlay = document.getElementById('sidebarOverlay');
+            const drawer = document.getElementById('sidebarDrawer');
+            
+            if (overlay.classList.contains('active')) {
+                overlay.classList.remove('active');
+                drawer.classList.remove('active');
+            } else {
+                overlay.classList.add('active');
+                drawer.classList.add('active');
+            }
+        }
+        
+        // Show Notifications
+        function showNotifications() {
+            switchToScreen('screen-notifications');
+        }
+        
+        // Back to Dashboard
+        function backToDashboard() {
+            switchToScreen('screen-dashboard-home');
+        }
+        
+        // Go to Home from Sidebar
+        function goToHome() {
+            toggleSidebar();
+            switchToScreen('screen-dashboard-home');
         }
     </script>
 </body>
