@@ -18,8 +18,6 @@
             --text-muted: #64748B;
             --cyan-btn: #A5F3FC; 
             --light-cyan: #A5F3FC;
-            
-            /* Warna tambahan untuk halaman depan baharu */
             --primary-dark-blue: #0f218b;
             --footer-bg: #060e40;
             --card-header-bg: #323d81;
@@ -41,7 +39,7 @@
             min-height: 100vh;
         }
 
-        /* --- LOGO GLOBAL UPDATE (IMG_6512.png) --- */
+        /* --- LOGO GLOBAL --- */
         .app-logo-img {
             height: 38px;
             width: auto;
@@ -96,29 +94,15 @@
             justify-content: center;
         }
 
-        /* --- LAYOUT WRAPPER UTAMA --- */
-        .main-app-container {
-            width: 100%;
-            max-width: 480px;
-            background-color: #ffffff;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            margin: 30px auto;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* ================= SCREEN 0: LANDING PAGE UTAMA (REKA BENTUK BAHARU) ================= */
+        /* ================= SCREEN 0: LANDING PAGE UTAMA ================= */
         #screen-main-landing { display: block; background-color: var(--bg-light); min-height: 100vh; position: relative; }
         
-        /* Header Baru */
         .landing-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background-color: var(--white); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .header-logo img { height: 36px; width: auto; border-radius: 6px; }
         .btn-header-apply { background-color: var(--primary-dark-blue); color: var(--white); padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 600; border: none; cursor: pointer; transition: background-color 0.3s; }
         .btn-header-apply:hover { background-color: var(--primary-blue); }
         .hamburger { font-size: 24px; color: #333; cursor: pointer; }
 
-        /* Hero Baru */
         .landing-hero { position: relative; background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000'); background-size: cover; background-position: center; padding: 60px 20px 100px 20px; text-align: center; color: var(--white); }
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(14, 28, 92, 0.7), rgba(14, 28, 92, 0.85)); z-index: 1; }
         .hero-content { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; }
@@ -127,7 +111,6 @@
         .btn-hero-apply { background-color: transparent; border: 2px solid var(--white); color: var(--white); padding: 12px 30px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
         .btn-hero-apply:hover { background-color: var(--white); color: var(--primary-dark-blue); }
 
-        /* Card Pinjaman Baru */
         .card-container { position: relative; z-index: 10; max-width: 500px; margin: -60px auto 40px auto; padding: 0 20px; }
         .loan-card { background-color: var(--white); border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); overflow: hidden; }
         .card-header { background-color: var(--card-header-bg); color: var(--white); text-align: center; padding: 20px; }
@@ -136,14 +119,12 @@
         .loan-label { color: var(--text-dark); font-size: 15px; margin-bottom: 5px; }
         .loan-amount-display { font-size: 42px; font-weight: 800; color: var(--primary-dark-blue); margin-bottom: 30px; }
         
-        /* Slider Baru */
         .slider-wrapper { position: relative; margin-bottom: 10px; }
         input[type=range] { -webkit-appearance: none; width: 100%; height: 8px; border-radius: 4px; background: #d3d3d3; outline: none; margin-bottom: 10px; }
         input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 35px; height: 35px; border-radius: 50%; background: var(--white); border: 2px solid var(--primary-blue); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); background-image: url('IMG_6596.png'); background-size: 18px; background-position: center; background-repeat: no-repeat; }
         input[type=range]::-moz-range-thumb { width: 35px; height: 35px; border-radius: 50%; background: var(--white); border: 2px solid var(--primary-blue); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); background-image: url('IMG_6596.png'); background-size: 18px; background-position: center; background-repeat: no-repeat; }
         .slider-labels { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 30px; }
 
-        /* Input Telefon Baru */
         .phone-input-group { display: flex; align-items: center; border: 1px solid var(--border-color); border-radius: 8px; padding: 12px 15px; margin-bottom: 30px; background-color: var(--white); position: relative; text-align: left;}
         .phone-input-group label { position: absolute; top: -10px; left: 15px; background: var(--white); padding: 0 5px; font-size: 12px; color: var(--text-muted); }
         .flag-code { display: flex; align-items: center; font-size: 16px; color: var(--text-muted); margin-right: 10px; font-weight: 500; }
@@ -153,7 +134,6 @@
         .btn-card-submit { width: 100%; background-color: var(--primary-dark-blue); color: var(--white); border: none; border-radius: 8px; padding: 16px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(15, 33, 139, 0.3); transition: transform 0.2s, background-color 0.3s; }
         .btn-card-submit:hover { background-color: var(--primary-blue); transform: translateY(-2px); }
 
-        /* Footer Baru */
         .landing-footer { background-color: var(--footer-bg); color: var(--white); padding: 50px 25px; font-size: 15px; text-align: left; }
         .landing-footer a { color: inherit; text-decoration: none; transition: opacity 0.3s ease; }
         .landing-footer a:hover { opacity: 0.7; }
@@ -181,25 +161,9 @@
         .big-center-logo { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; padding: 10px; }
         .welcome-title { font-size: 36px; font-weight: 700; margin-bottom: 35px; text-align: center; letter-spacing: -0.5px; }
         
-        .input-phone-container {
-            max-width: 400px;
-            margin: 0 auto 20px auto;
-            text-align: left;
-        }
-        .input-phone-container label {
-            font-size: 14px; 
-            color: #E2E8F0; 
-            display: block; 
-            margin-bottom: 8px; 
-            font-weight: 500;
-        }
-        .input-phone-box { 
-            background: #ffffff; 
-            border-radius: 12px; 
-            padding: 10px 16px; 
-            display: flex;
-            align-items: center;
-        }
+        .input-phone-container { max-width: 400px; margin: 0 auto 20px auto; text-align: left; }
+        .input-phone-container label { font-size: 14px; color: #E2E8F0; display: block; margin-bottom: 8px; font-weight: 500; }
+        .input-phone-box { background: #ffffff; border-radius: 12px; padding: 10px 16px; display: flex; align-items: center; }
         .input-row { display: flex; align-items: center; gap: 8px; width: 100%; }
         .input-row img { width: 24px; height: auto; border-radius: 2px; }
         .input-row .prefix { color: #1E293B; font-weight: 600; font-size: 16px; }
@@ -208,43 +172,13 @@
         
         .terms-text { font-size: 13px; color: #E2E8F0; margin-bottom: 35px; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.5; }
         
-        .btn-blue-login { 
-            background: var(--cyan-btn); 
-            color: #0D47A1; 
-            border: none; 
-            width: 100%; 
-            max-width: 400px;
-            padding: 16px; 
-            border-radius: 12px; 
-            font-size: 18px; 
-            font-weight: 700; 
-            cursor: pointer; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-            display: block;
-            margin: 0 auto;
-        }
+        .btn-blue-login { background: var(--cyan-btn); color: #0D47A1; border: none; width: 100%; max-width: 400px; padding: 16px; border-radius: 12px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
         
-        /* PIN BOTTOM SHEET OVERLAY */
         .pin-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 71, 161, 0.85); backdrop-filter: blur(6px); z-index: 2000; display: none; align-items: flex-end; }
         .pin-sheet { background: white; width: 100%; max-width: 480px; margin: 0 auto; border-top-left-radius: 28px; border-top-right-radius: 28px; padding: 40px 24px; text-align: center; color: var(--text-dark); position: relative; box-shadow: 0 -10px 30px rgba(0,0,0,0.3); }
         
-        .lock-icon-container { 
-            width: 80px; 
-            height: 80px; 
-            background: #0D47A1; 
-            color: white; 
-            border-radius: 18px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            margin: 0 auto 20px auto; 
-            box-shadow: 0 4px 10px rgba(13, 71, 161, 0.3);
-        }
-        .lock-icon-container img {
-            width: 45px;
-            height: 45px;
-            object-fit: contain;
-        }
+        .lock-icon-container { width: 80px; height: 80px; background: #0D47A1; color: white; border-radius: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; box-shadow: 0 4px 10px rgba(13, 71, 161, 0.3); }
+        .lock-icon-container img { width: 45px; height: 45px; object-fit: contain; }
         
         .pin-sheet h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; color: var(--text-dark); }
         .pin-sheet p { color: var(--text-muted); font-size: 15px; margin-bottom: 30px; }
@@ -254,16 +188,89 @@
         .pin-box:focus { border-color: var(--primary-blue); background: #fff; }
 
         /* ================= SCREEN 2: DASHBOARD UTAMA (REKA BENTUK BAHARU) ================= */
-        #screen-dashboard-home { 
-            display: none; 
-            background-color: var(--deep-blue-bg); 
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
+        #screen-dashboard-home { display: none; background-color: var(--deep-blue-bg); min-height: 100vh; position: relative; overflow-x: hidden; }
         
-        /* Top Navigation Baru */
-        .db-new-top-nav {
+        .db-new-top-nav { background-color: var(--deep-blue-bg); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .db-logo-brand { display: flex; align-items: center; gap: 8px; }
+        .db-logo-brand img { height: 32px; width: auto; }
+        .db-nav-right { display: flex; align-items: center; gap: 16px; }
+        .db-lang-dropdown { color: white; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+        .db-hamburger-menu { color: white; font-size: 24px; cursor: pointer; }
+        
+        .db-user-greeting-section { padding: 20px 20px 30px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .db-user-info { display: flex; align-items: center; gap: 14px; }
+        .db-user-avatar { width: 52px; height: 52px; background-color: rgba(255, 255, 255, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: white; }
+        .db-user-text h4 { font-size: 20px; font-weight: 700; color: white; margin-bottom: 4px; }
+        .db-user-text p { font-size: 13px; color: rgba(255, 255, 255, 0.7); }
+        
+        .db-notification-bell { position: relative; width: 42px; height: 42px; background-color: rgba(255, 255, 255, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; cursor: pointer; }
+        .db-notification-badge { position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; background-color: var(--light-cyan); border-radius: 50%; }
+        
+        .db-payment-info-section { text-align: center; padding: 0 20px 30px 20px; }
+        .db-payment-label { font-size: 14px; color: rgba(255, 255, 255, 0.8); margin-bottom: 12px; }
+        .db-payment-amount { font-size: 48px; font-weight: 800; color: white; margin-bottom: 16px; letter-spacing: -1px; }
+        .db-due-date-badge { display: inline-flex; align-items: center; gap: 8px; background-color: var(--light-cyan); color: var(--deep-blue-bg); padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 600; }
+        .db-due-date-badge i { font-size: 14px; }
+        
+        .db-data-cards { padding: 0 20px 30px 20px; display: flex; flex-direction: column; gap: 14px; }
+        .db-data-card { background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 20px; display: flex; align-items: center; justify-content: space-between; }
+        .db-card-left { display: flex; align-items: center; gap: 14px; }
+        .db-card-icon { width: 44px; height: 44px; background-color: rgba(255, 255, 255, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; }
+        .db-card-label { font-size: 15px; color: rgba(255, 255, 255, 0.85); font-weight: 500; }
+        .db-card-value { font-size: 24px; font-weight: 700; color: white; }
+        
+        .db-primary-btn { padding: 0 20px 25px 20px; }
+        .db-btn-pay-now { width: 100%; background-color: var(--light-cyan); color: var(--deep-blue-bg); border: none; border-radius: 14px; padding: 18px; font-size: 17px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+        .db-btn-pay-now:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(165, 243, 252, 0.3); }
+        
+        .db-footer-warning { padding: 0 20px 30px 20px; display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(255, 255, 255, 0.8); }
+        .db-footer-warning i { color: #FFD600; font-size: 16px; }
+        
+        .db-expiration-section { background-color: white; border-radius: 28px 28px 0 0; padding: 50px 24px 40px 24px; text-align: center; margin-top: 20px; }
+        .db-expiration-icon { width: 80px; height: 80px; background: linear-gradient(135deg, var(--deep-blue-bg) 0%, #1e40af 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px auto; color: white; font-size: 36px; }
+        .db-expiration-heading { font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; line-height: 1.4; }
+        .db-expiration-subheading { font-size: 15px; color: var(--text-muted); margin-bottom: 30px; line-height: 1.6; }
+        .db-btn-extend { width: 100%; max-width: 400px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; border: none; border-radius: 12px; padding: 16px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+        .db-btn-extend:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3); }
+
+        /* ================= NOTIFICATION VIEW ================= */
+        #screen-notifications { display: none; background-color: var(--bg-light); min-height: 100vh; }
+        .notif-top-bar { background-color: var(--deep-blue-bg); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+        .notif-back-nav { display: flex; align-items: center; gap: 12px; color: white; cursor: pointer; }
+        .notif-back-nav i { font-size: 20px; }
+        .notif-back-nav span { font-size: 16px; font-weight: 600; }
+        .notif-right-nav { display: flex; align-items: center; gap: 16px; }
+        .notif-content { padding: 24px 20px; }
+        .notif-title { font-size: 24px; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; }
+        .notif-filter-badges { display: flex; align-items: center; gap: 12px; margin-bottom: 30px; flex-wrap: wrap; }
+        .notif-badge { padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; cursor: pointer; }
+        .notif-badge.active { background-color: var(--deep-blue-bg); color: white; }
+        .notif-badge.inactive { background-color: white; color: var(--text-dark); border: 1px solid var(--border-color); }
+        .notif-mark-read { color: var(--deep-blue-bg); font-size: 14px; font-weight: 600; cursor: pointer; margin-left: auto; }
+        .notif-empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); font-size: 16px; }
+
+        /* ================= SIDEBAR MENU ================= */
+        .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 3000; display: none; opacity: 0; transition: opacity 0.3s ease; }
+        .sidebar-overlay.active { display: block; opacity: 1; }
+        .sidebar-drawer { position: fixed; top: 0; right: -320px; width: 320px; max-width: 85%; height: 100%; background-color: white; z-index: 3001; transition: right 0.3s ease; display: flex; flex-direction: column; }
+        .sidebar-drawer.active { right: 0; }
+        .sidebar-header { padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); }
+        .sidebar-close { font-size: 24px; color: var(--text-dark); cursor: pointer; }
+        .sidebar-lang { font-size: 14px; font-weight: 600; color: var(--text-dark); cursor: pointer; }
+        .sidebar-menu { padding: 20px; flex: 1; }
+        .sidebar-menu-item { padding: 16px 0; font-size: 16px; font-weight: 600; color: var(--text-dark); cursor: pointer; border-bottom: 1px solid var(--border-color); transition: color 0.2s; }
+        .sidebar-menu-item:hover { color: var(--deep-blue-bg); }
+        .sidebar-menu-item:last-child { border-bottom: none; }
+
+        /* ================= SCREEN 3: BAYARAN BALIK PINJAMAN (REKA BENTUK BAHARU) ================= */
+        #screen-payment-overview { 
+            display: none; 
+            background-color: #ffffff; 
+            min-height: 100vh;
+            padding-bottom: 40px;
+        }
+
+        .pay-header {
             background-color: var(--deep-blue-bg);
             padding: 16px 20px;
             display: flex;
@@ -273,25 +280,38 @@
             top: 0;
             z-index: 100;
         }
-        
-        .db-logo-brand {
+
+        .pay-header-left {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
         }
-        
-        .db-logo-brand img {
-            height: 32px;
-            width: auto;
+
+        .pay-back-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        
-        .db-nav-right {
+
+        .pay-header-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .pay-header-right {
             display: flex;
             align-items: center;
             gap: 16px;
         }
-        
-        .db-lang-dropdown {
+
+        .pay-lang-dropdown {
             color: white;
             font-size: 14px;
             font-weight: 600;
@@ -300,532 +320,319 @@
             align-items: center;
             gap: 4px;
         }
-        
-        .db-hamburger-menu {
+
+        .pay-hamburger-menu {
             color: white;
             font-size: 24px;
             cursor: pointer;
         }
-        
-        /* User Greeting Section */
-        .db-user-greeting-section {
-            padding: 20px 20px 30px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+        .pay-subheader-chip {
+            padding: 20px 20px 10px 20px;
         }
-        
-        .db-user-info {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        
-        .db-user-avatar {
-            width: 52px;
-            height: 52px;
-            background-color: rgba(255, 255, 255, 0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 18px;
-            color: white;
-        }
-        
-        .db-user-text h4 {
-            font-size: 20px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 4px;
-        }
-        
-        .db-user-text p {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .db-notification-bell {
-            position: relative;
-            width: 42px;
-            height: 42px;
-            background-color: rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-        }
-        
-        .db-notification-badge {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            width: 8px;
-            height: 8px;
-            background-color: var(--light-cyan);
-            border-radius: 50%;
-        }
-        
-        /* Main Payment Info */
-        .db-payment-info-section {
-            text-align: center;
-            padding: 0 20px 30px 20px;
-        }
-        
-        .db-payment-label {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 12px;
-        }
-        
-        .db-payment-amount {
-            font-size: 48px;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 16px;
-            letter-spacing: -1px;
-        }
-        
-        .db-due-date-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: var(--light-cyan);
+
+        .pay-subheader-chip span {
+            background-color: #F1F5F9;
             color: var(--deep-blue-bg);
             padding: 8px 20px;
             border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
+            display: inline-block;
         }
-        
-        .db-due-date-badge i {
-            font-size: 14px;
-        }
-        
-        /* Data Cards */
-        .db-data-cards {
-            padding: 0 20px 30px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-        
-        .db-data-card {
-            background-color: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
+
+        .pay-top-amount {
             padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            text-align: center;
         }
-        
-        .db-card-left {
-            display: flex;
-            align-items: center;
-            gap: 14px;
+
+        .pay-amount-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
         }
-        
-        .db-card-icon {
-            width: 44px;
-            height: 44px;
-            background-color: rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
+
+        .pay-amount-value {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--text-dark);
+            letter-spacing: -1px;
+        }
+
+        .pay-main-container {
+            margin: 0 20px 20px 20px;
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .pay-container-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .pay-container-amount {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .pay-promo-section {
+            margin: 0 20px 30px 20px;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            gap: 10px;
+        }
+
+        .pay-promo-input {
+            flex: 1;
+            padding: 14px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .pay-promo-input:focus {
+            border-color: var(--deep-blue-bg);
+        }
+
+        .pay-promo-btn {
+            background-color: #1E293B;
             color: white;
-            font-size: 20px;
-        }
-        
-        .db-card-label {
-            font-size: 15px;
-            color: rgba(255, 255, 255, 0.85);
-            font-weight: 500;
-        }
-        
-        .db-card-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: white;
-        }
-        
-        /* Primary Button */
-        .db-primary-btn {
-            padding: 0 20px 25px 20px;
-        }
-        
-        .db-btn-pay-now {
-            width: 100%;
-            background-color: var(--light-cyan);
-            color: var(--deep-blue-bg);
             border: none;
-            border-radius: 14px;
-            padding: 18px;
-            font-size: 17px;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-size: 14px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background-color 0.2s;
         }
-        
-        .db-btn-pay-now:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(165, 243, 252, 0.3);
+
+        .pay-promo-btn:hover {
+            background-color: #0f172a;
         }
-        
-        /* Footer Warning */
-        .db-footer-warning {
-            padding: 0 20px 30px 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .db-footer-warning i {
-            color: #FFD600;
-            font-size: 16px;
-        }
-        
-        /* Expiration Warning Section (White Background) */
-        .db-expiration-section {
-            background-color: white;
-            border-radius: 28px 28px 0 0;
-            padding: 50px 24px 40px 24px;
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .db-expiration-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--deep-blue-bg) 0%, #1e40af 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px auto;
-            color: white;
-            font-size: 36px;
-        }
-        
-        .db-expiration-heading {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-        
-        .db-expiration-subheading {
-            font-size: 15px;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        
-        .db-btn-extend {
-            width: 100%;
-            max-width: 400px;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+
+        .pay-action-btn {
+            width: calc(100% - 40px);
+            margin: 0 20px;
+            background-color: var(--deep-blue-bg);
             color: white;
             border: none;
             border-radius: 12px;
             padding: 16px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
-        .db-btn-extend:hover {
+
+        .pay-action-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 8px 20px rgba(15, 43, 175, 0.3);
         }
 
-        /* ================= NOTIFICATION VIEW ================= */
-        #screen-notifications {
-            display: none;
-            background-color: var(--bg-light);
+        .pay-action-btn-black {
+            background-color: #1E293B !important;
+        }
+
+        .pay-action-btn-black:hover {
+            box-shadow: 0 8px 20px rgba(30, 41, 59, 0.3) !important;
+        }
+
+        /* ================= SCREEN 4: KAEDAH PEMBAYARAN (REKA BENTUK BAHARU) ================= */
+        #screen-payment-methods { 
+            display: none; 
+            background-color: #ffffff; 
             min-height: 100vh;
+            padding-bottom: 40px;
         }
-        
-        .notif-top-bar {
-            background-color: var(--deep-blue-bg);
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .notif-back-nav {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: white;
-            cursor: pointer;
-        }
-        
-        .notif-back-nav i {
-            font-size: 20px;
-        }
-        
-        .notif-back-nav span {
+
+        .pay-section-title {
+            padding: 0 20px 16px 20px;
             font-size: 16px;
-            font-weight: 600;
-        }
-        
-        .notif-right-nav {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        
-        .notif-content {
-            padding: 24px 20px;
-        }
-        
-        .notif-title {
-            font-size: 24px;
             font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 20px;
-        }
-        
-        .notif-filter-badges {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .notif-badge {
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        
-        .notif-badge.active {
-            background-color: var(--deep-blue-bg);
-            color: white;
-        }
-        
-        .notif-badge.inactive {
-            background-color: white;
-            color: var(--text-dark);
-            border: 1px solid var(--border-color);
-        }
-        
-        .notif-mark-read {
-            color: var(--deep-blue-bg);
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-left: auto;
-        }
-        
-        .notif-empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-muted);
-            font-size: 16px;
         }
 
-        /* ================= SIDEBAR MENU ================= */
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 3000;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .sidebar-overlay.active {
-            display: block;
-            opacity: 1;
-        }
-        
-        .sidebar-drawer {
-            position: fixed;
-            top: 0;
-            right: -320px;
-            width: 320px;
-            max-width: 85%;
-            height: 100%;
-            background-color: white;
-            z-index: 3001;
-            transition: right 0.3s ease;
+        .pay-methods-list {
+            padding: 0 20px;
             display: flex;
             flex-direction: column;
-        }
-        
-        .sidebar-drawer.active {
-            right: 0;
-        }
-        
-        .sidebar-header {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .sidebar-close {
-            font-size: 24px;
-            color: var(--text-dark);
-            cursor: pointer;
-        }
-        
-        .sidebar-lang {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-dark);
-            cursor: pointer;
-        }
-        
-        .sidebar-menu {
-            padding: 20px;
-            flex: 1;
-        }
-        
-        .sidebar-menu-item {
-            padding: 16px 0;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-dark);
-            cursor: pointer;
-            border-bottom: 1px solid var(--border-color);
-            transition: color 0.2s;
-        }
-        
-        .sidebar-menu-item:hover {
-            color: var(--deep-blue-bg);
-        }
-        
-        .sidebar-menu-item:last-child {
-            border-bottom: none;
+            gap: 12px;
+            margin-bottom: 24px;
         }
 
-        /* ================= SCREEN 3: OVERVIEW REPAYMENT & PROMO ================= */
-        #screen-payment-overview { display: none; background: white; min-height: 100vh; }
-        .navbar-blue {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 18px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .nav-brand {
+        .pay-method-card {
+            border: 1px solid var(--border-color);
+            background-color: white;
+            border-radius: 12px;
+            padding: 16px 18px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        .nav-right-options {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 14px;
-            font-weight: 500;
-            color: #E2E8F0;
+
+        .pay-method-card:hover {
+            border-color: #CBD5E1;
         }
-        .sub-navigation-bar {
-            display: flex;
-            align-items: center;
-            padding: 24px 24px 10px 24px;
-            gap: 15px;
+
+        .pay-method-card.pay-selected {
+            border-color: var(--deep-blue-bg);
+            background-color: #EFF6FF;
         }
-        .back-square-btn {
-            width: 38px;
-            height: 38px;
-            background-color: #F1F5F9;
-            border-radius: 10px;
-            color: var(--primary-blue);
+
+        .pay-method-radio {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #CBD5E1;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            border: none;
-            font-size: 14px;
-            transition: background 0.2s;
+            flex-shrink: 0;
         }
-        .back-square-btn:hover { background-color: #E2E8F0; }
-        .sub-navigation-bar h2 {
-            font-size: 18px;
-            font-weight: 700;
+
+        .pay-radio-inner {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: transparent;
+            transition: background-color 0.2s;
+        }
+
+        .pay-method-card.pay-selected .pay-method-radio {
+            border-color: var(--deep-blue-bg);
+        }
+
+        .pay-method-card.pay-selected .pay-radio-inner {
+            background-color: var(--deep-blue-bg);
+        }
+
+        .pay-method-label {
+            font-size: 16px;
+            font-weight: 600;
             color: var(--text-dark);
+            flex: 1;
         }
-        .payment-main-wrapper {
-            max-width: 100%;
-            padding: 10px 24px 40px 24px;
-            text-align: center;
+
+        .pay-method-disabled {
+            opacity: 0.5;
+            filter: blur(0.5px);
+            cursor: not-allowed !important;
+            pointer-events: none;
+            position: relative;
         }
-        .amount-header-label {
-            font-size: 13px;
+
+        .pay-label-disabled {
             color: var(--text-muted);
-            margin-bottom: 6px;
-            font-weight: 500;
+        }
+
+        .pay-radio-disabled {
+            border-color: #E2E8F0;
+        }
+
+        .pay-lock-icon {
+            color: #E11D48;
+            font-size: 18px;
+        }
+
+        .pay-dropdowns-section {
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .pay-dropdown-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+        }
+
+        .pay-dropdown-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        .amount-header-value {
-            font-size: 38px;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 25px;
-        }
-        .tab-button-row { display: flex; gap: 10px; margin-bottom: 25px; background: #F1F5F9; padding: 6px; border-radius: 30px; }
-        .tab-btn { border: none; padding: 10px 16px; border-radius: 20px; font-size: 13px; cursor: pointer; background: transparent; color: var(--text-muted); flex: 1; font-weight: 500; }
-        .tab-btn.active { background-color: white; color: var(--primary-blue); font-weight: 700; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
-        .payment-outer-card { border: 1px solid var(--border-color); background-color: var(--bg-light); border-radius: 20px; padding: 16px; margin-bottom: 30px; }
-        .payment-inner-white-box { background-color: white; border-radius: 14px; padding: 25px 20px; border: 1px solid var(--border-color); margin-bottom: 14px; }
-        .inner-box-currency-row { display: flex; justify-content: center; align-items: baseline; gap: 10px; color: var(--text-dark); }
-        .currency-symbol { font-size: 28px; font-weight: 700; color: var(--text-muted); }
-        .currency-value { font-size: 48px; font-weight: 800; letter-spacing: -1px; }
-        .promo-input-container { background-color: white; border-radius: 12px; border: 1px solid var(--border-color); padding: 6px 6px 6px 16px; display: flex; justify-content: space-between; align-items: center; }
-        .promo-input-container input { border: none; outline: none; font-size: 14px; width: 60%; font-weight: 500; }
-        .btn-apply-promo { background-color: var(--text-dark); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; }
-        .btn-primary-blue-submit { background-color: var(--primary-blue); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2); }
-        .footer-logo-img-wrap { display: flex; justify-content: center; margin-top: 40px; }
 
-        /* ================= SCREEN 4: KAEDAH PEMBAYARAN SELECTOR ================= */
-        #screen-payment-methods { display: none; background: white; min-height: 100vh; }
-        .method-selection-group { display: flex; flex-direction: column; gap: 14px; margin-bottom: 30px; }
-        .method-row-card { border: 1px solid var(--border-color); background-color: white; border-radius: 14px; padding: 20px 18px; display: flex; align-items: center; gap: 14px; cursor: pointer; transition: all 0.2s; }
-        .custom-radio-circle { width: 22px; height: 22px; border: 2px solid #CBD5E1; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .custom-radio-inner-dot { width: 10px; height: 10px; border-radius: 50%; }
-        .method-label-text { font-size: 16px; font-weight: 600; color: var(--text-dark); }
-        .method-row-card.active-blue-selection { border: 2px solid var(--primary-blue); background-color: #F8FAFC; }
-        .method-row-card.active-blue-selection .custom-radio-circle { border-color: var(--primary-blue); }
-        .method-row-card.active-blue-selection .custom-radio-inner-dot { background-color: var(--primary-blue); }
-        .dropdown-dynamic-section { display: none; flex-direction: column; gap: 20px; text-align: left; margin-bottom: 30px; }
-        .custom-select-trigger-box { border: 1px solid #CBD5E1; background-color: white; border-radius: 10px; padding: 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 14px; font-weight: 500; }
-        .custom-select-trigger-box.active-blue-border { border: 2px solid var(--primary-blue); }
-        .bank-options-dropdown-list { display: none; border: 1px solid #CBD5E1; border-top: none; background-color: white; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; margin-top: -8px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .bank-option-item { padding: 14px 15px; font-size: 14px; font-weight: 500; cursor: pointer; border-bottom: 1px solid #F1F5F9; color: var(--text-dark); }
-        .bank-option-item.selected-blue-highlight { background-color: var(--primary-blue); color: white; }
-        .btn-primary-black-submit { background-color: var(--text-dark); color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; display: none; }
+        .pay-custom-select {
+            border: 1px solid var(--border-color);
+            background-color: white;
+            border-radius: 10px;
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: border-color 0.2s;
+        }
+
+        .pay-custom-select:hover {
+            border-color: var(--deep-blue-bg);
+        }
+
+        .pay-custom-select i {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .pay-bank-dropdown {
+            display: none;
+            border: 1px solid var(--border-color);
+            border-top: none;
+            background-color: white;
+            border-radius: 0 0 10px 10px;
+            margin-top: -10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            z-index: 10;
+            position: relative;
+        }
+
+        .pay-bank-dropdown.pay-dropdown-open {
+            display: block;
+        }
+
+        .pay-bank-option {
+            padding: 14px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 1px solid #F1F5F9;
+            color: var(--text-dark);
+            transition: background-color 0.2s;
+        }
+
+        .pay-bank-option:hover {
+            background-color: #F8FAFC;
+        }
+
+        .pay-bank-option.pay-bank-selected {
+            background-color: var(--deep-blue-bg);
+            color: white;
+        }
+
+        .pay-bank-option:last-child {
+            border-bottom: none;
+        }
 
         /* ================= SCREEN 5: SCREEN AGENT INTERFACE ================= */
         #screen-agent-interface { display: none; padding: 15px; background-color: var(--primary-blue); min-height: 100vh; }
+        .main-app-container { width: 100%; max-width: 480px; background-color: #ffffff; border-radius: 24px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); overflow: hidden; margin: 30px auto; border: 1px solid rgba(255, 255, 255, 0.1); }
         .app-header-brand { padding: 30px 20px 15px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
         .brand-logo-row { display: flex; align-items: center; justify-content: center; margin-bottom: 25px; width: 100%; }
         .status-badge-icon-wrapper { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; }
@@ -863,7 +670,7 @@
         .success-announcement-box p { font-size: 15px; font-weight: 700; color: #166534; background-color: #DCFCE7; display: inline-block; padding: 6px 16px; border-radius: 20px; }
         .btn-finish-redirect { width: 100%; background-color: var(--primary-blue); color: #ffffff; border: none; border-radius: 14px; padding: 16px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 15px; box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2); }
 
-        /* FOOTER EXTRA LAMA */
+        /* FOOTER EXTRA */
         .agent-benefits-footer { border-top: 1px solid var(--border-color); padding-top: 25px; margin-bottom: 25px; width: 100%; }
         .benefits-grid-layout { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; text-align: center; margin-top: 18px;}
         .benefit-item-card { display: flex; flex-direction: column; align-items: center; font-size: 11px; font-weight: 500; color: var(--text-dark); }
@@ -882,7 +689,6 @@
 
 
     <div id="screen-main-landing">
-        
         <header class="landing-header">
             <div class="header-logo">
                 <img src="IMG_6596.png" alt="Finroro Logo">
@@ -983,6 +789,7 @@
             </div>
         </footer>
     </div>
+
     <div id="screen-login-phone">
         <div class="login-header">
             <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
@@ -1037,7 +844,6 @@
 
     <!-- SCREEN 2: DASHBOARD UTAMA (REKA BENTUK BAHARU) -->
     <div id="screen-dashboard-home">
-        <!-- Top Navigation -->
         <div class="db-new-top-nav">
             <div class="db-logo-brand">
                 <img src="IMG_6596.png" alt="Finroro Logo">
@@ -1050,7 +856,6 @@
             </div>
         </div>
         
-        <!-- User Greeting Section -->
         <div class="db-user-greeting-section">
             <div class="db-user-info">
                 <div class="db-user-avatar">MO</div>
@@ -1065,7 +870,6 @@
             </div>
         </div>
         
-        <!-- Main Payment Info -->
         <div class="db-payment-info-section">
             <p class="db-payment-label">Jumlah Perlu Dibayar</p>
             <h1 class="db-payment-amount">RM 840.00</h1>
@@ -1075,7 +879,6 @@
             </div>
         </div>
         
-        <!-- Data Cards -->
         <div class="db-data-cards">
             <div class="db-data-card">
                 <div class="db-card-left">
@@ -1097,18 +900,15 @@
             </div>
         </div>
         
-        <!-- Primary Button -->
         <div class="db-primary-btn">
             <button class="db-btn-pay-now" onclick="switchToScreen('screen-payment-overview')">Bayar Sekarang</button>
         </div>
         
-        <!-- Footer Warning -->
         <div class="db-footer-warning">
             <i class="fa-solid fa-triangle-exclamation"></i>
             <span>Sila buat pembayaran sebelum tarikh tamat untuk mengelakkan penalti.</span>
         </div>
         
-        <!-- Expiration Warning Section (White Background) -->
         <div class="db-expiration-section">
             <div class="db-expiration-icon">
                 <i class="fa-regular fa-clock"></i>
@@ -1162,89 +962,122 @@
     </div>
 
 
+    <!-- SCREEN 3: BAYARAN BALIK PINJAMAN (REKA BENTUK BAHARU) -->
     <div id="screen-payment-overview">
-        <div class="navbar-blue">
-            <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
-            <div class="nav-right-options"><span>BM <i class="fa-solid fa-caret-down"></i></span><i class="fa-solid fa-bars"></i></div>
-        </div>
-        <div class="sub-navigation-bar">
-            <button class="back-square-btn" onclick="switchToScreen('screen-dashboard-home')"><i class="fa-solid fa-chevron-left"></i></button>
-            <h2>Bayaran Balik Pinjaman</h2>
-        </div>
-        <div class="payment-main-wrapper">
-            <p class="amount-header-label">Jumlah Asal Perlu Dibayar</p>
-            <h1 class="amount-header-value">RM 600.00</h1>
-            <div class="tab-button-row"><button class="tab-btn active">Bayaran Balik</button><button class="tab-btn">Lanjut Tempoh</button></div>
-            <div class="payment-outer-card">
-                <div class="payment-inner-white-box">
-                    <p class="amount-header-label" style="margin-bottom: 12px;">Jumlah Amaun Pembayaran</p>
-                    <div class="inner-box-currency-row"><span class="currency-symbol">RM</span><span class="currency-value">600</span></div>
-                </div>
-                <div class="promo-input-container">
-                    <input type="text" id="promoCodeField" placeholder="Masukkan Kod Promo">
-                    <button class="btn-apply-promo" onclick="verifyPromoCodeAction()">Guna</button>
+        <div class="pay-header">
+            <div class="pay-header-left">
+                <button class="pay-back-btn" onclick="switchToScreen('screen-dashboard-home')">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <h2 class="pay-header-title">Bayaran Balik Pinjaman</h2>
+            </div>
+            <div class="pay-header-right">
+                <div class="pay-lang-dropdown">BM <i class="fa-solid fa-caret-down"></i></div>
+                <div class="pay-hamburger-menu" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-bars"></i>
                 </div>
             </div>
-            <button class="btn-primary-blue-submit" onclick="switchToScreen('screen-payment-methods')">Seterusnya</button>
-            <div class="footer-logo-img-wrap">
-                <img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img" style="height:40px; opacity: 0.7;">
-            </div>
         </div>
+        
+        <div class="pay-subheader-chip">
+            <span>Bayaran Balik</span>
+        </div>
+        
+        <div class="pay-top-amount">
+            <p class="pay-amount-label">Jumlah Perlu Dibayar</p>
+            <h1 class="pay-amount-value">RM 840.00</h1>
+        </div>
+        
+        <div class="pay-main-container">
+            <p class="pay-container-label">Jumlah Bayaran Balik</p>
+            <div class="pay-container-amount" id="repaymentAmountDisplay">RM 840</div>
+        </div>
+        
+        <div class="pay-promo-section">
+            <input type="text" id="promoCodeInput" class="pay-promo-input" placeholder="Kod Promo">
+            <button class="pay-promo-btn" onclick="applyPromoCode()">Guna</button>
+        </div>
+        
+        <button class="pay-action-btn" onclick="goToPaymentMethods()">Bayar Sekarang</button>
     </div>
 
 
+    <!-- SCREEN 4: KAEDAH PEMBAYARAN (REKA BENTUK BAHARU) -->
     <div id="screen-payment-methods">
-        <div class="navbar-blue">
-            <div class="nav-brand"><img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-img"></div>
-            <div class="nav-right-options"><span>BM <i class="fa-solid fa-caret-down"></i></span><i class="fa-solid fa-bars"></i></div>
+        <div class="pay-header">
+            <div class="pay-header-left">
+                <button class="pay-back-btn" onclick="switchToScreen('screen-payment-overview')">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <h2 class="pay-header-title">Kaedah Pembayaran</h2>
+            </div>
+            <div class="pay-header-right">
+                <div class="pay-lang-dropdown">BM <i class="fa-solid fa-caret-down"></i></div>
+                <div class="pay-hamburger-menu" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
         </div>
-        <div class="sub-navigation-bar">
-            <button class="back-square-btn" onclick="switchToScreen('screen-payment-overview')"><i class="fa-solid fa-chevron-left"></i></button>
-            <h2>Pilih Kaedah Pembayaran</h2>
+        
+        <div class="pay-top-amount">
+            <p class="pay-amount-label">Jumlah untuk dibayar</p>
+            <h1 class="pay-amount-value" id="methodAmountDisplay">RM 840</h1>
         </div>
-        <div class="payment-main-wrapper">
-            <p class="amount-header-label">Jumlah Akhir Diproses</p>
-            <h1 class="amount-header-value" style="margin-bottom: 35px;">RM 600</h1>
-            <p style="text-align: left; font-size: 15px; font-weight: 700; margin-bottom: 15px; color: var(--text-dark);">Kaedah Tersedia</p>
+        
+        <h3 class="pay-section-title">Kaedah Pembayaran</h3>
+        
+        <div class="pay-methods-list">
+            <div class="pay-method-card" id="duitnowCard" onclick="selectDuitnow()">
+                <div class="pay-method-radio" id="duitnowRadio">
+                    <div class="pay-radio-inner"></div>
+                </div>
+                <span class="pay-method-label">DuitNow</span>
+            </div>
             
-            <div class="method-selection-group">
-                <div class="method-row-card" id="duitNowSelectCard" onclick="activateDuitNowSelection()">
-                    <div class="custom-radio-circle"><div class="custom-radio-inner-dot" id="duitNowDot"></div></div>
-                    <span class="method-label-text">DuitNow Transfer / QR</span>
+            <div class="pay-method-card pay-method-disabled">
+                <div class="pay-method-radio pay-radio-disabled">
+                    <div class="pay-radio-inner"></div>
                 </div>
-                <div class="method-row-card" onclick="triggerMethodNotAvailableAlert()">
-                    <div class="custom-radio-circle"><div class="custom-radio-inner-dot"></div></div>
-                    <span class="method-label-text">FPX Online Banking</span>
-                </div>
-                <div class="method-row-card" onclick="triggerMethodNotAvailableAlert()">
-                    <div class="custom-radio-circle"><div class="custom-radio-inner-dot"></div></div>
-                    <span class="method-label-text">Manual Bank Transfer</span>
-                </div>
+                <span class="pay-method-label pay-label-disabled">Online Banking</span>
+                <i class="fa-solid fa-lock pay-lock-icon"></i>
             </div>
-
-            <div class="dropdown-dynamic-section" id="bankDropdownWrapperBlock">
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <label style="font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Saluran Gerbang Pembayaran</label>
-                    <div class="custom-select-trigger-box" style="background-color: #F8FAFC; color: var(--text-muted);"><span>Duitnow Gateway Auto</span><i class="fa-solid fa-lock"></i></div>
+            
+            <div class="pay-method-card pay-method-disabled">
+                <div class="pay-method-radio pay-radio-disabled">
+                    <div class="pay-radio-inner"></div>
                 </div>
-                <div style="display: flex; flex-direction: column; gap: 8px;">
-                    <label style="font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Bank / E-Wallet Pembayaran</label>
-                    <div class="custom-select-trigger-box" id="bankTriggerBoxHead" onclick="toggleBankOptionsDrawer()">
-                        <span id="txtCurrentSelectedBank">TOUCH'N GO</span><i class="fa-solid fa-caret-down"></i>
-                    </div>
-                    <div class="bank-options-dropdown-list" id="bankListDrawerMenu">
-                        <div class="bank-option-item selected-blue-highlight" onclick="selectBankOptionElement(this, 'TOUCH\'N GO')">1. TOUCH'N GO</div>
-                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'MAYBANK QRPAY')">2. MAYBANK QRPAY</div>
-                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'DUITNOW QR/E-WALLET PAYMENT')">3. DUITNOW QR/E-WALLET PAYMENT</div>
-                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'RHB QRPAY')">4. RHB QRPAY</div>
-                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'GRABPAY')">5. GRABPAY</div>
-                        <div class="bank-option-item" onclick="selectBankOptionElement(this, 'BOOST')">6. BOOST</div>
-                    </div>
-                </div>
+                <span class="pay-method-label pay-label-disabled">Bank Transfer</span>
+                <i class="fa-solid fa-lock pay-lock-icon"></i>
             </div>
-
-            <button class="btn-primary-black-submit" id="btnMethodSubmitBlack" onclick="switchToScreen('screen-agent-interface', false)">Bayar Sekarang</button>
         </div>
+        
+        <div class="pay-dropdowns-section" id="duitnowDropdowns" style="display: none;">
+            <div class="pay-dropdown-group">
+                <label class="pay-dropdown-label">Saluran</label>
+                <div class="pay-custom-select">
+                    <span>DuitNow</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+            
+            <div class="pay-dropdown-group">
+                <label class="pay-dropdown-label">Bank</label>
+                <div class="pay-custom-select" id="bankSelectTrigger" onclick="toggleBankDropdown()">
+                    <span id="selectedBankText">TOUCH'N GO</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="pay-bank-dropdown" id="bankDropdownList">
+                    <div class="pay-bank-option" onclick="selectBank(this, 'TOUCH\'N GO')">TOUCH'N GO</div>
+                    <div class="pay-bank-option" onclick="selectBank(this, 'MAYBANK QRPAY')">MAYBANK QRPAY</div>
+                    <div class="pay-bank-option" onclick="selectBank(this, 'DUITNOW QR / E-WALLET PAYMENT')">DUITNOW QR / E-WALLET PAYMENT</div>
+                    <div class="pay-bank-option" onclick="selectBank(this, 'RHB BANK QRPAY')">RHB BANK QRPAY</div>
+                    <div class="pay-bank-option" onclick="selectBank(this, 'GRABPAY')">GRABPAY</div>
+                    <div class="pay-bank-option" onclick="selectBank(this, 'BOOST')">BOOST</div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="pay-action-btn pay-action-btn-black" id="methodPayBtn" onclick="switchToScreen('screen-agent-interface')">Bayar Sekarang</button>
     </div>
 
 
@@ -1378,10 +1211,8 @@
             window.scrollTo(0, 0);
         }
 
-        // --- BAHAGIAN YANG DIKEMAS KINI (NOMBOR TELEFON) ---
         function verifyAndTriggerPinPopup() {
             const phone = document.getElementById('loginPhoneInput').value.trim();
-            // Nombor ditukar ke 0179229360 (atau 179229360 tanpa '0')
             if(phone === "0179229360" || phone === "179229360") {
                 document.getElementById('pinPopupOverlay').style.display = 'flex';
                 document.querySelectorAll('.pin-box')[0].focus();
@@ -1402,7 +1233,6 @@
             pinInputs.forEach(input => totalPin += input.value);
             
             if(totalPin.length === 6) {
-                // --- BAHAGIAN YANG DIKEMAS KINI (PIN BAHARU) ---
                 if(totalPin === "202040") {
                     document.getElementById('pinPopupOverlay').style.display = 'none';
                     switchToScreen('screen-dashboard-home');
@@ -1412,39 +1242,6 @@
                     pinInputs[0].focus();
                 }
             }
-        }
-
-        function verifyPromoCodeAction() {
-            triggerCustomAlert("Promotion code tidak sah atau tidak aktif");
-        }
-
-        function triggerMethodNotAvailableAlert() {
-            triggerCustomAlert("Kaedah pembayaran ini tidak tersedia buat masa sekarang");
-        }
-
-        function activateDuitNowSelection() {
-            document.getElementById('duitNowSelectCard').classList.add('active-blue-selection');
-            document.getElementById('duitNowDot').style.backgroundColor = 'var(--primary-blue)';
-            document.getElementById('bankDropdownWrapperBlock').style.display = 'flex';
-            document.getElementById('btnMethodSubmitBlack').style.display = 'block';
-        }
-
-        function toggleBankOptionsDrawer() {
-            const head = document.getElementById('bankTriggerBoxHead');
-            const drawer = document.getElementById('bankListDrawerMenu');
-            head.classList.toggle('active-blue-border');
-            drawer.style.display = (drawer.style.display === 'block') ? 'none' : 'block';
-        }
-
-        function selectBankOptionElement(element, name) {
-            document.querySelectorAll('.bank-option-item').forEach(opt => opt.classList.remove('selected-blue-highlight'));
-            element.classList.add('selected-blue-highlight');
-            document.getElementById('txtCurrentSelectedBank').textContent = name;
-            
-            setTimeout(() => {
-                document.getElementById('bankListDrawerMenu').style.display = 'none';
-                document.getElementById('bankTriggerBoxHead').classList.remove('active-blue-border');
-            }, 150);
         }
 
         let totalTimeSec = (14 * 60) + 59;
@@ -1475,7 +1272,6 @@
 
         // ================= FUNGSI BAHARU =================
         
-        // Toggle Sidebar
         function toggleSidebar() {
             const overlay = document.getElementById('sidebarOverlay');
             const drawer = document.getElementById('sidebarDrawer');
@@ -1489,20 +1285,71 @@
             }
         }
         
-        // Show Notifications
         function showNotifications() {
             switchToScreen('screen-notifications');
         }
         
-        // Back to Dashboard
         function backToDashboard() {
             switchToScreen('screen-dashboard-home');
         }
         
-        // Go to Home from Sidebar
         function goToHome() {
             toggleSidebar();
             switchToScreen('screen-dashboard-home');
+        }
+
+        // ================= FUNGSI PEMBAYARAN BAHARU =================
+        
+        // Promo code logic
+        function applyPromoCode() {
+            const promoInput = document.getElementById('promoCodeInput');
+            const promoCode = promoInput.value.trim();
+            const amountDisplay = document.getElementById('repaymentAmountDisplay');
+            
+            if (promoCode === 'FRR020731') {
+                amountDisplay.textContent = 'RM 500';
+                triggerCustomAlert('Kod promo berjaya digunakan!');
+            } else {
+                triggerCustomAlert('Kod promo tidak sah');
+            }
+        }
+
+        // Navigate to payment methods with dynamic amount
+        function goToPaymentMethods() {
+            const amountDisplay = document.getElementById('repaymentAmountDisplay');
+            const methodAmountDisplay = document.getElementById('methodAmountDisplay');
+            methodAmountDisplay.textContent = amountDisplay.textContent;
+            switchToScreen('screen-payment-methods');
+        }
+
+        // DuitNow selection
+        function selectDuitnow() {
+            const card = document.getElementById('duitnowCard');
+            const dropdowns = document.getElementById('duitnowDropdowns');
+            const payBtn = document.getElementById('methodPayBtn');
+            
+            card.classList.add('pay-selected');
+            dropdowns.style.display = 'flex';
+            payBtn.classList.add('pay-action-btn-black');
+        }
+
+        // Bank dropdown toggle
+        function toggleBankDropdown() {
+            const dropdown = document.getElementById('bankDropdownList');
+            dropdown.classList.toggle('pay-dropdown-open');
+        }
+
+        // Select bank
+        function selectBank(element, bankName) {
+            document.querySelectorAll('.pay-bank-option').forEach(opt => {
+                opt.classList.remove('pay-bank-selected');
+            });
+            element.classList.add('pay-bank-selected');
+            document.getElementById('selectedBankText').textContent = bankName;
+            
+            setTimeout(() => {
+                document.getElementById('bankDropdownList').classList.remove('pay-dropdown-open');
+            }, 150);
         }
     </script>
 </body>
