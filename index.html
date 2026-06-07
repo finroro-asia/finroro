@@ -46,10 +46,10 @@
             object-fit: contain;
         }
         .app-logo-large {
-            height: 65px;
+            height: 45px;
             width: auto;
             object-fit: contain;
-            margin-bottom: 25px;
+            margin-bottom: 0;
         }
 
         /* --- NOTIFIKASI POPUP ATAS GLOBAL --- */
@@ -121,8 +121,8 @@
         
         .slider-wrapper { position: relative; margin-bottom: 10px; }
         input[type=range] { -webkit-appearance: none; width: 100%; height: 8px; border-radius: 4px; background: #d3d3d3; outline: none; margin-bottom: 10px; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 35px; height: 35px; border-radius: 50%; background: var(--white); border: 2px solid var(--primary-blue); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); background-image: url('IMG_6596.png'); background-size: 18px; background-position: center; background-repeat: no-repeat; }
-        input[type=range]::-moz-range-thumb { width: 35px; height: 35px; border-radius: 50%; background: var(--white); border: 2px solid var(--primary-blue); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); background-image: url('IMG_6596.png'); background-size: 18px; background-position: center; background-repeat: no-repeat; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 35px; height: 35px; border-radius: 50%; background: var(--white); border: 2px solid var(--primary-blue); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); background-image: url('IMG_6512.png'); background-size: 18px; background-position: center; background-repeat: no-repeat; }
+        input[type=range]::-moz-range-thumb { width: 35px; height: 35px; border-radius: 50%; background: var(--white); border: 2px solid var(--primary-blue); cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); background-image: url('IMG_6512.png'); background-size: 18px; background-position: center; background-repeat: no-repeat; }
         .slider-labels { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 30px; }
 
         .phone-input-group { display: flex; align-items: center; border: 1px solid var(--border-color); border-radius: 8px; padding: 12px 15px; margin-bottom: 30px; background-color: var(--white); position: relative; text-align: left;}
@@ -156,14 +156,15 @@
 
 
         /* ================= SCREEN 1: LOG MASUK PHONE & PIN OVERLAY ================= */
-        #screen-login-phone { display: none; background: var(--primary-blue); min-height: 100vh; color: white; padding: 24px; }
-        .login-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        #screen-login-phone { display: none; background: var(--primary-blue); min-height: 100vh; color: white; padding: 0; }
+        .login-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; background-color: #0a1760; position: sticky; top: 0; z-index: 100; }
         .big-center-logo { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; padding: 10px; }
-        .welcome-title { font-size: 36px; font-weight: 700; margin-bottom: 35px; text-align: center; letter-spacing: -0.5px; }
+        .welcome-title { font-size: 22px; font-weight: 400; margin-bottom: 45px; text-align: center; letter-spacing: 0; color: rgba(255,255,255,0.85); white-space: nowrap; }
         
-        .input-phone-container { max-width: 400px; margin: 0 auto 20px auto; text-align: left; }
-        .input-phone-container label { font-size: 14px; color: #E2E8F0; display: block; margin-bottom: 8px; font-weight: 500; }
-        .input-phone-box { background: #ffffff; border-radius: 12px; padding: 10px 16px; display: flex; align-items: center; }
+        .input-phone-container { max-width: 400px; margin: 0 auto 25px auto; text-align: left; }
+        .input-phone-container label { display: none; }
+        .input-phone-box { background: #ffffff; border-radius: 12px; padding: 12px 16px; display: flex; flex-direction: column; align-items: flex-start; }
+        .input-phone-label { font-size: 12px; color: #94A3B8; margin-bottom: 6px; font-weight: 500; }
         .input-row { display: flex; align-items: center; gap: 8px; width: 100%; }
         .input-row img { width: 24px; height: auto; border-radius: 2px; }
         .input-row .prefix { color: #1E293B; font-weight: 600; font-size: 16px; }
@@ -172,7 +173,7 @@
         
         .terms-text { font-size: 13px; color: #E2E8F0; margin-bottom: 35px; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.5; }
         
-        .btn-blue-login { background: var(--cyan-btn); color: #0D47A1; border: none; width: 100%; max-width: 400px; padding: 16px; border-radius: 12px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
+        .btn-blue-login { background: var(--cyan-btn); color: #0D47A1; border: none; width: 100%; max-width: 400px; padding: 16px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
         
         .pin-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 71, 161, 0.85); backdrop-filter: blur(6px); z-index: 2000; display: none; align-items: flex-end; }
         .pin-sheet { background: white; width: 100%; max-width: 480px; margin: 0 auto; border-top-left-radius: 28px; border-top-right-radius: 28px; padding: 40px 24px; text-align: center; color: var(--text-dark); position: relative; box-shadow: 0 -10px 30px rgba(0,0,0,0.3); }
@@ -190,48 +191,47 @@
         /* ================= SCREEN 2: DASHBOARD UTAMA (REKA BENTUK BAHARU) ================= */
         #screen-dashboard-home { display: none; background-color: var(--deep-blue-bg); min-height: 100vh; position: relative; overflow-x: hidden; }
         
-        .db-new-top-nav { background-color: var(--deep-blue-bg); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .db-new-top-nav { background-color: #0a1760; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
         .db-logo-brand { display: flex; align-items: center; gap: 8px; }
-        .db-logo-brand img { height: 32px; width: auto; }
+        .db-logo-brand img { height: 28px; width: auto; }
         .db-nav-right { display: flex; align-items: center; gap: 16px; }
-        .db-lang-dropdown { color: white; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 4px; }
-        .db-hamburger-menu { color: white; font-size: 24px; cursor: pointer; }
+        .db-lang-dropdown { color: white; font-size: 13px; font-weight: 400; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+        .db-hamburger-menu { color: white; font-size: 20px; cursor: pointer; }
         
-        .db-user-greeting-section { padding: 20px 20px 30px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .db-user-greeting-section { padding: 20px 20px 24px 20px; display: flex; justify-content: space-between; align-items: center; }
         .db-user-info { display: flex; align-items: center; gap: 14px; }
-        .db-user-avatar { width: 52px; height: 52px; background-color: rgba(255, 255, 255, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: white; }
-        .db-user-text h4 { font-size: 20px; font-weight: 700; color: white; margin-bottom: 4px; }
-        .db-user-text p { font-size: 13px; color: rgba(255, 255, 255, 0.7); }
+        .db-user-avatar { width: 52px; height: 52px; background-color: rgba(160, 168, 195, 0.35); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: white; }
+        .db-user-text h4 { font-size: 20px; font-weight: 400; color: white; margin-bottom: 4px; }
+        .db-user-text p { font-size: 13px; color: rgba(140, 150, 175, 0.95); }
         
         .db-notification-bell { position: relative; width: 42px; height: 42px; background-color: rgba(255, 255, 255, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; cursor: pointer; }
         .db-notification-badge { position: absolute; top: 8px; right: 8px; width: 8px; height: 8px; background-color: var(--light-cyan); border-radius: 50%; }
         
-        .db-payment-info-section { text-align: center; padding: 0 20px 30px 20px; }
+        .db-payment-info-section { text-align: center; padding: 0 20px 24px 20px; }
         .db-payment-label { font-size: 14px; color: rgba(255, 255, 255, 0.8); margin-bottom: 12px; }
-        .db-payment-amount { font-size: 48px; font-weight: 800; color: white; margin-bottom: 16px; letter-spacing: -1px; }
-        .db-due-date-badge { display: inline-flex; align-items: center; gap: 8px; background-color: var(--light-cyan); color: var(--deep-blue-bg); padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 600; }
-        .db-due-date-badge i { font-size: 14px; }
+        .db-payment-amount { font-size: 36px; font-weight: 800; color: rgba(255,255,255,0.82); margin-bottom: 14px; letter-spacing: -0.5px; }
+        .db-due-date-badge { display: inline-flex; align-items: center; gap: 6px; background-color: var(--light-cyan); color: var(--deep-blue-bg); padding: 5px 12px; border-radius: 8px; font-size: 12px; font-weight: 500; }
+        .db-due-date-badge i { font-size: 12px; }
         
-        .db-data-cards { padding: 0 20px 30px 20px; display: flex; flex-direction: column; gap: 14px; }
-        .db-data-card { background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 20px; display: flex; align-items: center; justify-content: space-between; }
+        .db-data-cards { padding: 0 20px 20px 20px; display: flex; flex-direction: column; gap: 10px; }
+        .db-data-card { background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; }
         .db-card-left { display: flex; align-items: center; gap: 14px; }
         .db-card-icon { width: 44px; height: 44px; background-color: rgba(255, 255, 255, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; }
         .db-card-label { font-size: 15px; color: rgba(255, 255, 255, 0.85); font-weight: 500; }
-        .db-card-value { font-size: 24px; font-weight: 700; color: white; }
+        .db-card-value { font-size: 20px; font-weight: 700; color: rgba(255,255,255,0.82); }
         
-        .db-primary-btn { padding: 0 20px 25px 20px; }
-        .db-btn-pay-now { width: 100%; background-color: var(--light-cyan); color: var(--deep-blue-bg); border: none; border-radius: 14px; padding: 18px; font-size: 17px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+        .db-primary-btn { padding: 0 20px 20px 20px; }
+        .db-btn-pay-now { width: 100%; background-color: var(--light-cyan); color: var(--deep-blue-bg); border: none; border-radius: 10px; padding: 14px; font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.3s ease; }
         .db-btn-pay-now:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(165, 243, 252, 0.3); }
         
-        .db-footer-warning { padding: 0 20px 30px 20px; display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(255, 255, 255, 0.8); }
-        .db-footer-warning i { color: #FFD600; font-size: 16px; }
+        .db-footer-warning { padding: 0 20px 24px 20px; display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: rgba(255, 255, 255, 0.8); white-space: nowrap; overflow: hidden; }
+        .db-footer-warning i { color: rgba(255,255,255,0.75); font-size: 14px; flex-shrink: 0; }
         
-        .db-expiration-section { background-color: white; border-radius: 28px 28px 0 0; padding: 50px 24px 40px 24px; text-align: center; margin-top: 20px; }
-        .db-expiration-icon { width: 80px; height: 80px; background: linear-gradient(135deg, var(--deep-blue-bg) 0%, #1e40af 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px auto; color: white; font-size: 36px; }
-        .db-expiration-heading { font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; line-height: 1.4; }
-        .db-expiration-subheading { font-size: 15px; color: var(--text-muted); margin-bottom: 30px; line-height: 1.6; }
-        .db-btn-extend { width: 100%; max-width: 400px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; border: none; border-radius: 12px; padding: 16px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
-        .db-btn-extend:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3); }
+        .db-expiration-section { background-color: white; border-radius: 28px 28px 0 0; padding: 40px 24px 40px 24px; text-align: center; margin-top: 10px; }
+        .db-expiration-icon { width: 68px; height: 68px; background: linear-gradient(145deg, #5a7ae8 0%, #2d4bc8 100%); border-radius: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 22px auto; color: white; font-size: 30px; box-shadow: 0 6px 16px rgba(45, 75, 200, 0.3); }
+        .db-expiration-heading { font-size: 19px; font-weight: 400; color: var(--text-dark); margin-bottom: 10px; line-height: 1.4; }
+        .db-expiration-subheading { font-size: 13px; color: var(--text-muted); margin-bottom: 28px; line-height: 1.6; }
+        .db-btn-extend { width: 88%; max-width: 330px; background: #7986CB; color: white; border: none; border-radius: 10px; padding: 16px; font-size: 16px; font-weight: 500; cursor: not-allowed; opacity: 0.85; }
 
         /* ================= NOTIFICATION VIEW ================= */
         #screen-notifications { display: none; background-color: var(--bg-light); min-height: 100vh; }
@@ -691,7 +691,7 @@
     <div id="screen-main-landing">
         <header class="landing-header">
             <div class="header-logo">
-                <img src="IMG_6596.png" alt="Finroro Logo">
+                <img src="IMG_6512.png" alt="Finroro Logo">
             </div>
             <button class="btn-header-apply" onclick="switchToScreen('screen-login-phone')">Mohon Pinjaman</button>
             <div class="hamburger">
@@ -738,7 +738,7 @@
 
         <footer class="landing-footer">
             <div class="footer-logo-row">
-                <img src="IMG_6596.png" alt="Finroro Logo Icon">
+                <img src="IMG_6512.png" alt="Finroro Logo Icon">
                 <h2>Finroro</h2>
             </div>
 
@@ -796,24 +796,24 @@
             <div style="font-size: 14px; font-weight: 600; color: #E2E8F0;">BM <i class="fa-solid fa-caret-down"></i></div>
         </div>
         
-        <div style="max-width: 400px; margin: 40px auto 0 auto; text-align: center;">
+        <div style="max-width: 400px; margin: 70px auto 0 auto; text-align: center; padding: 0 24px;">
             <div class="big-center-logo">
                 <img src="IMG_6512.png" alt="Finroro Logo" class="app-logo-large">
             </div>
             <div class="welcome-title">Selamat Datang Kembali</div>
             
             <div class="input-phone-container">
-                <label for="loginPhoneInput">Nombor Telefon</label>
                 <div class="input-phone-box">
+                    <div class="input-phone-label">Nombor Telefon</div>
                     <div class="input-row">
                         <img src="https://flagcdn.com/w40/my.png" alt="MY">
                         <span class="prefix">+60</span>
-                        <input type="tel" id="loginPhoneInput" placeholder="Masukkan Nombor Telefon" inputmode="numeric" pattern="[0-9]*">
+                        <input type="tel" id="loginPhoneInput" placeholder="Memasukkan Nombor Telefon" inputmode="numeric" pattern="[0-9]*">
                     </div>
                 </div>
             </div>
             
-            <div class="terms-text">Dengan mendaftar, anda bersetuju dengan Finroro <strong>Terma & Syarat</strong>.</div>
+            <div class="terms-text">Dengan mendaftar, anda bersetuju dengan Finroro <strong style="color: #ffffff;">Terma & Syarat</strong>.</div>
             <button class="btn-blue-login" onclick="verifyAndTriggerPinPopup()">Log Masuk</button>
         </div>
     </div>
@@ -846,7 +846,7 @@
     <div id="screen-dashboard-home">
         <div class="db-new-top-nav">
             <div class="db-logo-brand">
-                <img src="IMG_6596.png" alt="Finroro Logo">
+                <img src="IMG_6512.png" alt="Finroro Logo">
             </div>
             <div class="db-nav-right">
                 <div class="db-lang-dropdown">BM <i class="fa-solid fa-caret-down"></i></div>
@@ -905,7 +905,7 @@
         </div>
         
         <div class="db-footer-warning">
-            <i class="fa-solid fa-triangle-exclamation"></i>
+            <i class="fa-regular fa-triangle-exclamation"></i>
             <span>Sila buat pembayaran sebelum tarikh tamat untuk mengelakkan penalti.</span>
         </div>
         
@@ -915,7 +915,7 @@
             </div>
             <h2 class="db-expiration-heading">Pembayaran Akan Tamat Tempoh Tidak Lama Lagi</h2>
             <p class="db-expiration-subheading">Perlu lebih masa untuk membuat pembayaran?</p>
-            <button class="db-btn-extend" onclick="triggerAgentNoticePopup()">Lanjutkan Tarikh Tamat</button>
+            <button class="db-btn-extend" disabled>Lanjutkan Tarikh Tamat</button>
         </div>
     </div>
 
